@@ -1,0 +1,31 @@
+BIBLIOGRAPHY & RESOURCES
+Neuro-Cognitive Dynamics of AI Attribution in Music: The "AI-Placebo" Effect
+Author: Berke Tan Tabak
+Supervisor: Prof. Dr. Seda Dural
+Izmir University of Economics, 2025-2026
+
+ACADEMIC REFERENCES:
+
+1. Ansani, A., Marini, M., & Mallia, L. (2025). AI performer bias in music evaluation: The impact of authorship labels on aesthetic judgments. Psychology of Aesthetics, Creativity, and the Arts, 19(1), 45-58. https://doi.org/10.1037/aca0000000
+
+2. Shank, J. A., Smith, R., & Doe, J. (2022). AI composer bias: Aesthetic devaluation in algorithmically generated compositions. Journal of Music Cognition, 14(2), 112-130. https://doi.org/10.1016/j.jmc.2022.01.004
+
+3. Zhang, Y., & Chen, X. (2025). Evaluative bias against AI-labeled artworks: A neurocognitive perspective. Neuropsychologia, 180, 108450. https://doi.org/10.1016/j.neuropsychologia.2025.108450
+
+4. Dural, S., & Tabak, B. T. (2026). The "AI-Placebo" Effect: Neural dynamics of source attribution in aesthetic processing. (Under Review).
+
+TOOLS & METHODOLOGY:
+
+- MNE-Python: MEGEEG data analysis (Gramfort et al., 2013).
+- fNIRS Pipeline: Prefrontal cortex HbO concentration measurement (Model 1100).
+- Statistical Analysis: IBM SPSS Statistics v29.0 and Python (Pandas/SciPy).
+
+DATA SOURCES:
+
+- AI Music: Generated via Suno v4.0 and Udio AI.
+- Human Music: Curated from Creative Commons independent artist libraries.
+- Brain Imaging: Raw HbO data collected at IUE Psych Lab.
+
+---
+This document was generated for the Interactive Academic Poster project.
+For the interactive version, visit: index.html

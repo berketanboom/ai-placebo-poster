@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro-Cognitive Dynamics of AI Attribution in Music</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- ROLE SELECTION OVERLAY -->
+    <div class="role-overlay active" id="roleOverlay">
+        <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">ENG</button>
+            <button class="lang-btn" id="lang-tr" onclick="setLanguage('tr')">TR</button>
+        </div>
+        <div class="role-container">
+            <div class="portal-badge">
+                <span class="dot"></span> <span data-i18n="portal-badge">RESEARCH PORTAL &bull; IUE PSYCHOLOGY 2026</span>
+            </div>
+            
+            <h1 class="landing-title" data-i18n="landing-title">The <span class="accent">"AI-Placebo"</span><br>Effect in Music</h1>
+            
+            <p class="landing-sub" data-i18n="landing-sub">Does knowing a song is AI-generated change how you feel about it?<br>
+            Explore the neuroscience behind music perception and label bias.</p>
+
+            <div class="who-are-you" data-i18n="who-are-you">WHO ARE YOU?</div>
+
+            <div class="role-cards">
+                <div class="role-card" onclick="selectRole('academic')">
+                    <div class="role-icon">🔬</div>
+                    <h2 data-i18n="role-academic-title">Academic / Jury</h2>
+                    <p data-i18n="role-academic-desc">fNIRS preprocessing, LME modeling, Right PFC dynamics, and statistical evidence.</p>
+                </div>
+                <div class="role-card" onclick="selectRole('visitor')">
+                    <div class="role-icon">🎵</div>
+                    <h2 data-i18n="role-visitor-title">Curious Visitor</h2>
+                    <p data-i18n="role-visitor-desc">How AI labels change your brain's cognitive load and why we are naturally skeptical.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-footer">
+            Berke Tan Tabak &bull; <span data-i18n="supervisor">Supervisor: Prof. Dr. Seda Dural</span><br>
+            <span data-i18n="institution">İzmir University of Economics &bull; Department of Psychology</span>
+        </div>
+    </div>
+
+    <div class="poster-container">
+        <button class="exit-poster-btn" onclick="backToLanding()" title="Kapat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span data-i18n="btn-kapat">CLOSE</span>
+        </button>
+
+        <header class="poster-header">
+            <div class="header-content">
+                <div class="institution" data-i18n="institution">İZMİR UNIVERSITY OF ECONOMICS &bull; PSYCHOLOGY 2026</div>
+                <h1 class="main-title" data-i18n="landing-title">Neuro-Cognitive Dynamics of<br><span class="accent">AI Attribution</span> in Music Perception</h1>
+                <p class="authors">
+                    <strong>Berke Tan Tabak</strong> &bull; <span data-i18n="supervisor">Supervisor: Prof. Dr. Seda Dural</span>
+                </p>
+            </div>
+            <div class="header-tag academic-only">Graduation Thesis / Experimental Psychology</div>
+        </header>
+
+        <div class="poster-main">
+            <!-- LEFT COLUMN -->
+            <section class="col-left">
+                <div class="card">
+                    <h2 data-i18n="problem-title">Problem</h2>
+                    <p class="lead" data-i18n="problem-lead">With the rise of AI-generated music, listeners' perception is shaped not only by the sound itself but by their belief about its source.</p>
+                    <p data-i18n="problem-desc">This study examines the cognitive and neural effects of the discrepancy between the actual source of music and the label presented — a phenomenon we term the <strong>"AI-Placebo Effect."</strong></p>
+                </div>
+
+                <div class="card">
+                    <h2 data-i18n="hyp-title">Hypotheses</h2>
+                    <ul class="hypothesis-list">
+                        <li>
+                            <span class="h-badge">H1</span>
+                            <strong data-i18n="h1-title">Neural Skepticism:</strong> <span data-i18n="h1-desc">"AI" labels evoke greater Right PFC activation than Human labels.</span>
+                        </li>
+                        <li>
+                            <span class="h-badge">H2</span>
+                            <strong data-i18n="h2-title">Placebo Bias:</strong> <span data-i18n="h2-desc">"Human" label enhances ratings regardless of actual source.</span>
+                        </li>
+                        <li>
+                            <span class="h-badge">H3</span>
+                            <strong data-i18n="h3-title">Placebo Mask:</strong> <span data-i18n="h3-desc">Human label suppresses the bias introduced by AI generation.</span>
+                        </li>
+                        <li class="academic-only">
+                            <span class="h-badge">H5/6</span>
+                            <strong data-i18n="h56-title">Genre Moderation:</strong> <span data-i18n="h56-desc">AI bias differs across Arabesque, Blues, and Electronic.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- MOVED FROM RIGHT: How We Did It -->
+                <div class="card visitor-only" style="display:none;">
+                    <h2 data-i18n="how-title">How We Did It 🔬</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.6;" data-i18n="how-desc">
+                        We tested <strong>13 participants</strong>. They listened to different genres of music.
+                        <br><br>
+                        We told them the music was either made by a <strong>"Human"</strong> or an <strong>"AI"</strong>.
+                        While they listened, we recorded their brain activity using a safe headband (fNIRS) that uses light to see which parts of the brain are working hard!
+                    </p>
+                </div>
+
+                <div class="card academic-only">
+                    <h2 data-i18n="design-title">Design</h2>
+                    <div class="design-grid">
+                        <div class="design-item">
+                            <span class="d-val" data-i18n="design-sub">2×2×3 Within-Subjects</span>
+                            <span class="d-lbl">Design Matrix</span>
+                        </div>
+                        <div class="design-item">
+                            <span class="d-val"><em>N</em> = 13</span>
+                            <span class="d-lbl" data-i18n="design-participants">Participants</span>
+                        </div>
+                        <div class="design-item">
+                            <span class="d-val">12</span>
+                            <span class="d-lbl" data-i18n="design-trials">Trials / Subject</span>
+                        </div>
+                    </div>
+                    <div class="design-factors">
+                        <span class="factor" data-i18n="design-factor-label">Label: AI vs Human</span>
+                        <span class="factor" data-i18n="design-factor-source">Source: AI vs Human</span>
+                        <span class="factor" data-i18n="design-factor-genre">Genre: 3 Types</span>
+                    </div>
+                    <p class="small-text mt-2" style="font-size: 0.85rem; color: #a0a5b0;" data-i18n="design-counter">Counterbalanced presentation. Label assigned orthogonally to actual source.</p>
+                </div>
+            </section>
+
+            <!-- CENTER COLUMN (DATA) -->
+            <section class="col-center">
+                <div class="hero-card" style="padding-top: 1.5rem;">
+                    <div class="insight-panel glass-panel" style="flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 0;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span class="insight-label" data-i18n="insight-label">"AI" LABEL</span>
+                            <span class="insight-arrow">↑</span>
+                            <span class="insight-value" data-i18n="insight-value">Right PFC Peak HbO by +54%</span>
+                        </div>
+                        <div class="academic-only" style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);">
+                            Linear Mixed-Effects (LME): <em>β<sub>1</sub></em> = 0.058, SE = 0.035, <em>p</em> = .047<br>
+                            <span style="font-size: 0.8rem; font-family: monospace;">Right PFC Peak HbO (µM): AI [0.168], Human [0.109]</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-container main-chart" style="margin-top: 2rem;">
+                        <canvas id="heroChart"></canvas>
+                    </div>
+
+                    <div class="brain-map-container" style="margin-top: 2rem;">
+                        <div class="brain-glow-wrapper" id="brainWrapper">
+                            <img src="assets/brain_heatmap.png" alt="Prefrontal Cortex Activation" class="brain-img" id="brainImage">
+                        </div>
+                        <div class="brain-caption academic-only" data-i18n="brain-caption-academic">Right Prefrontal HbO signals suggest differential cognitive engagement and skepticism.</div>
+                        <div class="brain-caption visitor-only" id="visitorBrainCaption" style="display:none;" data-i18n="brain-caption-visitor">Brain scans showed different activity when people thought an AI made the music.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN -->
+            <section class="col-right">
+                <!-- Slogan & Button -->
+                <div class="card" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
+                    <h2 class="hero-slogan" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;" data-i18n="slogan">THE LABEL ALTERS COGNITIVE LOAD</h2>
+                    <p class="hero-sub" style="margin: 0 auto 2.5rem auto; font-size: 1.1rem;" data-i18n="slogan-sub">"AI" labeling significantly increased Right Prefrontal Cortex activation independent of the actual music source.</p>
+                    
+                    <button class="visitor-only dene-btn" style="display:none; margin: 0 auto;" onclick="openExperienceModal()" data-i18n="btn-dene">
+                        <span class="dene-pulse"></span>
+                        🎧 Try — What Does Your Brain Feel?
+                    </button>
+                </div>
+
+                <div class="card academic-only">
+                    <h2 data-i18n="methods-title">Methods & Analysis</h2>
+                    <div class="method-section">
+                        <h3><span data-i18n="fnirs-title">fNIRS Measurement</span> <button class="deep-dive-btn academic-only" onclick="toggleDeepDive()" data-i18n="pipeline-details">[+] Pipeline Details</button></h3>
+                        <p data-i18n="fnirs-desc">Prefrontal cortex HbO concentration (fNIR Imager 1000). 16 channels.</p>
+                        <div id="deepDiveBlock" class="deep-dive-content academic-only">
+                            <strong style="color: #fff;">Modified Beer-Lambert Law:</strong><br>
+                            <span style="font-family: monospace;">ΔOD(λ) = Δc × ε(λ) × L × DPF(λ)</span><br>
+                            <em>Baseline:</em> 10s ITI fixation prior to stimulus.<br>
+                            <em>ROI:</em> Right PFC (Channels 9-16).
+                        </div>
+                    </div>
+                    <div class="method-section">
+                        <h3 data-i18n="procedure-title">Procedure</h3>
+                        <div class="timeline">
+                            <div class="tl-item"><span class="tl-time">0-10s</span><span class="tl-desc">Unknown Source</span></div>
+                            <div class="tl-item"><span class="tl-time">10s</span><span class="tl-desc">Label Revealed</span></div>
+                            <div class="tl-item"><span class="tl-time">10-25s</span><span class="tl-desc">fNIRS Recording</span></div>
+                        </div>
+                    </div>
+                    <div class="method-section">
+                        <h3 data-i18n="analysis-pipeline-title">Analysis Pipeline</h3>
+                        <p class="pipeline-tags">
+                            <span class="tag"><span class="academic-tooltip" data-tooltip="Bandpass filter: 0.01 - 0.2 Hz applied">Filter: 0.01-0.2 Hz</span></span>
+                            <span class="tag"><span class="academic-tooltip" data-tooltip="Linear Mixed-Effects modeling with crossed random effects">LME Modeling</span></span>
+                            <span class="tag">Pearson <em>r</em></span>
+                        </p>
+                    </div>
+                    <div class="download-badges academic-only">
+                        <a href="#" class="dl-badge" onclick="alert('Downloading OpenData_SubjectLevel.csv')" data-i18n="raw-data">📄 Raw Data (.csv)</a>
+                        <a href="#" class="dl-badge" onclick="alert('Downloading preprocessing.py')" data-i18n="python-script">🐍 Python Script</a>
+                        <a href="#" class="dl-badge" onclick="alert('Downloading SPSS_Output.spv')" data-i18n="spss-output">📊 SPSS Output</a>
+                        <a href="sources.html" class="dl-badge" data-i18n="full-bibliography">📚 Full Bibliography</a>
+                    </div>
+                </div>
+
+                <div class="card academic-only">
+                    <h2 data-i18n="findings-title">Findings</h2>
+                    <div class="chart-container mini-chart">
+                        <canvas id="genreChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="poster-footer">
+            <div class="footer-col discussion">
+                <h3 data-i18n="discussion-title">Discussion</h3>
+                <div class="flex-container">
+                    <p style="font-size: 0.95rem;" data-i18n="discussion-desc">Our data suggests that human perception of art is heavily mediated by the <strong>mental models</strong> we hold about the creator. The AI label acts as a 'distrust cue', increasing evaluative effort.</p>
+                </div>
+            </div>
+
+            <div class="footer-col interactive-zone">
+                <div class="flex-container">
+                    <button class="visitor-only dene-btn" style="display:none;" onclick="openExperienceModal()" data-i18n="btn-dene">
+                        <span class="dene-pulse"></span>
+                        🎧 Try — What Does Your Brain Feel?
+                    </button>
+                    <div class="academic-only dashboard-preview">
+                        <h4 data-i18n="explore-data">EXPLORE LIVE DATA</h4>
+                        <p data-i18n="click-dashboard">Click to view full interactive results dashboard</p>
+                        <button class="dash-btn" onclick="toggleInteractiveDashboard()" data-i18n="btn-view">View Results Dashboard &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col references academic-only">
+                <h3>References</h3>
+                <ul class="ref-list">
+                    <li>Dural et al. (2024). Neuro-Cognitive Skepticism.</li>
+                    <li>Tabak, B. T. (2026). The AI-Placebo.</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <!-- EXPERIMENT OVERLAY -->
+    <div class="exp-overlay" id="expOverlay">
+        <button class="exp-close" onclick="closeExperience()" data-i18n="btn-kapat">CLOSE</button>
+        
+        <div class="exp-content">
+            <!-- STAGE 1: Intro -->
+            <div class="exp-stage" id="stage1">
+                <div class="exp-stage-inner">
+                    <p class="exp-eyebrow" data-i18n="exp-eyebrow-start">EXPERIENCE THE EFFECT</p>
+                    <h2 class="exp-title" data-i18n="exp-title-start">The AI-Placebo Quiz</h2>
+                    <p class="exp-desc" data-i18n="exp-desc-start">Listen to 4 tracks. We will tell you if they are AI or Human. Rate them, and we will reveal the TRUTH at the end.</p>
+                    
+                    <h3 style="color: var(--accent); margin-bottom: 1.5rem; letter-spacing: 2px;" data-i18n="exp-select-genre">SELECT A GENRE TO START</h3>
+                    <div class="genre-btns">
+                        <button class="genre-btn" onclick="setGenre('ara')">Arabesque</button>
+                        <button class="genre-btn" onclick="setGenre('blues')">Blues</button>
+                        <button class="genre-btn" onclick="setGenre('elec')">Electronic</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STAGE 2: Listening -->
+            <div class="exp-stage" id="stage2" style="display:none;">
+                <div class="exp-stage-inner">
+                    <p class="exp-eyebrow" id="quiz-progress" data-i18n="exp-parca">TRACK 1 / 4</p>
+                    <h2 class="exp-title" id="quiz-label-title">Loading...</h2>
+                    
+                    <div class="exp-eq">
+                        <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+                        <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+                        <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+                    </div>
+
+                    <div class="survey-form" id="surveyForm">
+                        <div class="survey-q">
+                            <label data-i18n="exp-originality">1. How original did this track feel?</label>
+                            <div class="likert-scale" id="q1">
+                                <span onclick="selectLikert('q1', 1)">1</span><span onclick="selectLikert('q1', 2)">2</span><span onclick="selectLikert('q1', 3)">3</span><span onclick="selectLikert('q1', 4)">4</span><span onclick="selectLikert('q1', 5)">5</span><span onclick="selectLikert('q1', 6)">6</span><span onclick="selectLikert('q1', 7)">7</span>
+                            </div>
+                        </div>
+                        <div class="survey-q">
+                            <label data-i18n="exp-trust">2. How much do you trust this producer label?</label>
+                            <div class="likert-scale" id="q2">
+                                <span onclick="selectLikert('q2', 1)">1</span><span onclick="selectLikert('q2', 2)">2</span><span onclick="selectLikert('q2', 3)">3</span><span onclick="selectLikert('q2', 4)">4</span><span onclick="selectLikert('q2', 5)">5</span><span onclick="selectLikert('q2', 6)">6</span><span onclick="selectLikert('q2', 7)">7</span>
+                            </div>
+                        </div>
+                        <div class="survey-q">
+                            <label data-i18n="exp-quality">3. How would you rate the technical quality?</label>
+                            <div class="likert-scale" id="q3">
+                                <span onclick="selectLikert('q3', 1)">1</span><span onclick="selectLikert('q3', 2)">2</span><span onclick="selectLikert('q3', 3)">3</span><span onclick="selectLikert('q3', 4)">4</span><span onclick="selectLikert('q3', 5)">5</span><span onclick="selectLikert('q3', 6)">6</span><span onclick="selectLikert('q3', 7)">7</span>
+                            </div>
+                        </div>
+                        <button class="exp-next-btn" id="nextSongBtn" onclick="nextQuizSong()" data-i18n="exp-next-song">Next Track &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STAGE 3: Reveal -->
+            <div class="exp-stage" id="stage3" style="display:none;">
+                <div class="exp-stage-inner">
+                    <p class="exp-eyebrow" data-i18n="exp-reveal-eyebrow">THE TRUTH REVEALED</p>
+                    <h2 class="exp-title" id="revealTitle" data-i18n="exp-reveal-title">🎉 Surprise!</h2>
+                    <div class="exp-reveal-box" id="expRevealBox">
+                        <p class="exp-reveal-text" id="expRevealText" data-i18n="exp-reveal-lead">Loading...</p>
+                    </div>
+                    <div class="reveal-dashboard">
+                        <div class="reveal-col">
+                            <h3 class="breakdown-title" data-i18n="exp-effect-title">Label Effect (Average Scores)</h3>
+                            <div class="exp-results-detailed">
+                                <div class="exp-legend">
+                                    <div class="legend-item"><span class="dot ai"></span> <span data-i18n="exp-ai-labeled">🤖 AI Labeled</span></div>
+                                    <div class="legend-item"><span class="dot human"></span> <span data-i18n="exp-human-labeled">🧑‍🎤 Human Labeled</span></div>
+                                </div>
+                                <!-- Result Bars -->
+                                <div class="detail-row">
+                                    <div class="detail-info"><span class="detail-label" data-i18n="exp-originality-short">Authenticity</span></div>
+                                    <div class="detail-bars">
+                                        <div class="d-bar ai" id="b-q1-ai" style="width: 0%"></div>
+                                        <div class="d-bar human" id="b-q1-human" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-info"><span class="detail-label" data-i18n="exp-trust-short">Trust</span></div>
+                                    <div class="detail-bars">
+                                        <div class="d-bar ai" id="b-q2-ai" style="width: 0%"></div>
+                                        <div class="d-bar human" id="b-q2-human" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-info"><span class="detail-label" data-i18n="exp-quality-short">Quality</span></div>
+                                    <div class="detail-bars">
+                                        <div class="d-bar ai" id="b-q3-ai" style="width: 0%"></div>
+                                        <div class="d-bar human" id="b-q3-human" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-col">
+                            <h3 class="breakdown-title" data-i18n="exp-manip-title">Song-by-Song Analysis</h3>
+                            <div class="exp-song-breakdown" id="expSongBreakdown"></div>
+                        </div>
+                    </div>
+                    <button class="exp-next-btn" onclick="expStage(4)" data-i18n="exp-result-btn">SEE FINAL RESULT &rarr;</button>
+                </div>
+            </div>
+
+            <!-- STAGE 4: Big Result -->
+            <div class="exp-stage" id="stage4" style="display:none;">
+                <div class="exp-stage-inner">
+                    <p class="exp-eyebrow" data-i18n="exp-final-eyebrow">THE BIG DISCOVERY</p>
+                    <h2 class="exp-final-title" data-i18n="exp-final-title">LABEL INCREASES COGNITIVE LOAD</h2>
+                    <p class="exp-final-sub" data-i18n="exp-final-sub">"AI" labeled music activated the brain's skepticism centers <span class="exp-highlight">54% more</span>.</p>
+                    <div class="exp-final-stats">
+                        <div class="exp-stat-pill" data-i18n="exp-pill-1">🧠 Right PFC Activity Up</div>
+                        <div class="exp-stat-pill" data-i18n="exp-pill-2">💚 Cognitive Load Higher</div>
+                        <div class="exp-stat-pill" data-i18n="exp-pill-3">🎵 Music Was Identical</div>
+                    </div>
+                    <p class="exp-conclusion" data-i18n="exp-final-conclusion">Our brains don't just judge music; they judge the label.</p>
+                    <div class="exp-final-btns">
+                        <button class="exp-next-btn" onclick="expStage(1)" data-i18n="exp-try-again">🔄 Try Again</button>
+                        <button class="exp-next-btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);" onclick="closeExperience()" data-i18n="exp-back-poster">Back to Poster</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
