@@ -302,18 +302,11 @@ function selectRole(role) {
     document.body.classList.remove('no-scroll');
     if (typeof expAudio !== 'undefined' && expAudio) expAudio.pause();
 
+    document.body.classList.remove('mode-academic', 'mode-visitor');
     if (role === 'visitor') {
         document.body.classList.add('mode-visitor');
-        // Show visitor elements
-        document.querySelectorAll('.visitor-only').forEach(el => el.style.display = 'block');
-        // Hide academic elements
-        document.querySelectorAll('.academic-only').forEach(el => el.style.display = 'none');
     } else {
-        document.body.classList.remove('mode-visitor');
-        // Hide visitor elements
-        document.querySelectorAll('.visitor-only').forEach(el => el.style.display = 'none');
-        // Show academic elements
-        document.querySelectorAll('.academic-only').forEach(el => el.style.removeProperty('display'));
+        document.body.classList.add('mode-academic');
     }
     window.scrollTo(0, 0);
 }
@@ -321,10 +314,7 @@ function selectRole(role) {
 function backToLanding() {
     document.getElementById('roleOverlay').classList.add('active');
     document.body.classList.add('no-scroll');
-    document.body.classList.remove('mode-visitor');
-    // Reset all visibility to default (inline style removed, CSS class controls)
-    document.querySelectorAll('.visitor-only').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.academic-only').forEach(el => el.style.removeProperty('display'));
+    document.body.classList.remove('mode-visitor', 'mode-academic');
     if (typeof expAudio !== 'undefined' && expAudio) {
         expAudio.pause();
         expAudio = null;
