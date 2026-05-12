@@ -291,6 +291,7 @@ function toggleInteractiveDashboard() {
 
 function selectRole(role) {
     document.getElementById('roleOverlay').classList.remove('active');
+    document.body.classList.remove('no-scroll');
     if (typeof expAudio !== 'undefined' && expAudio) expAudio.pause();
 
     if (role === 'visitor') {
@@ -311,6 +312,7 @@ function selectRole(role) {
 
 function backToLanding() {
     document.getElementById('roleOverlay').classList.add('active');
+    document.body.classList.add('no-scroll');
     document.body.classList.remove('mode-visitor');
     // Reset all visibility to default (inline style removed, CSS class controls)
     document.querySelectorAll('.visitor-only').forEach(el => el.style.display = 'none');
@@ -561,4 +563,8 @@ function playIndividualSong(path, btn) {
 // Initialize Language
 document.addEventListener('DOMContentLoaded', () => {
     setLanguage('en');
+    // Ensure body is locked if overlay is active on start
+    if(document.getElementById('roleOverlay').classList.contains('active')) {
+        document.body.classList.add('no-scroll');
+    }
 });
