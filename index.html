@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Neuro-Cognitive Dynamics of AI Attribution in Music</title>
     <link rel="stylesheet" href="styles.css">
     <link
@@ -15,7 +16,7 @@
 <body>
     <!-- ROLE SELECTION OVERLAY -->
     <div class="role-overlay active" id="roleOverlay">
-        <div class="lang-switcher">
+        <div class="lang-switcher" id="langSwitcher">
             <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">ENG</button>
             <button class="lang-btn" id="lang-tr" onclick="setLanguage('tr')">TR</button>
         </div>
@@ -49,6 +50,8 @@
             </div>
         </div>
     </div>
+
+
 
     <div class="poster-container">
         <button class="exit-poster-btn" onclick="backToLanding()" title="Kapat">
@@ -288,11 +291,22 @@
                     <h2 class="exp-title" data-i18n="exp-title-start">The AI-Placebo Quiz</h2>
                     <p class="exp-desc" data-i18n="exp-desc-start">Listen to 4 tracks. We will tell you if they are AI or Human. Rate them, and we will reveal the TRUTH at the end.</p>
                     
-                    <h3 style="color: var(--accent); margin-bottom: 1.5rem; letter-spacing: 2px;" data-i18n="exp-select-genre">SELECT A GENRE TO START</h3>
-                    <div class="genre-btns">
-                        <button class="genre-btn" onclick="setGenre('ara')">Arabesque</button>
-                        <button class="genre-btn" onclick="setGenre('blues')">Blues</button>
-                        <button class="genre-btn" onclick="setGenre('elec')">Electronic</button>
+                    <div class="exp-genre-grid">
+                        <button class="genre-btn" onclick="setGenre('ara')">
+                            <span class="genre-icon">🎻</span>
+                            <h3 class="genre-name">Arabesk</h3>
+                            <p class="genre-sub" data-i18n="genre-ara-desc">Duygusal Yoğunluk</p>
+                        </button>
+                        <button class="genre-btn" onclick="setGenre('blues')">
+                            <span class="genre-icon">🎸</span>
+                            <h3 class="genre-name">Blues</h3>
+                            <p class="genre-sub" data-i18n="genre-blues-desc">Melodik Estetik</p>
+                        </button>
+                        <button class="genre-btn" onclick="setGenre('elec')">
+                            <span class="genre-icon">🎧</span>
+                            <h3 class="genre-name">Electronic</h3>
+                            <p class="genre-sub" data-i18n="genre-elec-desc">Teknolojik Yapı</p>
+                        </button>
                     </div>
                 </div>
             </div>

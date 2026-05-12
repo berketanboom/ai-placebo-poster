@@ -1,6 +1,8 @@
 // Chart Configuration and Initialization
-Chart.defaults.color = '#a0a5b0';
-Chart.defaults.font.family = "'Inter', sans-serif";
+if (typeof Chart !== 'undefined') {
+    Chart.defaults.color = '#a0a5b0';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+}
 const accentColor = '#1DB954';
 let expAudio = null; // Declared globally to avoid Temporal Dead Zone issues
 
@@ -222,67 +224,73 @@ function setLanguage(lang) {
 }
 
 // 1. MAIN HERO CHART
-const ctxHero = document.getElementById('heroChart').getContext('2d');
-new Chart(ctxHero, {
-    type: 'bar',
-    data: {
-        labels: ['"AI" Label', '"Human" Label'],
-        datasets: [{
-            label: 'Right PFC Peak HbO (µM)',
-            data: [0.168, 0.109],
-            backgroundColor: [accentColor, 'rgba(255, 255, 255, 0.2)'],
-            borderColor: [accentColor, 'rgba(255, 255, 255, 0.5)'],
-            borderWidth: 1,
-            borderRadius: 8
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-            y: { beginAtZero: true, max: 0.2, grid: { color: 'rgba(255,255,255,0.05)' } },
-            x: { grid: { display: false }, ticks: { font: { size: 14, weight: 'bold' }, color: '#fff' } }
+const ctxHero = document.getElementById('heroChart');
+if (ctxHero && typeof Chart !== 'undefined') {
+    new Chart(ctxHero.getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['"AI" Label', '"Human" Label'],
+            datasets: [{
+                label: 'Right PFC Peak HbO (µM)',
+                data: [0.168, 0.109],
+                backgroundColor: [accentColor, 'rgba(255, 255, 255, 0.2)'],
+                borderColor: [accentColor, 'rgba(255, 255, 255, 0.5)'],
+                borderWidth: 1,
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, max: 0.2, grid: { color: 'rgba(255,255,255,0.05)' } },
+                x: { grid: { display: false }, ticks: { font: { size: 14, weight: 'bold' }, color: '#fff' } }
+            }
         }
-    }
-});
+    });
+}
 
 // 2. GENRE INTERACTION CHART
-const ctxGenre = document.getElementById('genreChart').getContext('2d');
-new Chart(ctxGenre, {
-    type: 'line',
-    data: {
-        labels: ['Arabesque', 'Blues', 'Electronic'],
-        datasets: [
-            { label: 'Human Label', data: [6.1, 5.2, 4.8], borderColor: accentColor, backgroundColor: accentColor, tension: 0.4 },
-            { label: 'AI Label', data: [2.5, 3.8, 4.2], borderColor: 'rgba(255,255,255,0.5)', backgroundColor: 'rgba(255,255,255,0.5)', borderDash: [5, 5], tension: 0.4 }
-        ]
-    },
-    options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 7 } } }
-});
+const ctxGenre = document.getElementById('genreChart');
+if (ctxGenre && typeof Chart !== 'undefined') {
+    new Chart(ctxGenre.getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['Arabesque', 'Blues', 'Electronic'],
+            datasets: [
+                { label: 'Human Label', data: [6.1, 5.2, 4.8], borderColor: accentColor, backgroundColor: accentColor, tension: 0.4 },
+                { label: 'AI Label', data: [2.5, 3.8, 4.2], borderColor: 'rgba(255,255,255,0.5)', backgroundColor: 'rgba(255,255,255,0.5)', borderDash: [5, 5], tension: 0.4 }
+            ]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 7 } } }
+    });
+}
 
 // 3. HbO CHART
-const ctxHbo = document.getElementById('hboChart').getContext('2d');
-new Chart(ctxHbo, {
-    type: 'line',
-    data: {
-        labels: ['10s (Label)', '13s', '16s', '19s', '22s', '25s (Offset)'],
-        datasets: [
-            { label: 'AI Label Trial (Right PFC)', data: [0, 0.04, 0.11, 0.168, 0.14, 0.12], borderColor: '#a0b8ff', backgroundColor: 'rgba(160, 184, 255, 0.1)', fill: true, tension: 0.4 },
-            { label: 'Human Label Trial (Right PFC)', data: [0, 0.03, 0.07, 0.109, 0.09, 0.06], borderColor: accentColor, backgroundColor: 'rgba(29, 185, 84, 0.1)', fill: true, tension: 0.4 }
-        ]
-    },
-    options: { 
-        responsive: true, 
-        maintainAspectRatio: false,
-        scales: { 
-            y: { 
-                beginAtZero: true, 
-                title: { display: true, text: 'Δ HbO (µM)', color: '#fff' }
+const ctxHbo = document.getElementById('hboChart');
+if (ctxHbo && typeof Chart !== 'undefined') {
+    new Chart(ctxHbo.getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['10s (Label)', '13s', '16s', '19s', '22s', '25s (Offset)'],
+            datasets: [
+                { label: 'AI Label Trial (Right PFC)', data: [0, 0.04, 0.11, 0.168, 0.14, 0.12], borderColor: '#a0b8ff', backgroundColor: 'rgba(160, 184, 255, 0.1)', fill: true, tension: 0.4 },
+                { label: 'Human Label Trial (Right PFC)', data: [0, 0.03, 0.07, 0.109, 0.09, 0.06], borderColor: accentColor, backgroundColor: 'rgba(29, 185, 84, 0.1)', fill: true, tension: 0.4 }
+            ]
+        },
+        options: { 
+            responsive: true, 
+            maintainAspectRatio: false,
+            scales: { 
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Δ HbO (µM)', color: '#fff' }
+                } 
             } 
         } 
-    }
-});
+    });
+}
 
 function toggleInteractiveDashboard() {
     const overlay = document.getElementById('dashboardOverlay');
