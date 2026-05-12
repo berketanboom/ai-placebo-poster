@@ -2,6 +2,8 @@
 Chart.defaults.color = '#a0a5b0';
 Chart.defaults.font.family = "'Inter', sans-serif";
 const accentColor = '#1DB954';
+let expAudio = null; // Declared globally to avoid Temporal Dead Zone issues
+
 
 // ============================================================
 // I18N - TRANSLATIONS
@@ -314,7 +316,6 @@ function toggleDeepDive() {
 // ============================================================
 // EXPERIENCE THE EFFECT - QUIZ LOGIC
 // ============================================================
-let expAudio = null;
 let quizState = {
     genre: null,
     playlist: [],
