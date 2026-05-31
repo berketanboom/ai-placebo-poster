@@ -232,7 +232,7 @@ if (ctxHero && typeof Chart !== 'undefined') {
             labels: ['"AI" Label', '"Human" Label'],
             datasets: [{
                 label: 'Right PFC Peak HbO (µM)',
-                data: [0.168, 0.109],
+                data: [0.247, 0.193],
                 backgroundColor: [accentColor, 'rgba(255, 255, 255, 0.2)'],
                 borderColor: [accentColor, 'rgba(255, 255, 255, 0.5)'],
                 borderWidth: 1,
@@ -244,7 +244,7 @@ if (ctxHero && typeof Chart !== 'undefined') {
             maintainAspectRatio: false,
             plugins: { legend: { display: false } },
             scales: {
-                y: { beginAtZero: true, max: 0.2, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { beginAtZero: true, max: 0.3, grid: { color: 'rgba(255,255,255,0.05)' } },
                 x: { grid: { display: false }, ticks: { font: { size: 14, weight: 'bold' }, color: '#fff' } }
             }
         }
@@ -275,8 +275,8 @@ if (ctxHbo && typeof Chart !== 'undefined') {
         data: {
             labels: ['10s (Label)', '13s', '16s', '19s', '22s', '25s (Offset)'],
             datasets: [
-                { label: 'AI Label Trial (Right PFC)', data: [0, 0.04, 0.11, 0.168, 0.14, 0.12], borderColor: '#a0b8ff', backgroundColor: 'rgba(160, 184, 255, 0.1)', fill: true, tension: 0.4 },
-                { label: 'Human Label Trial (Right PFC)', data: [0, 0.03, 0.07, 0.109, 0.09, 0.06], borderColor: accentColor, backgroundColor: 'rgba(29, 185, 84, 0.1)', fill: true, tension: 0.4 }
+                { label: 'AI Label Trial (Right PFC)', data: [0, 0.04, 0.11, 0.247, 0.14, 0.12], borderColor: '#a0b8ff', backgroundColor: 'rgba(160, 184, 255, 0.1)', fill: true, tension: 0.4 },
+                { label: 'Human Label Trial (Right PFC)', data: [0, 0.03, 0.07, 0.193, 0.09, 0.06], borderColor: accentColor, backgroundColor: 'rgba(29, 185, 84, 0.1)', fill: true, tension: 0.4 }
             ]
         },
         options: { 
@@ -302,6 +302,8 @@ function selectRole(role) {
     document.body.classList.remove('no-scroll');
     if (typeof expAudio !== 'undefined' && expAudio) expAudio.pause();
 
+    localStorage.setItem('userPath', role);
+
     document.body.classList.remove('mode-academic', 'mode-visitor');
     if (role === 'visitor') {
         document.body.classList.add('mode-visitor');
@@ -311,10 +313,17 @@ function selectRole(role) {
     window.scrollTo(0, 0);
 }
 
+function togglePath() {
+    const currentPath = localStorage.getItem('userPath') === 'visitor' ? 'visitor' : 'academic';
+    const newPath = currentPath === 'visitor' ? 'academic' : 'visitor';
+    selectRole(newPath);
+}
+
 function backToLanding() {
     document.getElementById('roleOverlay').classList.add('active');
     document.body.classList.add('no-scroll');
     document.body.classList.remove('mode-visitor', 'mode-academic');
+    localStorage.removeItem('userPath');
     if (typeof expAudio !== 'undefined' && expAudio) {
         expAudio.pause();
         expAudio = null;
@@ -452,7 +461,9 @@ function showReveal() {
     };
 
     const breakdownContainer = document.getElementById('expSongBreakdown');
-    breakdownContainer.innerHTML = '';
+    if (breakdownContainer) {
+        breakdownContainer.innerHTML = '';
+    }
 
     quizState.answers.forEach((a, idx) => {
         let label = a.label; 
@@ -461,42 +472,27 @@ function showReveal() {
         sums[label].q3 += a.scores.q3;
         sums[label].count++;
 
-        // Build Song Card
-        const isManipulated = a.label !== a.source;
-        const card = document.createElement('div');
-        card.className = 'song-card' + (isManipulated ? ' manipulated' : '');
-        
-        let labelText, sourceText, listenText, manipBadge;
-        if(currentLang === 'tr') {
-            labelText = a.label === 'AI' ? '🤖 AI' : '🧑‍🎤 İnsan';
-            sourceText = a.source === 'AI' ? '🤖 AI' : '🧑‍🎤 İnsan';
-            listenText = "DİNLE";
-            manipBadge = "MANİPÜLE";
+        if (breakdownContainer) {
+            // Build Song Card
+            const isManipulated = a.label !== a.source;
+            const card = document.createElement('div');
+            card.className = 'song-card' + (isManipulated ? ' manipulated' : '');
+            
+            let labelText, sourceText, listenText, manipBadge;
+            if(currentLang === 'tr') {
+                labelText = a.label === 'AI' ? '🤖 AI' : '🧑‍🎤 İnsan';
+                sourceText = a.source === 'AI' ? '🤖 AI' : '🧑‍🎤 İnsan';
+                listenText = "DİNLE";
+                manipBadge = "MANİPÜLE";
+            } else {
+                labelText = a.label === 'AI' ? '🤖 AI' : '🧑‍🎤 Human';
+                sourceText = a.source === 'AI' ? '🤖 AI' : '🧑‍🎤 Human';
+                listenText = "LISTEN";
+                manipBadge = "MANIPULATED";
+            }
             card.innerHTML = `
                 <div class="song-card-header">
-                    <span class="song-num">ŞARKI ${idx + 1}</span>
-                    <button class="listen-btn" onclick="playIndividualSong('${a.path}', this)">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        ${listenText}
-                    </button>
-                </div>
-                <span class="song-status">
-                    Etiket: ${labelText}
-                    ${isManipulated ? `<span class="manip-badge">${manipBadge}</span>` : ''}
-                </span>
-                <div class="card-meta">
-                    Gerçek Kaynak: ${sourceText}<br>
-                    Senin Puanın (Ort): ${((a.scores.q1 + a.scores.q2 + a.scores.q3) / 3).toFixed(1)}
-                </div>
-            `;
-        } else {
-            labelText = a.label === 'AI' ? '🤖 AI' : '🧑‍🎤 Human';
-            sourceText = a.source === 'AI' ? '🤖 AI' : '🧑‍🎤 Human';
-            listenText = "LISTEN";
-            manipBadge = "MANIPULATED";
-            card.innerHTML = `
-                <div class="song-card-header">
-                    <span class="song-num">SONG ${idx + 1}</span>
+                    <span class="song-num">TRACK ${idx + 1}</span>
                     <button class="listen-btn" onclick="playIndividualSong('${a.path}', this)">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                         ${listenText}
@@ -511,28 +507,93 @@ function showReveal() {
                     Your Score (Avg): ${((a.scores.q1 + a.scores.q2 + a.scores.q3) / 3).toFixed(1)}
                 </div>
             `;
+            breakdownContainer.appendChild(card);
         }
-        breakdownContainer.appendChild(card);
     });
 
     const calculateAvg = (label, qKey) => {
         return sums[label].count > 0 ? (sums[label][qKey] / sums[label].count) : 0;
     };
 
-    ['q1', 'q2', 'q3'].forEach(q => {
-        let aiAvg = calculateAvg('AI', q);
-        let humanAvg = calculateAvg('Human', q);
-        document.getElementById(`v-${q}-ai`).textContent = aiAvg.toFixed(1);
-        document.getElementById(`v-${q}-human`).textContent = humanAvg.toFixed(1);
-        document.getElementById(`b-${q}-ai`).style.width = (aiAvg / 7 * 100) + '%';
-        document.getElementById(`b-${q}-human`).style.width = (humanAvg / 7 * 100) + '%';
-    });
+    const hAuth = calculateAvg('Human', 'q1');
+    const aAuth = calculateAvg('AI', 'q1');
+    
+    const authPenalty = (hAuth - aAuth).toFixed(2);
+    const authPenaltyStr = (authPenalty > 0 ? '+' : '') + authPenalty;
+
+    // --- ACADEMIC DASHBOARD POPULATION ---
+    const acadScore = document.getElementById('acad-penalty-score');
+    if(acadScore) acadScore.innerText = authPenaltyStr;
+    
+    const replH2 = document.getElementById('repl-h2');
+    if(replH2) {
+        replH2.innerText = (hAuth > aAuth) ? 'Supported (Sample: Yes)' : 'Not Supported (Sample: Yes)';
+        replH2.style.color = (hAuth > aAuth) ? '#1db954' : '#e74c3c';
+    }
+
+    const replH6 = document.getElementById('repl-h6');
+    if(replH6) replH6.innerText = 'Data insufficient (N=1)';
+    
+    const replH7 = document.getElementById('repl-h7');
+    if(replH7) replH7.innerText = 'Data insufficient (N=1)';
+
+    const tbody = document.getElementById('acad-stats-table');
+    if (tbody) {
+        tbody.innerHTML = `
+            <tr>
+                <td style="padding: 0.5rem 0; color: #fff;">Human-Labeled</td>
+                <td style="padding: 0.5rem 0; color: #fff;">${hAuth.toFixed(2)}</td>
+                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('Human', 'q2').toFixed(2)}</td>
+                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('Human', 'q3').toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td style="padding: 0.5rem 0; color: #fff;">AI-Labeled</td>
+                <td style="padding: 0.5rem 0; color: #fff;">${aAuth.toFixed(2)}</td>
+                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('AI', 'q2').toFixed(2)}</td>
+                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('AI', 'q3').toFixed(2)}</td>
+            </tr>
+        `;
+    }
+
+    // --- VISITOR DASHBOARD POPULATION ---
+    const visScore = document.getElementById('vis-penalty-score');
+    if (visScore) visScore.innerText = authPenaltyStr;
+    
+    const visNum = document.getElementById('vis-penalty-num');
+    if (visNum) visNum.innerText = Math.abs(authPenalty).toFixed(2);
+    
+    let typeTitle = "";
+    let typeDesc = "";
+    let typeIcon = "";
+
+    if (authPenalty > 0.5) {
+        typeTitle = "Cultural Protector";
+        typeDesc = "You strongly penalize music when it's labeled as AI. The human story matters deeply to you.";
+        typeIcon = "🛡️";
+    } else if (authPenalty < -0.5) {
+        typeTitle = "Tech Embracer";
+        typeDesc = "You actually prefer or trust the music more when it's labeled AI! You are ahead of the curve.";
+        typeIcon = "🚀";
+    } else {
+        typeTitle = "Genre Neutral";
+        typeDesc = "The label barely changes how you rate music. You listen to the sound, not the story.";
+        typeIcon = "🎧";
+    }
+
+    const typeTitleEl = document.getElementById('vis-type-title');
+    if (typeTitleEl) typeTitleEl.innerText = typeTitle;
+    
+    const typeDescEl = document.getElementById('vis-type-desc');
+    if (typeDescEl) typeDescEl.innerText = typeDesc;
+    
+    const typeIconEl = document.getElementById('vis-type-icon');
+    if (typeIconEl) typeIconEl.innerText = typeIcon;
 
     const revealText = document.getElementById('expRevealText');
     if(currentLang === 'tr') {
-        revealText.innerHTML = `<strong>Manipüle Edildiniz!</strong><br><br>Gördüğünüz etiketlerin yarısı yanlıştı. Aşağıdaki kartlarda hangi şarkılarda "fark etmeden" manipülasyona uğradığınızı görebilirsiniz. <em>Etiket, sesi ezer.</em>`;
+        revealText.innerHTML = `<strong>Manipüle Edildiniz!</strong><br><br>Gördüğünüz etiketlerin bazıları yanlıştı. Aşağıdaki kartlarda hangi şarkılarda "fark etmeden" manipülasyona uğradığınızı görebilirsiniz. <em>Etiket, sesi ezer.</em>`;
     } else {
-        revealText.innerHTML = `<strong>You were manipulated!</strong><br><br>Half of the labels you saw were false. Check the cards below to see where you were 'blindly' influenced by the label. <em>The label overrides the sound.</em>`;
+        revealText.innerHTML = `<strong>You were manipulated!</strong><br><br>Some of the labels you saw were false. Check the cards below to see where you were 'blindly' influenced by the label. <em>The label overrides the sound.</em>`;
     }
 }
 
@@ -561,8 +622,15 @@ function playIndividualSong(path, btn) {
 // Initialize Language
 document.addEventListener('DOMContentLoaded', () => {
     setLanguage('en');
-    // Ensure body is locked if overlay is active on start
-    if(document.getElementById('roleOverlay').classList.contains('active')) {
-        document.body.classList.add('no-scroll');
+    
+    // Check localStorage for saved path
+    const savedPath = localStorage.getItem('userPath');
+    if (savedPath) {
+        selectRole(savedPath);
+    } else {
+        // Ensure body is locked if overlay is active on start
+        if(document.getElementById('roleOverlay').classList.contains('active')) {
+            document.body.classList.add('no-scroll');
+        }
     }
 });
