@@ -1,0 +1,94 @@
+/* ============================================================
+   UI SPACING & LAYOUT OPTIMIZATION PATCH
+   ============================================================ */
+
+/* Strip bottom margin on the last child of key layout and content containers */
+.card > *:last-child,
+.col-left > *:last-child,
+.col-center > *:last-child,
+.col-right > *:last-child,
+.reveal-col > *:last-child,
+.survey-form > *:last-child,
+.exp-stage-inner > *:last-child,
+.likert-scale > *:last-child,
+.design-grid > *:last-child,
+.survey-q > *:last-child,
+.detail-row > *:last-child,
+.exp-results-detailed > *:last-child,
+.song-card > *:last-child,
+.hyp-item > *:last-child,
+.timeline > *:last-child,
+.tl-item > *:last-child,
+.method-section > *:last-child,
+.dashboard-content > *:last-child,
+.exp-reveal-box > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Proportional card padding using clamp */
+.card,
+.role-card,
+.exp-choice-btn,
+.exp-compare-card,
+.song-card,
+.dash-card,
+.insight-panel {
+    padding: clamp(8px, 2vw, 16px) !important;
+}
+
+/* Proportional overlay/box padding */
+.dashboard-content,
+.exp-reveal-box {
+    padding: clamp(12px, 3vw, 24px) !important;
+}
+
+/* Enforce CSS Grid row height collapsing to content */
+.poster-main,
+.hypotheses-grid,
+.design-grid,
+.poster-footer,
+.dashboard-grid,
+.exp-meter-row,
+.exp-genre-grid,
+.genre-btns,
+.exp-song-breakdown,
+.reveal-dashboard {
+    grid-auto-rows: min-content !important;
+}
+
+/* Default flex container alignment to avoid vertical stretching */
+.authors,
+.download-badges,
+.pipeline-tags,
+.timeline,
+.exp-compare,
+.exp-final-stats,
+.exp-final-btns {
+    align-items: flex-start !important;
+}
+
+/* 5. Set height auto and overflow visible unless scrolling is explicitly needed */
+section,
+header,
+.card,
+.hypotheses-grid,
+.design-grid,
+.exp-genre-grid,
+.exp-song-breakdown,
+.reveal-dashboard {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Sütunları bağımsız akışa al — grid stretch'i kır */
+.poster-main {
+  align-items: start !important;  /* stretch yerine start */
+}
+
+/* Neural Results kartının yüksekliğini diğerlerine zorla */
+.col-left,
+.col-center, 
+.col-right {
+  align-self: start !important;
+}
+

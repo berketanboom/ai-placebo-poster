@@ -130,11 +130,7 @@ img, video {
 
 
 
-.col-left .card.visitor-only, 
-.col-left .card.academic-only,
-.col-center .hero-card, 
-.col-right .card:not(.academic-only):last-of-type,
-.col-right .card.academic-only:last-child {
+.col-center .hero-card {
     flex: 1;
 }
 
@@ -144,7 +140,6 @@ img, video {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, border-color 0.3s ease;
     color: var(--text-main);
@@ -177,6 +172,39 @@ body.mode-academic .academic-only {
 body.mode-visitor .visitor-only {
     display: block !important;
 }
+
+/* Full-width card override for Academic main layout */
+body.mode-academic .poster-main > .card.academic-only.full-width {
+    grid-column: 1 / -1;
+    display: block !important;
+}
+
+/* Responsive Hypotheses Sub-Grid */
+.hypotheses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    margin-top: 1.5rem;
+}
+
+.hyp-item {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hyp-item:hover {
+    background: rgba(29, 185, 84, 0.05);
+    border-color: rgba(29, 185, 84, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(29, 185, 84, 0.05);
+}
+
 
 /* For flex/grid elements, use specific overrides */
 body.mode-academic div.academic-only[style*="display: flex"],
@@ -1147,6 +1175,10 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
     width: 10px;
     background: var(--accent);
     border-radius: 4px;
+    height: 8px;
+    transition: height 0.3s ease;
+}
+.exp-eq.playing .eq-bar {
     animation: eqWave 0.5s infinite alternate ease-in-out;
 }
 .eq-bar:nth-child(1) { animation-delay: 0.0s; }
@@ -1317,29 +1349,38 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 0.5rem;
 }
 .likert-scale span {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
     color: #a0a5b0;
-    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .likert-scale span:hover {
-    background: rgba(29, 185, 84, 0.2);
+    background: rgba(29, 185, 84, 0.15);
+    border-color: var(--accent);
     color: #fff;
+    transform: translateY(-2px);
 }
 .likert-scale span.selected {
     background: var(--accent);
-    color: #000;
+    color: #000 !important;
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+    transform: scale(1.1);
 }
 
 /* Detailed Results UI */
