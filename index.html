@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Neuro-Cognitive Dynamics of AI Attribution in Music</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.js" integrity="sha384-zYPBGXwO4633CABX/5Spf6emCKUJCfoOkhOMYyxMsatqQZPnDblmmOewfjsIVWCM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css?v=1.6">
+    <link rel="preload" href="/assets/fonts/outfit-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <script src="/assets/vendor/chart.umd.js?v=1.6" defer></script>
 
     <!-- SEO and Social Meta Tags -->
     <meta name="description" content="An interactive exploration of the AI-Placebo effect in music perception. Discover how source attribution biases evaluation using fNIRS and behavioral data.">
@@ -704,7 +703,7 @@
                             <div class="card u-ta-p">
                                 <h3 class="u-clr-fs-mb-2"><span data-i18n='v-dash-3'>Your brain would have done this:</span></h3>
                                 <div class="brain-glow-wrapper playing-ai u-m-w-h">
-                                    <img src="assets/brain_heatmap.png" alt="Right prefrontal cortex activation heatmap — higher HbO2 response under the AI label." class="u-w-h-br-of">
+                                    <img src="assets/brain_heatmap.png" alt="Right prefrontal cortex activation heatmap — higher HbO2 response under the AI label." class="u-w-h-br-of" width="1024" height="1024" loading="lazy" decoding="async">
                                 </div>
                                 <p class="u-fs-clr-lh"><span data-i18n='v-dash-3d'>When you saw the 'AI' label, your right prefrontal cortex would have worked harder — in the average participant, by about <strong class="u-text-white">54%</strong>. That's the brain saying "wait, let me think about this."</span></p>
                             </div>
@@ -771,6 +770,6 @@
             </div>
         </div>
     </div>
-    <script src="script.js?v=1.5"></script>
+    <script src="script.js?v=1.6" defer></script>
 </body>
 </html>
