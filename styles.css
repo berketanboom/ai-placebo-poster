@@ -296,28 +296,25 @@ img, video {
 
 /* MAIN GRID */
 .poster-main {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    gap: 2rem;
+    column-count: 3;
+    column-gap: 2rem;
 }
 
 
 
 .col-left, .col-center, .col-right {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 2rem;
+    display: contents;
 }
 
 
 
-.col-center .hero-card {
-    flex: 1;
-}
+
 
 /* CARDS */
 .card {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 2rem;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 16px;
@@ -1059,7 +1056,7 @@ body.mode-visitor .visitor-only {
     display: block !important;
 }
 body.mode-visitor .poster-main {
-    grid-template-columns: 1fr 1.5fr 1fr; /* Restore 3 columns because visitor-only cards are in the 3rd column */
+    column-count: 3;
 }
 body.mode-visitor .poster-footer {
     grid-template-columns: 1.5fr 1fr; /* Rebalance footer space without the references column */
@@ -1876,8 +1873,8 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
 /* Tablet breakpoint */
 @media (max-width: 1100px) {
     .poster-main {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        column-count: 2;
+        column-gap: 1.5rem;
     }
     .dashboard-grid {
         grid-template-columns: 1fr;
@@ -1904,8 +1901,8 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
 
     /* Main grid: single column */
     .poster-main {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem;
+        column-count: 1 !important;
+        column-gap: 1.5rem;
     }
 
     .main-title {
@@ -2015,7 +2012,7 @@ input, select, textarea, .likert-scale span {
 /* MOBILE RESPONSIVENESS (Anti-Overflow, Flex-Fix) */
 @media (max-width: 768px) {
     .poster-main {
-        grid-template-columns: 1fr;
+        column-count: 1;
     }
     
     .col-left, .col-center, .col-right {
