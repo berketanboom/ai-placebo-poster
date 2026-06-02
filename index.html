@@ -126,13 +126,13 @@
                 <!-- VISITOR B1: Landing -->
                 <div class="card visitor-only" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
                     <h2 class="hero-slogan" data-i18n="v-b1-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Can you trust your ears? 🎧</h2>
-                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">We tested 30 people to find out: does knowing a song was made by AI change how it feels?</p>
+                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and access the analysis materials.</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 2rem;">
                         <span data-i18n='v-b1-desc'>Imagine someone plays you a beautiful song. They tell you it was written by AI. </span> 
                     </p>
                     <button class="dene-btn" style="margin: 0 auto;" onclick="openExperienceModal()">
                         <span class="dene-pulse"></span>
-                        <span data-i18n='v-b1-btn'>🎧 Try the experiment yourself</span>
+                        <span data-i18n='v-b1-btn'>🎧 TRY THE STUDY YOURSELF</span>
                     </button>
                 </div>
 
@@ -164,11 +164,11 @@
                         <div style="display: flex; align-items: center; gap: 1rem;">
                             <span class="insight-label" data-i18n="a-results-insight-label">"AI" LABEL</span>
                             <span class="insight-arrow">↑</span>
-                            <span class="insight-value" data-i18n="a-results-insight-value">Right PFC Peak HbO</span>
+                            <span class="insight-value" data-i18n="a-results-insight-value">Right PFC Peak HbO2</span>
                         </div>
                         <div style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);" data-i18n="a-results-insight-desc">
-                            Linear Mixed-Effects (LME): <em>β<sub>1</sub></em> = 0.058, SE = 0.027, <em>p</em> = .047<br>
-                            <span style="font-size: 0.8rem; font-family: monospace;">Right PFC Peak HbO (µM): AI [0.247], Human [0.193]</span>
+                            AI labels showed a tentative right-PFC trend, while Left PFC showed no corresponding effect. This pattern suggests possible right-lateralized source-evaluation demand, but remains exploratory due to the small retained fNIRS sample (n = 13).<br>
+                            <span style="font-size: 0.8rem; font-family: monospace;">Right PFC Peak HbO2 (µM): AI [0.247], Human [0.193]</span>
                         </div>
                     </div>
                     <div class="chart-container main-chart" style="margin-top: 1rem;">
@@ -176,27 +176,134 @@
                     </div>
                     
                     <h3 style="margin-top: 2rem; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"><span data-i18n='a-explore-title'>Exploratory Findings</span></h3>
-                    <ul style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); padding-left: 1.2rem;">
-                        <li style="margin-bottom: 0.5rem;" data-i18n="a-explore-e1"><strong style="color: #fff;">E1 - The Authenticity Hierarchy:</strong> Human-produced music consistently rated higher in authenticity across all conditions (F(1,29)=7.8, p=.009, η²p=.212).</li>
-                        <li data-i18n="a-explore-e2"><strong style="color: #fff;">E2 - Right-Lateralized Label Effect:</strong> Label effect isolated to Right PFC (p=.047). Left PFC showed no significant variation based on label (p=.68).</li>
+                    
+                    <ul style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted); padding-left: 1.2rem; list-style-type: square; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Yücel et al. (2021) for fNIRS reporting best practices</li>
+                        <li style="margin-bottom: 0.5rem;">Pinti et al. (2019) for transparent preprocessing/reporting of fNIRS pipelines</li>
+                        <li style="margin-bottom: 0.5rem;">Hocke et al. (2018) for common fNIRS filtering practices</li>
+                        <li style="margin-bottom: 0.5rem;">Brigadoi et al. (2014) for motion artifacts and preprocessing concerns</li>
+                        <li style="margin-bottom: 0.5rem;">Fishburn et al. (2014) for HbO sensitivity in cognitive/task-based fNIRS</li>
+                        <li style="margin-bottom: 0.5rem;">Holper et al. (2022) for PFC/fNIRS relevance to trust/source evaluation contexts</li>
+                        <li style="margin-bottom: 0.5rem;">Zhang et al. (2025) for AI-label evaluative bias/neural context if already used in the thesis/poster</li>
                     </ul>
+
+                </div>
+
+                
+                <!-- ACADEMIC: Exploratory Behavioral Findings -->
+                <div class="card academic-only">
+                    <h2 data-i18n="a-explore-beh-title">Exploratory Behavioral Findings</h2>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; color: var(--text-muted);" data-i18n="a-explore-beh-subtitle">
+                        Beyond the main label effects, the behavioral data suggested several genre- and dimension-specific patterns.
+                    </p>
+                    
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-1-title">1. Trust was the most label-sensitive judgment</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-1-text">
+                        Among the rating dimensions, Trust appeared especially sensitive to source labeling. AI labels reduced trust more strongly than basic liking, suggesting that AI attribution primarily affects perceived agency and reliability rather than simple enjoyment. Trust showed a strong label-related effect, η²p = .339, p < .001.
+                    </p>
+
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-2-title">2. The AI penalty was selective, not global</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-2-text">
+                        Participants did not simply dislike AI-labeled music across all dimensions. The AI label mainly affected higher-order judgments such as Trust, Authenticity, Quality, and Emotional Investment, while Liking was comparatively more preserved.
+                    </p>
+
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-3-title">3. Genre changed the meaning of the AI label</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-3-text">
+                        The effect of the AI label depended on genre. Arabesque showed a stronger AI-label penalty, Blues appeared more label-invariant or weaker, and Electronic music showed a weaker or partially reversed AI penalty, consistent with genre-label congruency. Trust (Human − AI): Arabesque +1.14, Blues +0.10, Electronic −1.32. This suggests that AI attribution is not a universal bias; it depends on whether the label fits the cultural and acoustic expectations of the genre.
+                    </p>
+
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-4-title">4. Arabesque showed cultural sensitivity to AI labeling</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-4-text">
+                        Arabesque appeared especially sensitive to AI labeling. Because it is culturally and emotionally loaded, the AI label may have conflicted with expectations of human expression, lived experience, and cultural authenticity.
+                    </p>
+
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-5-title">5. Electronic music showed possible label congruency</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-5-text">
+                        Electronic music showed a weaker or partially reversed AI penalty. This may reflect genre-label congruency: listeners may perceive algorithmic or technological production as more compatible with electronic music than with culturally rooted acoustic genres.
+                    </p>
+
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-6-title">6. Actual producer and displayed label came apart</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-6-text">
+                        The design separated what the track actually was from what participants were told it was. This allowed the study to test whether evaluation followed the sound itself or the source attribution attached to it. The displayed source label was manipulated independently of actual producer.
+                    </p>
+
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-7-title">7. Liking and authenticity dissociated</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-7-text">
+                        One of the most important behavioral patterns was the dissociation between liking and authenticity. Participants could still like a piece of music while rating it as less authentic, less trustworthy, or less emotionally meaningful when it carried an AI label. This suggests that AI-label bias targets perceived human intention more than immediate pleasure.
+                    </p>
                 </div>
 
                 <!-- ACADEMIC: Method -->
                 <div class="card academic-only last-card-academic">
                     <h2 data-i18n='a-method-title'>Method</h2>
                     <div style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted);">
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Thirty healthy volunteers (17 M, 13 F; age 18-25) recruited from IUE. 13 retained for fNIRS analysis after rigorous channel-quality exclusion (SCI ≥ 0.7).</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Participants were 30 Turkish university students aged 18–25 years (13 female, 17 male), recruited through convenience sampling. All reported normal hearing and no neurological diagnosis. Twenty-two participants completed fNIRS recording. After quality control, 13 participants were retained for exploratory fNIRS analyses.</span></p>
                         <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-s-label">Stimuli & Design:</strong> <span data-i18n="a-method-s-desc">12 excerpts (25s) across Arabesque, Blues, Electronic. 2 Human-composed, 2 AI-generated (Suno v5) per genre. Within-subjects 2×2×3 factorial (Label × Producer × Genre).</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">25s playback &rarr; Label revealed at t=10s &rarr; 5-item Likert questionnaire &rarr; 10s ITI fixation.</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">7-point Likert (Emotional Investment, Authenticity, Trust, Liking, Quality). fNIRS: Biopac fNIR 1000, 16-channel prefrontal montage (730/850 nm).</span></p>
-                        <p><strong style="color: #fff;" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">Scalp Coupling Index, Modified Beer-Lambert Law (DPF = 6.0), Bandpass filter (0.01–0.2 Hz), Spike rejection, Epoching (−10s to +15s), Baseline correction, Peak HbO extraction (4-15s post-label).</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">Each trial began with an unlabeled music excerpt. After 10 seconds, a source label appeared: AI-Generated or Human-Composed. The excerpt continued until 25 seconds. Participants then rated the excerpt on five 7-point Likert scales: Liking, Quality, Trust, Authenticity, and Emotional Investment. A 10-second fixation interval followed each trial.</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">Behavioral DVs were Liking, Quality, Trust, Authenticity, and Emotional Investment. fNIRS HbO/HbR signals were inspected; inferential analyses focused on HbO2 Peak as the primary neural metric.</span></p>
+                        <p><strong style="color: #fff;" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">fNIRS preprocessing used raw .oxy HbO/HbR files, participant/file quality control, a 4th-order zero-phase Butterworth band-pass filter (0.01–0.2 Hz), local baseline correction using −10 to 0 s before label reveal, and a 4–15 s post-label HRF response window. ROI-level HbO2 peak values were extracted for Right and Left PFC.</span></p>
                     </div>
+                    
+                    <div style="margin-top: 1.5rem; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <p style="margin-bottom: 0.8rem;" data-i18n="a-method-fnirs-lit">
+                            fNIRS preprocessing followed a transparent, literature-informed workflow. Raw .oxy files were inspected for oxygenated and deoxygenated hemoglobin signals (HbO/HbO2 and HbR/Deoxy). Participant and file quality control was applied before inferential analysis. Retained signals were filtered with a 4th-order zero-phase Butterworth band-pass filter from 0.01 to 0.2 Hz to attenuate slow drift and high-frequency physiological/instrumental noise while preserving task-related hemodynamic fluctuations. A local trial-level baseline was computed from the −10 to 0 s interval before label reveal and subtracted from the post-label response. HbO2 Peak was then extracted from a 4–15 s post-label HRF response window for Right and Left PFC ROIs. This window was selected as a literature-informed sensitivity window to capture the delayed hemodynamic response after label onset. Because the retained fNIRS sample was small (n = 13), all neural analyses are reported as exploratory.
+                        </p>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q1">Why HbO2 as the primary metric?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a1">Both HbO/HbO2 and HbR/Deoxy were inspected. Inferential analyses focused on HbO2 Peak because HbO is commonly used in task-based fNIRS and typically shows stronger task-related response amplitude, while HbR was treated as a complementary signal.</p>
+                        </details>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q2">Why 0.01–0.2 Hz filtering?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a2">This band-pass range is commonly used to reduce very slow drift and higher-frequency physiological/instrumental noise while retaining task-related hemodynamic fluctuations.</p>
+                        </details>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q3">Why local baseline −10–0 s?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a3">A local pre-label baseline controls for trial-to-trial drift and captures the participant’s hemodynamic state immediately before the source label appears.</p>
+                        </details>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q4">Why 4–15 s HRF window?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a4">fNIRS hemodynamic responses are delayed relative to stimulus onset. The 4–15 s window was used as a literature-informed sensitivity window to capture the expected rise and peak response after label reveal. It should be reported as exploratory/sensitivity analysis, not as a universal standard.</p>
+                        </details>
+                    </div>
+
                     <!-- <div class="download-badges academic-only" style="margin-top: 1rem;">
                         <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/data.csv" target="_blank" rel="noopener" class="dl-badge" data-i18n="raw-data">📄 Raw Data (.csv)</a>
                         <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/analysis.py" target="_blank" rel="noopener" class="dl-badge" data-i18n="python-script">🐍 Python Script</a>
                         <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/spss_output.pdf" target="_blank" rel="noopener" class="dl-badge" data-i18n="spss-output">📊 SPSS Output</a>
                     </div> -->
+                </div>
+
+                
+                <!-- ACADEMIC: Analysis Materials & Reproducibility -->
+                <div class="card academic-only">
+                    <h2 data-i18n="a-materials-title">Analysis Materials & Reproducibility</h2>
+                    
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-a-title">What the scripts include</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);" data-i18n="a-materials-a-text">
+                        The analysis scripts load raw .oxy and .mrk files, extract label events, preprocess HbO/HbR signals, apply participant/file quality control, perform local baseline correction, extract ROI-level HbO2 Peak metrics, and compute participant-level t-tests and trial-level LME models.
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-b-title">What the scripts output</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);" data-i18n="a-materials-b-text">
+                        The scripts generate trial-level metrics, participant-level condition summaries, Right/Left PFC comparisons, and group-level statistical summaries. They are intended for reproducibility and transparency.
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-c-title">Important transparency note</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);" data-i18n="a-materials-c-text">
+                        The fNIRS analyses are exploratory. The scripts reproduce the poster-consistent literature-informed sensitivity analysis. They should not be presented as preregistered confirmatory analyses.
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-d-title">Download area</h3>
+                    <div class="download-badges" style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#" class="dl-badge" data-i18n="a-materials-dl-1">📄 Download fNIRS preprocessing script (TODO)</a>
+                        <a href="#" class="dl-badge" data-i18n="a-materials-dl-2">📄 Download fNIRS analysis script (TODO)</a>
+                        <a href="README_fNIRS_Analysis.md" target="_blank" class="dl-badge" data-i18n="a-materials-dl-3">📄 Download README / Methodological Notes</a>
+                        <a href="#" class="dl-badge" data-i18n="a-materials-dl-4">📊 Download output tables (TODO)</a>
+                    </div>
                 </div>
 
                 <!-- VISITOR B3: What We Found -->
@@ -216,12 +323,36 @@
                     </div>
                     <div style="margin-bottom: 1.5rem;">
                         <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-4'>🧠 Your brain knows</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-4d'>The moment you see the 'AI' word, the right side of your prefrontal cortex lights up — like you're switching into critical-thinking mode.</span></p>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-4d'>The moment you see the 'AI' word, the right side of your prefrontal cortex showed a higher HbO2 response pattern — like you're switching into critical-thinking mode.</span></p>
                     </div>
                     <div>
                         <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-5'>🎭 The label is powerful</span></h3>
                         <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-5d'>Across all genres, the source label was the biggest factor in how people rated the music. The actual quality of the music almost didn't matter.</span></p>
                     </div>
+                </div>
+
+                
+                <!-- VISITOR B5: What Else Did We Notice -->
+                <div class="card visitor-only">
+                    <h2 data-i18n="v-what-else-title">What Else Did We Notice?</h2>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;" data-i18n="v-what-else-subtitle">
+                        The biggest surprise was that people did not simply dislike AI music. Instead, the AI label changed specific judgments. People were more likely to question whether the music felt trustworthy, authentic, high-quality, or emotionally meaningful. Liking was more protected.
+                    </p>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; color: var(--accent);"><span data-i18n="v-what-else-1-title">Trust changed most</span></h3>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n="v-what-else-1-text">AI labels mainly affected whether people trusted the music as meaningful or reliable.</span></p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; color: var(--accent);"><span data-i18n="v-what-else-2-title">Genre mattered</span></h3>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n="v-what-else-2-text">Arabesque was more sensitive to AI labeling, while Electronic music sometimes made the AI label feel more fitting.</span></p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="font-size: 1.1rem; color: var(--accent);"><span data-i18n="v-what-else-3-title">Liking is not the whole story</span></h3>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n="v-what-else-3-text">People can enjoy a song while still judging it as less authentic or less emotionally human.</span></p>
+                    </div>
+                    <p style="font-size: 0.8rem; font-style: italic; color: #666;" data-i18n="v-what-else-disclaimer">
+                        These are behavioral patterns from the study sample. They do not mean every listener reacts the same way.
+                    </p>
                 </div>
 
                 <!-- VISITOR B4: How We Did It -->
@@ -272,10 +403,10 @@
                 <!-- ACADEMIC: Try Experience (from visitor landing) -->
                 <div class="card academic-only last-card-academic" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
                     <h2 class="hero-slogan" data-i18n="v-b1-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Can you trust your ears? 🎧</h2>
-                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">We tested 30 people to find out: does knowing a song was made by AI change how it feels?</p>
+                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and access the analysis materials.</p>
                     <button class="dene-btn" style="margin: 0 auto;" onclick="openExperienceModal()">
                         <span class="dene-pulse"></span>
-                        <span data-i18n='v-b1-btn'>🎧 Try the experiment yourself</span>
+                        <span data-i18n='v-b1-btn'>🎧 TRY THE STUDY YOURSELF</span>
                     </button>
                 </div>
 
@@ -305,7 +436,7 @@
                 <div class="hyp-item">
                     <strong style="color: var(--accent);" data-i18n="a-h1-label">H1 — Neural Source Expectancy [PARTIAL]</strong><br>
                     <em style="color: var(--text-muted);" data-i18n="a-h1-pred">Prediction: AI-labeled music will evoke greater HbO activation in prefrontal cortex than Human-labeled music.</em><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h1-res">Result: Right PFC Peak HbO: AI = 0.247 µM, Human = 0.193 µM, Δ = +0.055 µM. Paired t(12) = 1.60, p₁ = .068 (one-tailed). LME: β = 0.058, SE = 0.027, p₁ = .047.</em>
+                    <em style="color: var(--text-muted);" data-i18n="a-h1-res">Result: Right PFC Peak HbO2: AI = 0.247 µM, Human = 0.193 µM, Δ = +0.055 µM. Paired t(12) = 1.60, p₁ = .068 (one-tailed). LME: β = 0.058, SE = 0.027, p₁ = .047.</em>
                 </div>
                 <div class="hyp-item">
                     <strong style="color: var(--accent);" data-i18n="a-h2-label">H2 — Behavioral Labeling Effect [CONFIRMED]</strong><br>
@@ -537,7 +668,8 @@
                 <div class="exp-stage-inner">
                     <p class="exp-eyebrow" data-i18n="exp-final-eyebrow">THE BIG DISCOVERY</p>
                     <h2 class="exp-final-title" data-i18n="exp-final-title">LABEL INCREASES COGNITIVE LOAD</h2>
-                    <p class="exp-final-sub" data-i18n="exp-final-sub">"AI" labeled music activated the brain's skepticism centers <span class="exp-highlight">54% more</span>.</p>
+                    <p style="color: #ff9800; font-size: 0.85rem; font-style: italic; margin-bottom: 1rem;">Your result is based only on your ratings in this demo. It does not measure your brain activity.</p>
+                    <p class="exp-final-sub" data-i18n="exp-final-sub">In the retained fNIRS sample, AI-labeled trials showed a higher Right PFC HbO2 peak than Human-labeled trials. This neural result is exploratory and should not be interpreted as a personal diagnostic prediction.</p>
                     <div class="exp-final-stats">
                         <div class="exp-stat-pill" data-i18n="exp-pill-1">🧠 Right PFC Activity Up</div>
                         <div class="exp-stat-pill" data-i18n="exp-pill-2">💚 Cognitive Load Higher</div>
