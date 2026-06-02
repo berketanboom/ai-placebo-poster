@@ -1838,16 +1838,13 @@ input, select, textarea, .likert-scale span {
     }
     
     .col-left, .col-center, .col-right {
+        display: flex !important;
         flex-direction: column !important;
         width: 100%;
         max-width: 100%;
         align-self: auto !important;
         height: auto !important;
-    }
-    
-    .last-card-academic,
-    .last-card-visitor {
-        flex-grow: 0 !important;
+        grid-template-rows: none !important;
     }
     
     .header-content, .header-top-bar, .reveal-dashboard, .footer-col {
@@ -1979,77 +1976,65 @@ header,
     overflow: visible !important;
 }
 
-/* poster-main: columns align to top, no stretch */
-.poster-main {
-    align-items: start !important;
-}
-
-/* Column containers: auto height, top-aligned */
-.col-left,
-.col-center,
-.col-right {
-    align-self: start !important;
-    height: fit-content !important;
-    justify-content: flex-start !important;
-}
-
-/* ============================================================
-   GRID GAP FIX — FINAL OVERRIDE
-   ============================================================ */
-
-.poster-main {
-    display: grid !important;
-    grid-template-columns: 1fr 1.5fr 1fr !important;
-    align-items: stretch !important;
-    grid-auto-rows: auto !important;
-}
-
-.col-left,
-.col-center,
-.col-right {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    align-self: stretch !important;
-    height: 100% !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    flex: none !important;
-}
-
-/* ============================================================
-   DEFINITIVE LAYOUT FIX
-   ============================================================ */
+/* Align columns at the top level and stretch them to match the height of the tallest column */
+.poster-main,
 body.mode-academic .poster-main,
 body.mode-visitor .poster-main {
     display: grid !important;
     grid-template-columns: 1fr 1.5fr 1fr !important;
-    grid-auto-rows: max-content !important;
+    grid-auto-rows: auto !important;
     align-items: stretch !important;
     gap: 2rem !important;
 }
 
+/* Base column stretching styling */
+.col-left,
+.col-center,
+.col-right,
 body.mode-academic .col-left,
 body.mode-academic .col-center,
 body.mode-academic .col-right,
 body.mode-visitor .col-left,
 body.mode-visitor .col-center,
 body.mode-visitor .col-right {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
     align-self: stretch !important;
-    height: 100% !important;
+    height: auto !important;
     min-height: unset !important;
     max-height: unset !important;
-    flex: 0 0 auto !important;
+    flex: none !important;
     overflow: visible !important;
 }
 
-/* Grow the last visible card to align bottoms */
-body.mode-academic .last-card-academic {
-    flex-grow: 1 !important;
+/* Academic Mode: Column layout with CSS Grid to stretch cards */
+body.mode-academic .col-left {
+    display: grid !important;
+    grid-template-rows: 1fr !important;
+    gap: 2rem !important;
 }
-body.mode-visitor .last-card-visitor {
-    flex-grow: 1 !important;
+body.mode-academic .col-center {
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    gap: 2rem !important;
+}
+body.mode-academic .col-right {
+    display: grid !important;
+    grid-template-rows: auto auto 1fr !important;
+    gap: 2rem !important;
+}
+
+/* Visitor Mode: Column layout with CSS Grid to stretch cards */
+body.mode-visitor .col-left {
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    gap: 2rem !important;
+}
+body.mode-visitor .col-center {
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    gap: 2rem !important;
+}
+body.mode-visitor .col-right {
+    display: grid !important;
+    grid-template-rows: 1fr !important;
+    gap: 2rem !important;
 }
