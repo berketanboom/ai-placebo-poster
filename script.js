@@ -16,7 +16,7 @@ const translations = {
     'a-method-title': { en: 'Method', tr: 'Metot' },
     'a-results-title': { en: 'Neural Results', tr: 'Sinirsel Sonuçlar' },
     'a-discussion-title': { en: 'Discussion', tr: 'Tartışma' },
-    'a-references-title': { en: 'Key References', tr: 'Temel Kaynaklar' },
+    'a-references-title': { en: 'References', tr: 'Referanslar' },
     'a-explore-title': { en: 'Exploratory Findings', tr: 'Keşfedici Bulgular' },
     'a-limits-title': { en: 'Limitations', tr: 'Sınırlılıklar' },
     

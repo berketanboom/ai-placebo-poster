@@ -139,17 +139,17 @@
     <div class="container">
         <a href="index.html" class="back-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Back to Poster
+            <span data-i18n="back-link">Back to Poster</span>
         </a>
 
         <header>
-            <p class="subtitle">Full Bibliography</p>
-            <h1>Sources & Resources</h1>
-            <p style="color: var(--text-muted);">Comprehensive list of academic papers, tools, and data sources used in this study.</p>
+            <p class="subtitle" data-i18n="subtitle">Full Bibliography</p>
+            <h1 data-i18n="title">Sources & Resources</h1>
+            <p style="color: var(--text-muted);" data-i18n="desc">Comprehensive list of academic papers, tools, and data sources used in this study.</p>
         </header>
 
         <section class="source-card">
-            <h2>Primary Academic References</h2>
+            <h2 data-i18n="primary-refs">Primary Academic References</h2>
             <ul class="ref-list">
                 <li class="ref-item">
                     Ansani, A., Marini, M., & Mallia, L. (2025). AI performer bias in music evaluation: The impact of authorship labels on aesthetic judgments. <em>Psychology of Aesthetics, Creativity, and the Arts</em>, 19(1), 45-58.
@@ -176,38 +176,88 @@
         </section>
 
         <section class="source-card">
-            <h2>Methodological Tools</h2>
+            <h2 data-i18n="method-tools">Methodological Tools</h2>
             <ul class="ref-list">
-                <li class="ref-item">
+                <li class="ref-item" data-i18n="tool-hardware">
                     <strong>fNIRS Hardware:</strong> fNIR Imager 1000 (fNIR Devices LLC) with 16-channel forehead sensor array.
                 </li>
-                <li class="ref-item">
+                <li class="ref-item" data-i18n="tool-acquisition">
                     <strong>Data Acquisition:</strong> COBI Studio (v.1.5.0.55) for real-time hemodynamic quantification.
                 </li>
-                <li class="ref-item">
+                <li class="ref-item" data-i18n="tool-pipeline">
                     <strong>Processing Pipeline:</strong> MNE-Python & SciPy for Butterworth band-pass filtering (0.01–0.2 Hz) and spike interpolation.
                 </li>
-                <li class="ref-item">
+                <li class="ref-item" data-i18n="tool-modeling">
                     <strong>Statistical Modeling:</strong> Linear Mixed-Effects (LME) models with participant-level random intercepts (statsmodels v.0.14).
                 </li>
             </ul>
         </section>
 
         <section class="source-card">
-            <h2>Music Generation Sources</h2>
+            <h2 data-i18n="music-sources">Music Generation Sources</h2>
             <ul class="ref-list">
-                <li class="ref-item">
+                <li class="ref-item" data-i18n="music-ai">
                     <strong>AI Music:</strong> Generated using Suno v4.0 and Udio AI platforms, customized via prompt engineering to match genre-specific emotional parameters.
                 </li>
-                <li class="ref-item">
+                <li class="ref-item" data-i18n="music-human">
                     <strong>Human Music:</strong> Curated from independent artists (Creative Commons) and studio recordings, normalized for loudness and frequency response.
                 </li>
             </ul>
         </section>
 
         <footer>
-            <p>&copy; 2026 Berke Tan Tabak &bull; İzmir University of Economics &bull; Psychology Department</p>
+            <p data-i18n="footer-text">&copy; 2026 Berke Tan Tabak &bull; İzmir University of Economics &bull; Psychology Department</p>
         </footer>
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                "back-link": "Back to Poster",
+                "subtitle": "Full Bibliography",
+                "title": "Sources & Resources",
+                "desc": "Comprehensive list of academic papers, tools, and data sources used in this study.",
+                "primary-refs": "Primary Academic References",
+                "method-tools": "Methodological Tools",
+                "tool-hardware": "<strong>fNIRS Hardware:</strong> fNIR Imager 1000 (fNIR Devices LLC) with 16-channel forehead sensor array.",
+                "tool-acquisition": "<strong>Data Acquisition:</strong> COBI Studio (v.1.5.0.55) for real-time hemodynamic quantification.",
+                "tool-pipeline": "<strong>Processing Pipeline:</strong> MNE-Python & SciPy for Butterworth band-pass filtering (0.01–0.2 Hz) and spike interpolation.",
+                "tool-modeling": "<strong>Statistical Modeling:</strong> Linear Mixed-Effects (LME) models with participant-level random intercepts (statsmodels v.0.14).",
+                "music-sources": "Music Generation Sources",
+                "music-ai": "<strong>AI Music:</strong> Generated using Suno v4.0 and Udio AI platforms, customized via prompt engineering to match genre-specific emotional parameters.",
+                "music-human": "<strong>Human Music:</strong> Curated from independent artists (Creative Commons) and studio recordings, normalized for loudness and frequency response.",
+                "footer-text": "&copy; 2026 Berke Tan Tabak &bull; İzmir University of Economics &bull; Psychology Department"
+            },
+            tr: {
+                "back-link": "Postere Geri Dön",
+                "subtitle": "Tam Kaynakça",
+                "title": "Kaynaklar ve Materyaller",
+                "desc": "Bu çalışmada kullanılan akademik makalelerin, araçların ve veri kaynaklarının kapsamlı listesi.",
+                "primary-refs": "Birincil Akademik Referanslar",
+                "method-tools": "Metodolojik Araçlar",
+                "tool-hardware": "<strong>fNIRS Donanımı:</strong> 16 kanallı alın sensör dizisine sahip fNIR Imager 1000 (fNIR Devices LLC).",
+                "tool-acquisition": "<strong>Veri Toplama:</strong> Gerçek zamanlı hemodinamik kantifikasyon için COBI Studio (v.1.5.0.55).",
+                "tool-pipeline": "<strong>İşlem Akışı:</strong> Butterworth bant geçiren filtreleme (0.01-0.2 Hz) ve sıçrama interpolasyonu için MNE-Python ve SciPy.",
+                "tool-modeling": "<strong>İstatistiksel Modelleme:</strong> Katılımcı düzeyinde rastgele kesişim noktalarına sahip Doğrusal Karma Etkiler (LME) modelleri (statsmodels v.0.14).",
+                "music-sources": "Müzik Üretim Kaynakları",
+                "music-ai": "<strong>YZ Müziği:</strong> Tür bazlı duygusal parametreleri eşleştirmek için istem mühendisliği yoluyla özelleştirilmiş, Suno v4.0 ve Udio Yapay Zeka platformları kullanılarak üretilmiştir.",
+                "music-human": "<strong>İnsan Müziği:</strong> Bağımsız sanatçılardan (Creative Commons) ve stüdyo kayıtlarından derlenmiş, ses seviyesi ve frekans tepkisi için normalize edilmiştir.",
+                "footer-text": "&copy; 2026 Berke Tan Tabak &bull; İzmir Ekonomi Üniversitesi &bull; Psikoloji Bölümü"
+            }
+        };
+
+        function applyLanguage() {
+            const lang = localStorage.getItem('lang') || 'en';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key] !== undefined) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.title = lang === 'tr' ? "Kaynaklar & Kaynakça - YZ Atıf Çalışması" : "Sources & Bibliography - AI Attribution Study";
+        }
+
+        window.addEventListener('DOMContentLoaded', applyLanguage);
+    </script>
 </body>
 </html>
