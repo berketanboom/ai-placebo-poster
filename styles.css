@@ -1841,6 +1841,13 @@ input, select, textarea, .likert-scale span {
         flex-direction: column !important;
         width: 100%;
         max-width: 100%;
+        align-self: auto !important;
+        height: auto !important;
+    }
+    
+    .last-card-academic,
+    .last-card-visitor {
+        flex-grow: 0 !important;
     }
     
     .header-content, .header-top-bar, .reveal-dashboard, .footer-col {
@@ -1972,14 +1979,52 @@ header,
     overflow: visible !important;
 }
 
+/* poster-main: columns align to top, no stretch */
+.poster-main {
+    align-items: start !important;
+}
+
+/* Column containers: auto height, top-aligned */
+.col-left,
+.col-center,
+.col-right {
+    align-self: start !important;
+    height: fit-content !important;
+    justify-content: flex-start !important;
+}
+
 /* ============================================================
-   DEFINITIVE EQUAL HEIGHT COLUMNS LAYOUT FIX
+   GRID GAP FIX — FINAL OVERRIDE
+   ============================================================ */
+
+.poster-main {
+    display: grid !important;
+    grid-template-columns: 1fr 1.5fr 1fr !important;
+    align-items: stretch !important;
+    grid-auto-rows: auto !important;
+}
+
+.col-left,
+.col-center,
+.col-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-self: stretch !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: none !important;
+}
+
+/* ============================================================
+   DEFINITIVE LAYOUT FIX
    ============================================================ */
 body.mode-academic .poster-main,
 body.mode-visitor .poster-main {
     display: grid !important;
     grid-template-columns: 1fr 1.5fr 1fr !important;
-    grid-auto-rows: auto !important;
+    grid-auto-rows: max-content !important;
     align-items: stretch !important;
     gap: 2rem !important;
 }
@@ -1994,20 +2039,17 @@ body.mode-visitor .col-right {
     flex-direction: column !important;
     gap: 2rem !important;
     align-self: stretch !important;
-    height: auto !important;
+    height: 100% !important;
     min-height: unset !important;
     max-height: unset !important;
-    flex: 1 1 auto !important;
+    flex: 0 0 auto !important;
     overflow: visible !important;
 }
 
-/* Make active cards stretch to align their bottom borders */
-body.mode-academic .col-left > .card.academic-only,
-body.mode-academic .col-center > .card.academic-only,
-body.mode-academic .col-right > .card.academic-only,
-body.mode-visitor .col-left > .card.visitor-only,
-body.mode-visitor .col-center > .card.visitor-only,
-body.mode-visitor .col-right > .card.visitor-only {
-    flex: 1 1 auto !important;
+/* Grow the last visible card to align bottoms */
+body.mode-academic .last-card-academic {
+    flex-grow: 1 !important;
 }
-
+body.mode-visitor .last-card-visitor {
+    flex-grow: 1 !important;
+}
