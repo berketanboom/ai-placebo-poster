@@ -615,7 +615,6 @@ function toggleInteractiveDashboard() {
     } else {
         if(window.lastFocusedElement) { window.lastFocusedElement.focus(); window.lastFocusedElement = null; }
     }
-    const overlay = document.getElementById('dashboardOverlay');
     if(overlay) overlay.classList.toggle('active');
 }
 
