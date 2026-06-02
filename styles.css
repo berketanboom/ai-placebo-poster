@@ -125,7 +125,7 @@ img, video {
 .col-left, .col-center, .col-right {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 2rem;
 }
 
@@ -253,7 +253,7 @@ body.mode-visitor .visitor-option {
     list-style: none;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1rem;
 }
 
@@ -401,7 +401,7 @@ body.mode-visitor .visitor-option {
 .brain-map-container {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
     margin-top: 1rem; /* Removed auto to prevent pushing to extreme bottom */
@@ -439,7 +439,7 @@ body.mode-visitor .visitor-option {
 .timeline {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.5rem;
 }
 
@@ -539,7 +539,7 @@ body.mode-visitor .visitor-option {
 
 .qr-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -1099,7 +1099,7 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
     animation: fadeIn 0.5s; 
 }
 
-.exp-stage-inner { display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; text-align: center; }
+.exp-stage-inner { display: flex; flex-direction: column; flex-wrap: nowrap; align-items: center; text-align: center; }
 
 .exp-eyebrow {
     font-size: 0.8rem;
@@ -1140,7 +1140,7 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
 .exp-choice-btn {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 0.6rem;
     padding: 2.5rem 3rem;
@@ -1190,7 +1190,7 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
     0% { top: 0; opacity: 1; }
     100% { top: 100%; opacity: 0.3; }
 }
-.exp-meters { display: flex; flex-direction: column; flex-wrap: wrap; gap: 1.5rem; width: 100%; max-width: 400px; min-width: 0; }
+.exp-meters { display: flex; flex-direction: column; flex-wrap: nowrap; gap: 1.5rem; width: 100%; max-width: 400px; min-width: 0; }
 .exp-meter-row {
     display: grid;
     grid-template-columns: 120px 1fr 45px;
@@ -1350,7 +1350,7 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 0.8rem;
     cursor: pointer;
@@ -1384,7 +1384,7 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1.5rem;
     text-align: left;
     margin: 0 auto;
@@ -1441,7 +1441,7 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1.5rem;
 }
 .detail-row {
@@ -1473,7 +1473,7 @@ body.mode-visitor .visitor-only[style*="display:inline"] {
 .detail-bars {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 4px;
 }
 .d-bar {
@@ -1888,4 +1888,153 @@ input, select, textarea, .likert-scale span {
     div[style*="display: flex"] {
         flex-wrap: wrap !important;
     }
+}
+
+/* ============================================================
+   UI SPACING & LAYOUT OPTIMIZATION (merged from spacing-patch.css)
+   ============================================================ */
+
+/* Strip bottom margin on last child of key containers */
+.card > *:last-child,
+.col-left > *:last-child,
+.col-center > *:last-child,
+.col-right > *:last-child,
+.reveal-col > *:last-child,
+.survey-form > *:last-child,
+.exp-stage-inner > *:last-child,
+.likert-scale > *:last-child,
+.design-grid > *:last-child,
+.survey-q > *:last-child,
+.detail-row > *:last-child,
+.exp-results-detailed > *:last-child,
+.song-card > *:last-child,
+.hyp-item > *:last-child,
+.timeline > *:last-child,
+.tl-item > *:last-child,
+.method-section > *:last-child,
+.dashboard-content > *:last-child,
+.exp-reveal-box > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Proportional card padding */
+.card,
+.role-card,
+.exp-choice-btn,
+.exp-compare-card,
+.song-card,
+.dash-card,
+.insight-panel {
+    padding: clamp(8px, 2vw, 16px) !important;
+}
+
+/* Proportional overlay/box padding */
+.dashboard-content,
+.exp-reveal-box {
+    padding: clamp(12px, 3vw, 24px) !important;
+}
+
+/* Grid rows collapse to content — eliminates phantom row gaps */
+.poster-main,
+.hypotheses-grid,
+.design-grid,
+.poster-footer,
+.dashboard-grid,
+.exp-meter-row,
+.exp-genre-grid,
+.genre-btns,
+.exp-song-breakdown,
+.reveal-dashboard {
+    grid-auto-rows: min-content !important;
+}
+
+/* Prevent flex containers from vertically stretching children */
+.authors,
+.download-badges,
+.pipeline-tags,
+.timeline,
+.exp-compare,
+.exp-final-stats,
+.exp-final-btns {
+    align-items: flex-start !important;
+}
+
+/* Height auto + overflow visible */
+section,
+header,
+.card,
+.hypotheses-grid,
+.design-grid,
+.exp-genre-grid,
+.exp-song-breakdown,
+.reveal-dashboard {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* poster-main: columns align to top, no stretch */
+.poster-main {
+    align-items: start !important;
+}
+
+/* Column containers: auto height, top-aligned */
+.col-left,
+.col-center,
+.col-right {
+    align-self: start !important;
+    height: fit-content !important;
+    justify-content: flex-start !important;
+}
+
+/* ============================================================
+   GRID GAP FIX — FINAL OVERRIDE
+   ============================================================ */
+
+.poster-main {
+    display: grid !important;
+    grid-template-columns: 1fr 1.5fr 1fr !important;
+    align-items: start !important;
+    grid-auto-rows: auto !important;
+}
+
+.col-left,
+.col-center,
+.col-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-self: start !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: none !important;
+}
+
+/* ============================================================
+   DEFINITIVE LAYOUT FIX
+   ============================================================ */
+body.mode-academic .poster-main,
+body.mode-visitor .poster-main {
+    display: grid !important;
+    grid-template-columns: 1fr 1.5fr 1fr !important;
+    grid-auto-rows: max-content !important;
+    align-items: start !important;
+    gap: 2rem !important;
+}
+
+body.mode-academic .col-left,
+body.mode-academic .col-center,
+body.mode-academic .col-right,
+body.mode-visitor .col-left,
+body.mode-visitor .col-center,
+body.mode-visitor .col-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-self: start !important;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
 }

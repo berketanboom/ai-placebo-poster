@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Neuro-Cognitive Dynamics of AI Attribution in Music</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="spacing-patch.css">
+    <link rel="stylesheet" href="styles.css?v=1.3">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
@@ -62,7 +61,7 @@
                 </div>
             </div>
             <div class="landing-footer">
-                Berke Tan Tabak &bull; <span data-i18n="supervisor">Supervisor: Prof. Dr. Seda Dural</span><br>
+                Berke Tan TABAK &bull; <span data-i18n="supervisor">Supervisor: Prof. Dr. Seda DURAL</span><br>
                 <span data-i18n="institution">İzmir University of Economics &bull; Department of Psychology</span>
             </div>
         </div>
@@ -71,7 +70,7 @@
 
 
     <div class="poster-container">
-        <button class="exit-poster-btn" onclick="backToLanding()" title="Kapat">
+        <button class="exit-poster-btn" onclick="backToLanding()" data-i18n-title="btn-close-title" title="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -86,6 +85,10 @@
                     <span class="accent">AI</span>-PLACEBO
                 </div>
                 <div class="header-controls" style="display: flex; gap: 1rem; align-items: center;">
+                    <div class="lang-switcher" style="margin-right: 0.5rem;">
+                        <button class="lang-btn active" onclick="setLanguage('en')">ENG</button>
+                        <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+                    </div>
                     <div class="path-toggle" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 4px; display: flex; cursor: pointer; border: 1px solid rgba(255,255,255,0.2);" onclick="togglePath()">
                         <span class="toggle-option academic-option" style="padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 600; transition: background 0.3s, color 0.3s;" data-i18n="toggle-academic">Academic</span>
                         <span class="toggle-option visitor-option" style="padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 600; transition: background 0.3s, color 0.3s;" data-i18n="toggle-visitor">Visitor</span>
@@ -96,7 +99,7 @@
                 <div class="institution" data-i18n="institution">İZMİR UNIVERSITY OF ECONOMICS &bull; PSYCHOLOGY 2026</div>
                 <h1 class="main-title" data-i18n="landing-title">Neuro-Cognitive Dynamics of<br><span class="accent">AI Attribution</span> in Music Perception</h1>
                 <p class="authors">
-                    <strong>Berke Tan Tabak</strong> &bull; <span data-i18n="supervisor">Supervisor: Prof. Dr. Seda Dural</span>
+                    <strong>Berke Tan TABAK</strong> &bull; <span data-i18n="supervisor">Supervisor: Prof. Dr. Seda DURAL</span>
                 </p>
             </div>
             <div class="header-tag academic-only" data-i18n="a-header-tag">Graduation Thesis / Experimental Psychology</div>
@@ -117,22 +120,7 @@
                 </div>
 
 
-                <!-- ACADEMIC: Method -->
-                <div class="card academic-only">
-                    <h2 data-i18n='a-method-title'>Method</h2>
-                    <div style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted);">
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Thirty healthy volunteers (17 M, 13 F; age 18-25) recruited from IUE. 13 retained for fNIRS analysis after rigorous channel-quality exclusion (SCI ≥ 0.7).</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-s-label">Stimuli & Design:</strong> <span data-i18n="a-method-s-desc">12 excerpts (25s) across Arabesque, Blues, Electronic. 2 Human-composed, 2 AI-generated (Suno v5) per genre. Within-subjects 2×2×3 factorial (Label × Producer × Genre).</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">25s playback &rarr; Label revealed at t=10s &rarr; 5-item Likert questionnaire &rarr; 10s ITI fixation.</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">7-point Likert (Emotional Investment, Authenticity, Trust, Liking, Quality). fNIRS: Biopac fNIR 1000, 16-channel prefrontal montage (730/850 nm).</span></p>
-                        <p><strong style="color: #fff;" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">Scalp Coupling Index, Modified Beer-Lambert Law (DPF = 6.0), Bandpass filter (0.01–0.2 Hz), Spike rejection, Epoching (−10s to +15s), Baseline correction, Peak HbO extraction (4-15s post-label).</span></p>
-                    </div>
-                    <!-- <div class="download-badges academic-only" style="margin-top: 1rem;">
-                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/data.csv" target="_blank" rel="noopener" class="dl-badge" data-i18n="raw-data">📄 Raw Data (.csv)</a>
-                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/analysis.py" target="_blank" rel="noopener" class="dl-badge" data-i18n="python-script">🐍 Python Script</a>
-                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/spss_output.pdf" target="_blank" rel="noopener" class="dl-badge" data-i18n="spss-output">📊 SPSS Output</a>
-                    </div> -->
-                </div>
+
 
 
                 <!-- VISITOR B1: Landing -->
@@ -168,7 +156,6 @@
 
             <!-- CENTER COLUMN -->
             <section class="col-center">
-                <!-- ACADEMIC: Method moved to left column for spacing balance -->
 
                 <!-- ACADEMIC: Results & Exploratory -->
                 <div class="card academic-only">
@@ -193,6 +180,23 @@
                         <li style="margin-bottom: 0.5rem;" data-i18n="a-explore-e1"><strong style="color: #fff;">E1 - The Authenticity Hierarchy:</strong> Human-produced music consistently rated higher in authenticity across all conditions (F(1,29)=7.8, p=.009, η²p=.212).</li>
                         <li data-i18n="a-explore-e2"><strong style="color: #fff;">E2 - Right-Lateralized Label Effect:</strong> Label effect isolated to Right PFC (p=.047). Left PFC showed no significant variation based on label (p=.68).</li>
                     </ul>
+                </div>
+
+                <!-- ACADEMIC: Method -->
+                <div class="card academic-only">
+                    <h2 data-i18n='a-method-title'>Method</h2>
+                    <div style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted);">
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Thirty healthy volunteers (17 M, 13 F; age 18-25) recruited from IUE. 13 retained for fNIRS analysis after rigorous channel-quality exclusion (SCI ≥ 0.7).</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-s-label">Stimuli & Design:</strong> <span data-i18n="a-method-s-desc">12 excerpts (25s) across Arabesque, Blues, Electronic. 2 Human-composed, 2 AI-generated (Suno v5) per genre. Within-subjects 2×2×3 factorial (Label × Producer × Genre).</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">25s playback &rarr; Label revealed at t=10s &rarr; 5-item Likert questionnaire &rarr; 10s ITI fixation.</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">7-point Likert (Emotional Investment, Authenticity, Trust, Liking, Quality). fNIRS: Biopac fNIR 1000, 16-channel prefrontal montage (730/850 nm).</span></p>
+                        <p><strong style="color: #fff;" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">Scalp Coupling Index, Modified Beer-Lambert Law (DPF = 6.0), Bandpass filter (0.01–0.2 Hz), Spike rejection, Epoching (−10s to +15s), Baseline correction, Peak HbO extraction (4-15s post-label).</span></p>
+                    </div>
+                    <!-- <div class="download-badges academic-only" style="margin-top: 1rem;">
+                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/data.csv" target="_blank" rel="noopener" class="dl-badge" data-i18n="raw-data">📄 Raw Data (.csv)</a>
+                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/analysis.py" target="_blank" rel="noopener" class="dl-badge" data-i18n="python-script">🐍 Python Script</a>
+                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/spss_output.pdf" target="_blank" rel="noopener" class="dl-badge" data-i18n="spss-output">📊 SPSS Output</a>
+                    </div> -->
                 </div>
 
                 <!-- VISITOR B3: What We Found -->
@@ -327,14 +331,14 @@
                 <div class="dashboard-preview" style="display: inline-block; text-align: center;">
                     <h4 data-i18n="explore-data" style="margin-bottom: 0.5rem; color: var(--accent);">EXPLORE LIVE DATA</h4>
                     <p data-i18n="click-dashboard" style="color: var(--text-muted); margin-bottom: 1rem;">Click to view full interactive results dashboard</p>
-                    <button class="dash-btn" disabled title="Results dashboard will be active after thesis submission — June 2026" data-i18n="btn-view" style="padding: 10px 20px; background: rgba(29, 185, 84, 0.2); border: 1px solid var(--accent); color: #fff; border-radius: 8px; cursor: not-allowed; opacity: 0.5;">View Results Dashboard &rarr;</button>
+                    <button class="dash-btn" onclick="toggleInteractiveDashboard()" data-i18n-title="btn-view-title" data-i18n="btn-view" style="padding: 10px 20px; background: rgba(29, 185, 84, 0.2); border: 1px solid var(--accent); color: #fff; border-radius: 8px; cursor: pointer; opacity: 1;">View Results Dashboard &rarr;</button>
                 </div>
             </div>
 
             <!-- VISITOR FOOTER -->
             <div class="footer-col visitor-only" style="width: 100%; text-align: center;">
                 <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.8rem;"><span data-i18n='v-footer-switch'>Want the full nerd version?</span> <a href="#" onclick="togglePath()" style="color: var(--accent); text-decoration: none;"><span data-i18n='v-footer-btn'>&rarr; Switch to Academic View</span></a></p>
-                <p style="color: var(--text-muted); font-size: 0.95rem;"><span data-i18n='v-footer-feedback'>Have feedback or questions? &rarr;</span> <a href="mailto:berketabak@gmail.com" style="color: var(--accent); text-decoration: none;"><span data-i18n='v-footer-email'>Email Berke</span></a></p>
+                <p style="color: var(--text-muted); font-size: 0.95rem;"><span data-i18n='v-footer-feedback'>Have feedback or questions? &rarr;</span> <a href="mailto:berketabak@gmail.com" style="color: var(--accent); text-decoration: none;"><span data-i18n='v-footer-email'>Email BERKE</span></a></p>
             </div>
         </footer>
     </div>
@@ -354,18 +358,18 @@
                     <div class="exp-genre-grid">
                         <button class="genre-btn" onclick="setGenre('ara')">
                             <span class="genre-icon">🎻</span>
-                            <h3 class="genre-name">Arabesk</h3>
-                            <p class="genre-sub" data-i18n="genre-ara-desc">Duygusal Yoğunluk</p>
+                            <h3 class="genre-name" data-i18n="genre-ara-name">Arabesque</h3>
+                            <p class="genre-sub" data-i18n="genre-ara-desc">Emotional Intensity</p>
                         </button>
                         <button class="genre-btn" onclick="setGenre('blues')">
                             <span class="genre-icon">🎸</span>
-                            <h3 class="genre-name">Blues</h3>
-                            <p class="genre-sub" data-i18n="genre-blues-desc">Melodik Estetik</p>
+                            <h3 class="genre-name" data-i18n="genre-blues-name">Blues</h3>
+                            <p class="genre-sub" data-i18n="genre-blues-desc">Melodic Aesthetics</p>
                         </button>
                         <button class="genre-btn" onclick="setGenre('elec')">
                             <span class="genre-icon">🎧</span>
-                            <h3 class="genre-name">Electronic</h3>
-                            <p class="genre-sub" data-i18n="genre-elec-desc">Teknolojik Yapı</p>
+                            <h3 class="genre-name" data-i18n="genre-elec-name">Electronic</h3>
+                            <p class="genre-sub" data-i18n="genre-elec-desc">Technological Structure</p>
                         </button>
                     </div>
                 </div>
@@ -533,6 +537,30 @@
                     <div class="exp-final-btns">
                         <button class="exp-next-btn" onclick="expStage(1)" data-i18n="exp-try-again">🔄 Try Again</button>
                         <button class="exp-next-btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);" onclick="closeExperience()" data-i18n="exp-back-poster">Back to Poster</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE DASHBOARD OVERLAY -->
+    <div class="dashboard-overlay" id="dashboardOverlay">
+        <div class="dashboard-content">
+            <button class="close-btn" onclick="toggleInteractiveDashboard()">&times;</button>
+            <h2 data-i18n="dash-title" style="color: var(--accent); font-family: var(--font-heading); margin-bottom: 1.5rem; font-size: 2rem;">Interactive Results Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="dash-card">
+                    <h3 data-i18n="dash-card-1-title" style="color: #fff; font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.25rem;">Genre-Label Interaction</h3>
+                    <p data-i18n="dash-card-1-desc" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Emotional Investment / Trust rating by genre and attribution label.</p>
+                    <div class="chart-container" style="position: relative; height: 250px; width: 100%;">
+                           <canvas id="genreChart"></canvas>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <h3 data-i18n="dash-card-2-title" style="color: #fff; font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.25rem;">Prefrontal Hemodynamic Dynamics</h3>
+                    <p data-i18n="dash-card-2-desc" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">HbO changes in Right PFC over the course of a 25-second trial.</p>
+                    <div class="chart-container" style="position: relative; height: 250px; width: 100%;">
+                           <canvas id="hboChart"></canvas>
                     </div>
                 </div>
             </div>

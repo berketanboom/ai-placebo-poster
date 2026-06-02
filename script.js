@@ -6,12 +6,30 @@ if (typeof Chart !== 'undefined') {
 const accentColor = '#1DB954';
 let expAudio = null; // Declared globally to avoid Temporal Dead Zone issues
 let heroChart = null; // Declared globally to allow dynamic updates on language switch
+let genreChart = null; // Declared globally to allow dynamic updates on language switch
+let hboChart = null; // Declared globally to allow dynamic updates on language switch
 
 
 // ============================================================
 // I18N - TRANSLATIONS
 // ============================================================
 const translations = {
+    'genre-ara-desc': { en: 'Emotional Intensity', tr: 'Duygusal Yoğunluk' },
+    'genre-blues-desc': { en: 'Melodic Aesthetics', tr: 'Melodik Estetik' },
+    'genre-elec-desc': { en: 'Technological Structure', tr: 'Teknolojik Yapı' },
+    'genre-ara-name': { en: 'Arabesque', tr: 'Arabesk' },
+    'genre-blues-name': { en: 'Blues', tr: 'Blues' },
+    'genre-elec-name': { en: 'Electronic', tr: 'Elektronik' },
+    'audio-playing': { en: 'Playing...', tr: 'Oynatılıyor...' },
+    'v-dash-5': { en: 'Curious for the details? <br>', tr: 'Detayları mı merak ediyorsunuz? <br>' },
+    'btn-view-title': { en: 'View interactive results dashboard', tr: 'İnteraktif sonuç panelini görüntüle' },
+    'btn-view-disabled-title': { en: 'Results dashboard will be active after thesis submission — June 2026', tr: 'Sonuç paneli tez tesliminden sonra aktif olacaktır — Haziran 2026' },
+    'btn-close-title': { en: 'Close', tr: 'Kapat' },
+    'dash-title': { en: 'Interactive Results Dashboard', tr: 'İnteraktif Sonuç Paneli' },
+    'dash-card-1-title': { en: 'Genre-Label Interaction', tr: 'Tür-Etiket Etkileşimi' },
+    'dash-card-1-desc': { en: 'Emotional Investment / Trust rating by genre and attribution label.', tr: 'Müzik türü ve kaynak atıf etiketine göre Duygusal Yatırım / Güven değerlendirmesi.' },
+    'dash-card-2-title': { en: 'Prefrontal Hemodynamic Dynamics', tr: 'Prefrontal Hemodinamik Dinamikler' },
+    'dash-card-2-desc': { en: 'HbO changes in Right PFC over the course of a 25-second trial.', tr: '25 saniyelik bir deneme süresince Sağ PFC\'deki HbO değişimleri.' },
 
     'a-method-title': { en: 'Method', tr: 'Metot' },
     'a-results-title': { en: 'Neural Results', tr: 'Sinirsel Sonuçlar' },
@@ -79,7 +97,7 @@ const translations = {
     'v-footer-switch': { en: 'Want the full nerd version?', tr: 'Tam akademik makale sürümünü ister misiniz?' },
     'v-footer-btn': { en: '&rarr; Switch to Academic View', tr: '&rarr; Akademik Görünüme Geç' },
     'v-footer-feedback': { en: 'Have feedback or questions? &rarr;', tr: 'Geri bildirim veya sorularınız mı var? &rarr;' },
-    'v-footer-email': { en: 'Email Berke', tr: 'Berke\'ye E-posta Gönder' },
+    'v-footer-email': { en: 'Email BERKE', tr: 'Berke\'ye E-posta Gönder' },
 
     'v-dash-1': { en: 'You showed an AI penalty of:', tr: 'Göstermiş olduğun YZ cezası:' },
     'v-dash-1d': { en: 'You gave Human-labeled tracks an average of <span id="vis-penalty-num" style="color: #fff; font-weight: bold;">...</span> points higher than AI-labeled tracks — even though we lied to you about some of them.', tr: 'İnsan etiketli parçalara, YZ etiketli parçalardan ortalama <span id="vis-penalty-num" style="color: #fff; font-weight: bold;">...</span> puan daha yüksek verdin — bazılarında sana yalan söylemiş olsak bile.' },
@@ -190,7 +208,7 @@ const translations = {
         "role-academic-desc": "fNIRS preprocessing, LME modeling, Right PFC dynamics, and statistical evidence.",
         "role-visitor-title": "Curious Visitor",
         "role-visitor-desc": "How AI labels change your brain's cognitive load and why we are naturally skeptical.",
-        "supervisor": "Supervisor: Prof. Dr. Seda Dural",
+        "supervisor": "Supervisor: Prof. Dr. Seda DURAL",
         "institution": "İzmir University of Economics &bull; Department of Psychology",
         "btn-kapat": "CLOSE",
         "problem-title": "Problem",
@@ -285,7 +303,7 @@ const translations = {
         "role-academic-desc": "fNIRS ön işleme, LME modelleme, Sağ PFC dinamikleri ve istatistiksel kanıtlar.",
         "role-visitor-title": "Meraklı Ziyaretçi",
         "role-visitor-desc": "AI etiketlerinin beyninizin bilişsel yükünü nasıl değiştirdiğini ve neden doğal olarak şüpheci olduğumuzu görün.",
-        "supervisor": "Danışman: Prof. Dr. Seda Dural",
+        "supervisor": "Danışman: Prof. Dr. Seda DURAL",
         "institution": "İzmir Ekonomi Üniversitesi &bull; Psikoloji Bölümü",
         "btn-kapat": "KAPAT",
         "problem-title": "Problem",
@@ -380,10 +398,10 @@ function setLanguage(lang) {
     localStorage.setItem('lang', lang);
     
     // Update buttons
-    const enBtn = document.getElementById('lang-en');
-    const trBtn = document.getElementById('lang-tr');
-    if(enBtn) enBtn.classList.toggle('active', lang === 'en');
-    if(trBtn) trBtn.classList.toggle('active', lang === 'tr');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isEn = btn.textContent.trim() === 'ENG';
+        btn.classList.toggle('active', isEn ? lang === 'en' : lang === 'tr');
+    });
     
     // Update text
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -393,6 +411,18 @@ function setLanguage(lang) {
         } else if (translations[key] && translations[key][lang] !== undefined) {
             el.innerHTML = translations[key][lang];
         }
+    });
+
+    // Update titles/tooltips
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.getAttribute('data-i18n-title');
+        let val = '';
+        if (translations[lang] && translations[lang][key] !== undefined) {
+            val = translations[lang][key];
+        } else if (translations[key] && translations[key][lang] !== undefined) {
+            val = translations[key][lang];
+        }
+        if (val) el.setAttribute('title', val);
     });
 
     // Dynamic Title
@@ -405,6 +435,7 @@ function setLanguage(lang) {
 }
 
 function updateChartLanguage(lang) {
+    // 1. Hero Chart
     if (typeof heroChart !== 'undefined' && heroChart) {
         if (lang === 'tr') {
             heroChart.data.labels = ['"YZ" Etiketi', '"İnsan" Etiketi'];
@@ -414,6 +445,40 @@ function updateChartLanguage(lang) {
             heroChart.data.datasets[0].label = 'Right PFC Peak HbO (µM)';
         }
         heroChart.update();
+    }
+
+    // 2. Genre Chart
+    if (typeof genreChart !== 'undefined' && genreChart) {
+        if (lang === 'tr') {
+            genreChart.data.labels = ['Arabesk', 'Blues', 'Elektronik'];
+            genreChart.data.datasets[0].label = 'İnsan Etiketi';
+            genreChart.data.datasets[1].label = 'YZ Etiketi';
+        } else {
+            genreChart.data.labels = ['Arabesque', 'Blues', 'Electronic'];
+            genreChart.data.datasets[0].label = 'Human Label';
+            genreChart.data.datasets[1].label = 'AI Label';
+        }
+        genreChart.update();
+    }
+
+    // 3. HbO Chart
+    if (typeof hboChart !== 'undefined' && hboChart) {
+        if (lang === 'tr') {
+            hboChart.data.labels = ['10sn (Etiket)', '13sn', '16sn', '19sn', '22sn', '25sn (Bitiş)'];
+            hboChart.data.datasets[0].label = 'YZ Etiketi Denemesi (Sağ PFC)';
+            hboChart.data.datasets[1].label = 'İnsan Etiketi Denemesi (Sağ PFC)';
+            if (hboChart.options.scales && hboChart.options.scales.y && hboChart.options.scales.y.title) {
+                hboChart.options.scales.y.title.text = 'Δ HbO (µM)';
+            }
+        } else {
+            hboChart.data.labels = ['10s (Label)', '13s', '16s', '19s', '22s', '25s (Offset)'];
+            hboChart.data.datasets[0].label = 'AI Label Trial (Right PFC)';
+            hboChart.data.datasets[1].label = 'Human Label Trial (Right PFC)';
+            if (hboChart.options.scales && hboChart.options.scales.y && hboChart.options.scales.y.title) {
+                hboChart.options.scales.y.title.text = 'Δ HbO (µM)';
+            }
+        }
+        hboChart.update();
     }
 }
 
@@ -448,7 +513,7 @@ if (ctxHero && typeof Chart !== 'undefined') {
 // 2. GENRE INTERACTION CHART
 const ctxGenre = document.getElementById('genreChart');
 if (ctxGenre && typeof Chart !== 'undefined') {
-    new Chart(ctxGenre.getContext('2d'), {
+    genreChart = new Chart(ctxGenre.getContext('2d'), {
         type: 'line',
         data: {
             labels: ['Arabesque', 'Blues', 'Electronic'],
@@ -464,7 +529,7 @@ if (ctxGenre && typeof Chart !== 'undefined') {
 // 3. HbO CHART
 const ctxHbo = document.getElementById('hboChart');
 if (ctxHbo && typeof Chart !== 'undefined') {
-    new Chart(ctxHbo.getContext('2d'), {
+    hboChart = new Chart(ctxHbo.getContext('2d'), {
         type: 'line',
         data: {
             labels: ['10s (Label)', '13s', '16s', '19s', '22s', '25s (Offset)'],
@@ -547,6 +612,7 @@ function openExperienceModal() {
 function closeExperience() {
     document.getElementById('expOverlay').classList.remove('active');
     if (expAudio) { expAudio.pause(); expAudio = null; }
+    document.querySelectorAll('.listen-btn').forEach(btn => btn.classList.remove('playing'));
 }
 
 function expStage(n) {
@@ -903,5 +969,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if(document.getElementById('roleOverlay').classList.contains('active')) {
             document.body.classList.add('no-scroll');
         }
+    }
+
+    // Likert Scales Keyboard Accessibility
+    document.querySelectorAll('.likert-scale').forEach(scale => {
+        const spans = scale.querySelectorAll('span');
+        spans.forEach((span, idx) => {
+            span.setAttribute('tabindex', '0');
+            span.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    span.click();
+                } else if (e.key === 'ArrowRight' && idx < spans.length - 1) {
+                    spans[idx + 1].focus();
+                } else if (e.key === 'ArrowLeft' && idx > 0) {
+                    spans[idx - 1].focus();
+                }
+            });
+        });
+    });
+
+    // Path Toggle Keyboard Accessibility
+    const pathToggle = document.querySelector('.path-toggle');
+    if (pathToggle) {
+        pathToggle.setAttribute('role', 'button');
+        pathToggle.setAttribute('tabindex', '0');
+        pathToggle.setAttribute('aria-label', 'Switch View Mode');
+        pathToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                pathToggle.click();
+            }
+        });
     }
 });
