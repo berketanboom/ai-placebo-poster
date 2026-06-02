@@ -68,8 +68,8 @@
         <header class="landing-header">
             <div class="landing-header-center" data-i18n="portal-badge">RESEARCH PORTAL &bull; IUE PSYCHOLOGY 2026</div>
             <div class="lang-switcher" id="langSwitcher">
-                <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">ENG</button>
-                <button class="lang-btn" id="lang-tr" onclick="setLanguage('tr')">TR</button>
+                <button class="lang-btn active" id="lang-en" data-action="setLanguage" data-arg="en">ENG</button>
+                <button class="lang-btn" id="lang-tr" data-action="setLanguage" data-arg="tr">TR</button>
             </div>
         </header>
         <div class="role-container">
@@ -81,7 +81,7 @@
             <div class="who-are-you" data-i18n="who-are-you">WHO ARE YOU?</div>
 
             <div class="role-cards">
-                <div class="role-card" onclick="selectRole('academic')">
+                <div class="role-card" data-action="selectRole" data-arg="academic">
                     <div class="role-icon">
                         <svg class="role-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 18h8" />
@@ -96,7 +96,7 @@
                     <h2 data-i18n="role-academic-title">Academic / Jury</h2>
                     <p data-i18n="role-academic-desc">fNIRS preprocessing, LME modeling, Right PFC dynamics, and statistical evidence.</p>
                 </div>
-                <div class="role-card" onclick="selectRole('visitor')">
+                <div class="role-card" data-action="selectRole" data-arg="visitor">
                     <div class="role-icon">
                         <svg class="role-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 18V5l12-2v13" />
@@ -119,7 +119,7 @@
 
 
     <div class="poster-container">
-        <button class="exit-poster-btn" onclick="backToLanding()" data-i18n-title="btn-close-title" title="Close">
+        <button class="exit-poster-btn" data-action="backToLanding" data-i18n-title="btn-close-title" title="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -129,18 +129,18 @@
         </button>
 
         <header class="poster-header">
-            <div class="header-top-bar" style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 2rem; align-items: center;">
-                <div class="logo-area" style="font-weight: 800; font-size: 1.2rem; letter-spacing: 1px;">
+            <div class="header-top-bar u-d-jc-w-mb">
+                <div class="logo-area u-fw-fs-ls">
                     <span class="accent">AI</span>-PLACEBO
                 </div>
-                <div class="header-controls" style="display: flex; gap: 1rem; align-items: center;">
-                    <div class="lang-switcher" style="margin-right: 0.5rem;">
-                        <button class="lang-btn active" onclick="setLanguage('en')">ENG</button>
-                        <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+                <div class="header-controls u-d-g-ai">
+                    <div class="lang-switcher u-mr">
+                        <button class="lang-btn active" data-action="setLanguage" data-arg="en">ENG</button>
+                        <button class="lang-btn" data-action="setLanguage" data-arg="tr">TR</button>
                     </div>
-                    <div class="path-toggle" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 4px; display: flex; cursor: pointer; border: 1px solid rgba(255,255,255,0.2);" onclick="togglePath()">
-                        <span class="toggle-option academic-option" style="padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 600; transition: background 0.3s, color 0.3s;" data-i18n="toggle-academic">Academic</span>
-                        <span class="toggle-option visitor-option" style="padding: 4px 12px; border-radius: 16px; font-size: 0.85rem; font-weight: 600; transition: background 0.3s, color 0.3s;" data-i18n="toggle-visitor">Visitor</span>
+                    <div data-action="togglePath" class="path-toggle u-b-br-p-d">
+                        <span data-i18n="toggle-academic" class="toggle-option academic-option u-p-br-fs-fw">Academic</span>
+                        <span data-i18n="toggle-visitor" class="toggle-option visitor-option u-p-br-fs-fw">Visitor</span>
                     </div>
                 </div>
             </div>
@@ -160,10 +160,10 @@
                 <!-- ACADEMIC: Abstract -->
                 <div class="card academic-only last-card-academic">
                     <h2 data-i18n="a-abstract-title">Abstract</h2>
-                    <p style="font-size: 0.95rem; line-height: 1.6; text-align: justify; color: var(--text-muted);" data-i18n="a-abstract-text">
+                    <p class="u-fs-lh-ta-clr" data-i18n="a-abstract-text">
                         Generative-AI music systems now match human composers on surface acoustic features, yet listeners systematically devalue music attributed to AI. The neural mechanisms of this attribution bias, and how they interact with culturally rooted musical genres, remain underspecified. The present study combines functional near-infrared spectroscopy (fNIRS) with subjective rating measures to isolate the contribution of source labeling from actual acoustic content. A within-subjects 2 × 2 × 3 factorial design (N = 30 behavioral, n = 13 fNIRS retained) crossed Label (AI/Human) × Producer (AI/Human) × Genre (Arabesque/Blues/Electronic). Participants rated 12 musical excerpts on Emotional Investment, Authenticity, Trust, Liking, and Quality (7-point Likert) while prefrontal cortex hemodynamics were recorded. Results revealed a selective AI-attribution penalty: Human-labeled music received higher Authenticity (η²p = .285), Emotional Investment (η²p = .276), and Quality (η²p = .227) ratings, while Liking remained unaffected (p = .270). The label-by-genre interaction was the largest effect for Trust (η²p = .339), with Arabesque showing the steepest AI penalty (Δ = −1.14) and Electronic exhibiting a reversal (Δ = +1.32; AI label increased trust). fNIRS results showed a tentative right-lateralized pattern: AI-labeled trials produced a higher Right PFC HbO2 peak than Human-labeled trials at the participant level as a trend, with a secondary trial-level LME sensitivity model showing a similar direction. Because only 13 participants were retained after quality control, neural findings are interpreted as exploratory. Findings reframe algorithmic aversion as a culturally moderated phenomenon with detectable neural signatures, supporting genre-AI fit expectation accounts.
                     </p>
-                    <p style="font-size: 0.85rem; color: #a0a5b0; margin-top: 1rem;" data-i18n="a-abstract-keywords">
+                    <p class="u-fs-clr-mt" data-i18n="a-abstract-keywords">
                         <strong>Keywords:</strong> fNIRS, algorithmic aversion, source attribution, prefrontal cortex, cultural essentialism, music perception, placebo effect
                     </p>
                 </div>
@@ -171,41 +171,41 @@
                 <!-- ACADEMIC: Method -->
                 <div class="card academic-only last-card-academic">
                     <h2 data-i18n='a-method-title'>Method</h2>
-                    <div style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted);">
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Participants were 30 Turkish university students aged 18–25 years (13 female, 17 male), recruited through convenience sampling. All reported normal hearing and no neurological diagnosis. Twenty-two participants completed fNIRS recording. After quality control, 13 participants were retained for exploratory fNIRS analyses.</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-s-label">Stimuli & Design:</strong> <span data-i18n="a-method-s-desc">12 excerpts (25s) across Arabesque, Blues, Electronic. 2 Human-composed, 2 AI-generated (Suno v5) per genre. Within-subjects 2×2×3 factorial (Label × Producer × Genre).</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">Each trial began with an unlabeled music excerpt. After 10 seconds, a source label appeared: AI-Generated or Human-Composed. The excerpt continued until 25 seconds. Participants then rated the excerpt on five 7-point Likert scales: Liking, Quality, Trust, Authenticity, and Emotional Investment. A 10-second fixation interval followed each trial.</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">Behavioral DVs were Liking, Quality, Trust, Authenticity, and Emotional Investment. fNIRS HbO/HbR signals were inspected; inferential analyses focused on HbO2 Peak as the primary neural metric.</span></p>
-                        <p><strong style="color: #fff;" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">fNIRS preprocessing used raw .oxy HbO/HbR files, participant/file quality control, a 4th-order zero-phase Butterworth band-pass filter (0.01–0.2 Hz), local baseline correction using −10 to 0 s before label reveal, and a 4–15 s post-label HRF response window. ROI-level HbO2 peak values were extracted for Right and Left PFC.</span></p>
+                    <div class="u-fs-lh-clr">
+                        <p class="u-mb"><strong class="u-text-white" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Participants were 30 Turkish university students aged 18–25 years (13 female, 17 male), recruited through convenience sampling. All reported normal hearing and no neurological diagnosis. Twenty-two participants completed fNIRS recording. After quality control, 13 participants were retained for exploratory fNIRS analyses.</span></p>
+                        <p class="u-mb"><strong class="u-text-white" data-i18n="a-method-s-label">Stimuli & Design:</strong> <span data-i18n="a-method-s-desc">12 excerpts (25s) across Arabesque, Blues, Electronic. 2 Human-composed, 2 AI-generated (Suno v5) per genre. Within-subjects 2×2×3 factorial (Label × Producer × Genre).</span></p>
+                        <p class="u-mb"><strong class="u-text-white" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">Each trial began with an unlabeled music excerpt. After 10 seconds, a source label appeared: AI-Generated or Human-Composed. The excerpt continued until 25 seconds. Participants then rated the excerpt on five 7-point Likert scales: Liking, Quality, Trust, Authenticity, and Emotional Investment. A 10-second fixation interval followed each trial.</span></p>
+                        <p class="u-mb"><strong class="u-text-white" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">Behavioral DVs were Liking, Quality, Trust, Authenticity, and Emotional Investment. fNIRS HbO/HbR signals were inspected; inferential analyses focused on HbO2 Peak as the primary neural metric.</span></p>
+                        <p><strong class="u-text-white" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">fNIRS preprocessing used raw .oxy HbO/HbR files, participant/file quality control, a 4th-order zero-phase Butterworth band-pass filter (0.01–0.2 Hz), local baseline correction using −10 to 0 s before label reveal, and a 4–15 s post-label HRF response window. ROI-level HbO2 peak values were extracted for Right and Left PFC.</span></p>
                     </div>
                     
-                    <div style="margin-top: 1.5rem; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
-                        <p style="margin-bottom: 0.8rem;" data-i18n="a-method-fnirs-lit">
+                    <div class="u-mt-fs-lh-clr">
+                        <p class="u-mb" data-i18n="a-method-fnirs-lit">
                             fNIRS preprocessing followed a transparent, literature-informed workflow. Raw .oxy files were inspected for oxygenated and deoxygenated hemoglobin signals (HbO/HbO2 and HbR/Deoxy). Participant and file quality control was applied before inferential analysis. Retained signals were filtered with a 4th-order zero-phase Butterworth band-pass filter from 0.01 to 0.2 Hz to attenuate slow drift and high-frequency physiological/instrumental noise while preserving task-related hemodynamic fluctuations. A local trial-level baseline was computed from the −10 to 0 s interval before label reveal and subtracted from the post-label response. HbO2 Peak was then extracted from a 4–15 s post-label HRF response window for Right and Left PFC ROIs. This window was selected as a literature-informed sensitivity window to capture the delayed hemodynamic response after label onset. Because the retained fNIRS sample was small (n = 13), all neural analyses are reported as exploratory.
                         </p>
                         
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q1">Why HbO2 as the primary metric?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a1">Both HbO/HbO2 and HbR/Deoxy were inspected. Inferential analyses focused on HbO2 Peak because HbO is commonly used in task-based fNIRS and typically shows stronger task-related response amplitude, while HbR was treated as a complementary signal.</p>
+                        <details class="u-mb-b-p-br">
+                            <summary class="u-c-clr-fw" data-i18n="a-method-q1">Why HbO2 as the primary metric?</summary>
+                            <p class="u-mt-pl-bl" data-i18n="a-method-a1">Both HbO/HbO2 and HbR/Deoxy were inspected. Inferential analyses focused on HbO2 Peak because HbO is commonly used in task-based fNIRS and typically shows stronger task-related response amplitude, while HbR was treated as a complementary signal.</p>
                         </details>
                         
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q2">Why 0.01–0.2 Hz filtering?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a2">This band-pass range is commonly used to reduce very slow drift and higher-frequency physiological/instrumental noise while retaining task-related hemodynamic fluctuations.</p>
+                        <details class="u-mb-b-p-br">
+                            <summary class="u-c-clr-fw" data-i18n="a-method-q2">Why 0.01–0.2 Hz filtering?</summary>
+                            <p class="u-mt-pl-bl" data-i18n="a-method-a2">This band-pass range is commonly used to reduce very slow drift and higher-frequency physiological/instrumental noise while retaining task-related hemodynamic fluctuations.</p>
                         </details>
                         
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q3">Why local baseline −10–0 s?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a3">A local pre-label baseline controls for trial-to-trial drift and captures the participant’s hemodynamic state immediately before the source label appears.</p>
+                        <details class="u-mb-b-p-br">
+                            <summary class="u-c-clr-fw" data-i18n="a-method-q3">Why local baseline −10–0 s?</summary>
+                            <p class="u-mt-pl-bl" data-i18n="a-method-a3">A local pre-label baseline controls for trial-to-trial drift and captures the participant’s hemodynamic state immediately before the source label appears.</p>
                         </details>
                         
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q4">Why 4–15 s HRF window?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a4">fNIRS hemodynamic responses are delayed relative to stimulus onset. The 4–15 s window was used as a literature-informed sensitivity window to capture the expected rise and peak response after label reveal. It should be reported as exploratory/sensitivity analysis, not as a universal standard.</p>
+                        <details class="u-mb-b-p-br">
+                            <summary class="u-c-clr-fw" data-i18n="a-method-q4">Why 4–15 s HRF window?</summary>
+                            <p class="u-mt-pl-bl" data-i18n="a-method-a4">fNIRS hemodynamic responses are delayed relative to stimulus onset. The 4–15 s window was used as a literature-informed sensitivity window to capture the expected rise and peak response after label reveal. It should be reported as exploratory/sensitivity analysis, not as a universal standard.</p>
                         </details>
                     </div>
 
-                    <!-- <div class="download-badges academic-only" style="margin-top: 1rem;">
+                    <!-- <div class="download-badges academic-only u-mt-1">
                         <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/data.csv" target="_blank" rel="noopener" class="dl-badge" data-i18n="raw-data">📄 Raw Data (.csv)</a>
                         <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/analysis.py" target="_blank" rel="noopener" class="dl-badge" data-i18n="python-script">🐍 Python Script</a>
                         <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/spss_output.pdf" target="_blank" rel="noopener" class="dl-badge" data-i18n="spss-output">📊 SPSS Output</a>
@@ -214,13 +214,13 @@
 
 
                 <!-- VISITOR B1: Landing -->
-                <div class="card visitor-only" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
-                    <h2 class="hero-slogan" data-i18n="v-b1-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Can you trust your ears? 🎧</h2>
-                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and explore the analysis logic.</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 2rem;">
+                <div class="card visitor-only u-ta-b-bc-p">
+                    <h2 data-i18n="v-b1-title" class="hero-slogan u-fs-mb-lh">Can you trust your ears? 🎧</h2>
+                    <p data-i18n="v-b1-sub" class="hero-sub u-m-fs-clr">Scan to experience the experiment, view full results, and explore the analysis logic.</p>
+                    <p class="u-fs-lh-clr-mb-1">
                         <span data-i18n='v-b1-desc'>Imagine someone plays you a beautiful song. They tell you it was written by AI. </span> 
                     </p>
-                    <button class="dene-btn" style="margin: 0 auto;" onclick="openExperienceModal()">
+                    <button data-action="openExperienceModal" class="dene-btn u-m">
                         <span class="dene-pulse"></span>
                         <span data-i18n='v-b1-btn'>🎧 TRY THE STUDY YOURSELF</span>
                     </button>
@@ -229,17 +229,17 @@
                 <!-- VISITOR B2: What We Wondered -->
                 <div class="card visitor-only last-card-visitor">
                     <h2 data-i18n='v-b2-title'>What We Wondered</h2>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem;"><span data-i18n='v-b2-q1'>1. Does the label trick us?</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b2-a1'>We wondered: if we tell people a song is 'AI-made' or 'Human-made' — but it's actually the same song — would they rate it differently? Spoiler: yes.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-clr-mb-fs-2"><span data-i18n='v-b2-q1'>1. Does the label trick us?</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b2-a1'>We wondered: if we tell people a song is 'AI-made' or 'Human-made' — but it's actually the same song — would they rate it differently? Spoiler: yes.</span></p>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem;"><span data-i18n='v-b2-q2'>2. Does it depend on the music?</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b2-a2'>Turkish Arabesque feels emotional. Electronic music feels modern. Maybe people forgive AI for making Electronic but not Arabesque? We were right.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-clr-mb-fs-2"><span data-i18n='v-b2-q2'>2. Does it depend on the music?</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b2-a2'>Turkish Arabesque feels emotional. Electronic music feels modern. Maybe people forgive AI for making Electronic but not Arabesque? We were right.</span></p>
                     </div>
                     <div>
-                        <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem;"><span data-i18n='v-b2-q3'>3. Can we see it in the brain?</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b2-a3'>We used a special light-based brain scanner to watch what happens when people see the word 'AI'. The brain works harder, like it's saying 'wait, is this real?'</span></p>
+                        <h3 class="u-clr-mb-fs-2"><span data-i18n='v-b2-q3'>3. Can we see it in the brain?</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b2-a3'>We used a special light-based brain scanner to watch what happens when people see the word 'AI'. The brain works harder, like it's saying 'wait, is this real?'</span></p>
                     </div>
                 </div>
             </section>
@@ -250,31 +250,31 @@
                 <!-- ACADEMIC: Results & Exploratory -->
                 <div class="card academic-only">
                     <h2 data-i18n='a-results-title'>Neural Results</h2>
-                    <div class="insight-panel glass-panel" style="flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 1rem; margin-bottom: 1.5rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div class="insight-panel glass-panel u-fd-ai-jc-ta">
+                        <div class="u-d-ai-g">
                             <span class="insight-label" data-i18n="a-results-insight-label">"AI" LABEL</span>
                             <span class="insight-arrow">↑</span>
                             <span class="insight-value" data-i18n="a-results-insight-value">Right PFC Peak HbO2</span>
                         </div>
-                        <div style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);" data-i18n="a-results-insight-desc">
+                        <div class="u-mt-fs-clr" data-i18n="a-results-insight-desc">
                             AI labels showed a tentative right-PFC trend, while Left PFC showed no corresponding effect. This pattern suggests possible right-lateralized source-evaluation demand, but remains exploratory due to the small retained fNIRS sample (n = 13).<br>
-                            <span style="font-size: 0.8rem; font-family: monospace;">Right PFC Peak HbO2 (µM): AI [0.247], Human [0.193]</span>
+                            <span class="u-fs-ff">Right PFC Peak HbO2 (µM): AI [0.247], Human [0.193]</span>
                         </div>
                     </div>
-                    <div class="chart-container main-chart" style="margin-top: 1rem;">
+                    <div class="chart-container main-chart u-mt-1">
                         <canvas id="heroChart"></canvas>
                     </div>
                     
-                    <h3 style="margin-top: 2rem; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"><span data-i18n='a-explore-title'>Exploratory Findings</span></h3>
+                    <h3 class="u-mt-fs-bb-pb"><span data-i18n='a-explore-title'>Exploratory Findings</span></h3>
                     
-                    <ul style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted); padding-left: 1.2rem; list-style-type: square; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">Yücel et al. (2021) for fNIRS reporting best practices</li>
-                        <li style="margin-bottom: 0.5rem;">Pinti et al. (2019) for transparent preprocessing/reporting of fNIRS pipelines</li>
-                        <li style="margin-bottom: 0.5rem;">Hocke et al. (2018) for common fNIRS filtering practices</li>
-                        <li style="margin-bottom: 0.5rem;">Brigadoi et al. (2014) for motion artifacts and preprocessing concerns</li>
-                        <li style="margin-bottom: 0.5rem;">Fishburn et al. (2014) for HbO sensitivity in cognitive/task-based fNIRS</li>
-                        <li style="margin-bottom: 0.5rem;">Holper et al. (2022) for PFC/fNIRS relevance to trust/source evaluation contexts</li>
-                        <li style="margin-bottom: 0.5rem;">Zhang et al. (2025) for AI-label evaluative bias/neural context if already used in the thesis/poster</li>
+                    <ul class="u-fs-lh-clr-pl">
+                        <li class="u-mb-0-5">Yücel et al. (2021) for fNIRS reporting best practices</li>
+                        <li class="u-mb-0-5">Pinti et al. (2019) for transparent preprocessing/reporting of fNIRS pipelines</li>
+                        <li class="u-mb-0-5">Hocke et al. (2018) for common fNIRS filtering practices</li>
+                        <li class="u-mb-0-5">Brigadoi et al. (2014) for motion artifacts and preprocessing concerns</li>
+                        <li class="u-mb-0-5">Fishburn et al. (2014) for HbO sensitivity in cognitive/task-based fNIRS</li>
+                        <li class="u-mb-0-5">Holper et al. (2022) for PFC/fNIRS relevance to trust/source evaluation contexts</li>
+                        <li class="u-mb-0-5">Zhang et al. (2025) for AI-label evaluative bias/neural context if already used in the thesis/poster</li>
                     </ul>
 
                 </div>
@@ -283,51 +283,51 @@
                 <!-- ACADEMIC: Exploratory Behavioral Findings -->
                 <div class="card academic-only">
                     <h2 data-i18n="a-explore-beh-title">Exploratory Behavioral Findings</h2>
-                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; color: var(--text-muted);" data-i18n="a-explore-beh-subtitle">
+                    <p class="u-fs-lh-mb-clr" data-i18n="a-explore-beh-subtitle">
                         Beyond the main label effects, the behavioral data suggested several genre- and dimension-specific patterns.
                     </p>
                     
-                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-1-title">1. Trust was the most label-sensitive judgment</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-1-text">
+                    <h3 class="u-clr-mb-fs-1" data-i18n="a-explore-beh-1-title">1. Trust was the most label-sensitive judgment</h3>
+                    <p class="u-fs-clr-mb-2" data-i18n="a-explore-beh-1-text">
                         Among the rating dimensions, Trust appeared especially sensitive to source labeling. AI labels reduced trust more strongly than basic liking, suggesting that AI attribution primarily affects perceived agency and reliability rather than simple enjoyment. Trust showed a strong label-related effect, η²p = .339, p < .001.
                     </p>
  
-                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-2-title">2. The AI penalty was selective, not global</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-2-text">
+                    <h3 class="u-clr-mb-fs-1" data-i18n="a-explore-beh-2-title">2. The AI penalty was selective, not global</h3>
+                    <p class="u-fs-clr-mb-2" data-i18n="a-explore-beh-2-text">
                         Participants did not simply dislike AI-labeled music across all dimensions. The AI label mainly affected higher-order judgments such as Trust, Authenticity, Quality, and Emotional Investment, while Liking was comparatively more preserved.
                     </p>
 
-                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-3-title">3. Genre changed the meaning of the AI label</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-3-text">
+                    <h3 class="u-clr-mb-fs-1" data-i18n="a-explore-beh-3-title">3. Genre changed the meaning of the AI label</h3>
+                    <p class="u-fs-clr-mb-2" data-i18n="a-explore-beh-3-text">
                         The effect of the AI label depended on genre. Arabesque showed a stronger AI-label penalty, Blues appeared more label-invariant or weaker, and Electronic music showed a weaker or partially reversed AI penalty, consistent with genre-label congruency. Trust (Human − AI): Arabesque +1.14, Blues +0.10, Electronic −1.32. This suggests that AI attribution is not a universal bias; it depends on whether the label fits the cultural and acoustic expectations of the genre.
                     </p>
 
-                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-4-title">4. Arabesque showed cultural sensitivity to AI labeling</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-4-text">
+                    <h3 class="u-clr-mb-fs-1" data-i18n="a-explore-beh-4-title">4. Arabesque showed cultural sensitivity to AI labeling</h3>
+                    <p class="u-fs-clr-mb-2" data-i18n="a-explore-beh-4-text">
                         Arabesque appeared especially sensitive to AI labeling. Because it is culturally and emotionally loaded, the AI label may have conflicted with expectations of human expression, lived experience, and cultural authenticity.
                     </p>
 
-                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-5-title">5. Electronic music showed possible label congruency</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-5-text">
+                    <h3 class="u-clr-mb-fs-1" data-i18n="a-explore-beh-5-title">5. Electronic music showed possible label congruency</h3>
+                    <p class="u-fs-clr-mb-2" data-i18n="a-explore-beh-5-text">
                         Electronic music showed a weaker or partially reversed AI penalty. This may reflect genre-label congruency: listeners may perceive algorithmic or technological production as more compatible with electronic music than with culturally rooted acoustic genres.
                     </p>
 
-                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-6-title">6. Actual producer and displayed label came apart</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-6-text">
+                    <h3 class="u-clr-mb-fs-1" data-i18n="a-explore-beh-6-title">6. Actual producer and displayed label came apart</h3>
+                    <p class="u-fs-clr-mb-2" data-i18n="a-explore-beh-6-text">
                         The design separated what the track actually was from what participants were told it was. This allowed the study to test whether evaluation followed the sound itself or the source attribution attached to it. The displayed source label was manipulated independently of actual producer.
                     </p>
 
-                    <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-7-title">7. Liking and authenticity dissociated</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-7-text">
+                    <h3 class="u-clr-mb-fs-1" data-i18n="a-explore-beh-7-title">7. Liking and authenticity dissociated</h3>
+                    <p class="u-fs-clr-mb-2" data-i18n="a-explore-beh-7-text">
                         One of the most important behavioral patterns was the dissociation between liking and authenticity. Participants could still like a piece of music while rating it as less authentic, less trustworthy, or less emotionally meaningful when it carried an AI label. This suggests that AI-label bias targets perceived human intention more than immediate pleasure.
                     </p>
                 </div>
 
                 <!-- ACADEMIC: Try Experience (from visitor landing) -->
-                <div class="card academic-only last-card-academic" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
-                    <h2 class="hero-slogan" data-i18n="v-b1-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Can you trust your ears? 🎧</h2>
-                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and explore the analysis logic.</p>
-                    <button class="dene-btn" style="margin: 0 auto;" onclick="openExperienceModal()">
+                <div class="card academic-only last-card-academic u-ta-b-bc-p">
+                    <h2 data-i18n="v-b1-title" class="hero-slogan u-fs-mb-lh">Can you trust your ears? 🎧</h2>
+                    <p data-i18n="v-b1-sub" class="hero-sub u-m-fs-clr">Scan to experience the experiment, view full results, and explore the analysis logic.</p>
+                    <button data-action="openExperienceModal" class="dene-btn u-m">
                         <span class="dene-pulse"></span>
                         <span data-i18n='v-b1-btn'>🎧 TRY THE STUDY YOURSELF</span>
                     </button>
@@ -336,14 +336,14 @@
                 <!-- ACADEMIC: References -->
                 <div class="card academic-only">
                     <h2 data-i18n='a-references-title'>References</h2>
-                    <ul style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted); padding-left: 1.2rem; list-style-type: square; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">Agbangla, N. F. et al. (2022). HRF window standards in fNIRS.</li>
-                        <li style="margin-bottom: 0.5rem;">Bhatt, M. et al. (2020). Scalp Coupling Index Methodology.</li>
-                        <li style="margin-bottom: 0.5rem;">Dietvorst, B. J. et al. (2015). Overcoming algorithmic aversion.</li>
-                        <li style="margin-bottom: 0.5rem;">Pollonini, L. et al. (2014). SCI evaluation in continuous-wave fNIRS.</li>
+                    <ul class="u-fs-lh-clr-pl">
+                        <li class="u-mb-0-5">Agbangla, N. F. et al. (2022). HRF window standards in fNIRS.</li>
+                        <li class="u-mb-0-5">Bhatt, M. et al. (2020). Scalp Coupling Index Methodology.</li>
+                        <li class="u-mb-0-5">Dietvorst, B. J. et al. (2015). Overcoming algorithmic aversion.</li>
+                        <li class="u-mb-0-5">Pollonini, L. et al. (2014). SCI evaluation in continuous-wave fNIRS.</li>
                         <li>Shank, D. B. et al. (2023). Source attribution in AI art.</li>
                     </ul>
-                    <a href="sources.html" style="display: inline-block; padding: 8px 16px; background: rgba(29, 185, 84, 0.1); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.3s;" data-i18n="full-bibliography">📚 Full Bibliography</a>
+                    <a href="sources.html" class="u-d-p-b-b" data-i18n="full-bibliography">📚 Full Bibliography</a>
                 </div>
 
 
@@ -352,25 +352,25 @@
                 <!-- VISITOR B3: What We Found -->
                 <div class="card visitor-only">
                     <h2 data-i18n='v-b3-title'>What We Found</h2>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-1'>🎵 People don't dislike AI music</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-1d'>Listeners enjoyed AI-labeled music just as much. But they said it felt less 'authentic' and 'soulful' — even when it was the exact same song. The label changes what we believe, not what we feel.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-fs"><span data-i18n='v-b3-1'>🎵 People don't dislike AI music</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b3-1d'>Listeners enjoyed AI-labeled music just as much. But they said it felt less 'authentic' and 'soulful' — even when it was the exact same song. The label changes what we believe, not what we feel.</span></p>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-2'>🇹🇷 Arabesque protects itself</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-2d'>When we slapped an 'AI' label on Arabesque, people punished it hardest. It feels like a betrayal of something cultural and human.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-fs"><span data-i18n='v-b3-2'>🇹🇷 Arabesque protects itself</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b3-2d'>When we slapped an 'AI' label on Arabesque, people punished it hardest. It feels like a betrayal of something cultural and human.</span></p>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-3'>🤖 Electronic music does the opposite</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-3d'>In Electronic music, the 'AI' label actually INCREASED trust. People expected AI to make electronic music, so it made sense.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-fs"><span data-i18n='v-b3-3'>🤖 Electronic music does the opposite</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b3-3d'>In Electronic music, the 'AI' label actually INCREASED trust. People expected AI to make electronic music, so it made sense.</span></p>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-4'>🧠 Preliminary fNIRS pattern</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-4d'>The moment you see the 'AI' word, the right side of your prefrontal cortex showed a higher HbO2 response pattern — like you're switching into critical-thinking mode.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-fs"><span data-i18n='v-b3-4'>🧠 Preliminary fNIRS pattern</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b3-4d'>The moment you see the 'AI' word, the right side of your prefrontal cortex showed a higher HbO2 response pattern — like you're switching into critical-thinking mode.</span></p>
                     </div>
                     <div>
-                        <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-5'>🎭 The label is powerful</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-5d'>Across all genres, the source label was the biggest factor in how people rated the music. The actual quality of the music almost didn't matter.</span></p>
+                        <h3 class="u-fs"><span data-i18n='v-b3-5'>🎭 The label is powerful</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n='v-b3-5d'>Across all genres, the source label was the biggest factor in how people rated the music. The actual quality of the music almost didn't matter.</span></p>
                     </div>
                 </div>
 
@@ -378,22 +378,22 @@
                 <!-- VISITOR B5: What Else Did We Notice -->
                 <div class="card visitor-only">
                     <h2 data-i18n="v-what-else-title">What Else Did We Notice?</h2>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;" data-i18n="v-what-else-subtitle">
+                    <p class="u-fs-lh-clr-mb-2" data-i18n="v-what-else-subtitle">
                         The biggest surprise was that people did not simply dislike AI music. Instead, the AI label changed specific judgments. People were more likely to question whether the music felt trustworthy, authentic, high-quality, or emotionally meaningful. Liking was more protected.
                     </p>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem; color: var(--accent);"><span data-i18n="v-what-else-1-title">Trust changed most</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n="v-what-else-1-text">AI labels mainly affected whether people trusted the music as meaningful or reliable.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-fs-clr-1"><span data-i18n="v-what-else-1-title">Trust changed most</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n="v-what-else-1-text">AI labels mainly affected whether people trusted the music as meaningful or reliable.</span></p>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem; color: var(--accent);"><span data-i18n="v-what-else-2-title">Genre mattered</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n="v-what-else-2-text">Arabesque was more sensitive to AI labeling, while Electronic music sometimes made the AI label feel more fitting.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-fs-clr-1"><span data-i18n="v-what-else-2-title">Genre mattered</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n="v-what-else-2-text">Arabesque was more sensitive to AI labeling, while Electronic music sometimes made the AI label feel more fitting.</span></p>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem; color: var(--accent);"><span data-i18n="v-what-else-3-title">Liking is not the whole story</span></h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n="v-what-else-3-text">People can enjoy a song while still judging it as less authentic or less emotionally human.</span></p>
+                    <div class="u-mb-1">
+                        <h3 class="u-fs-clr-1"><span data-i18n="v-what-else-3-title">Liking is not the whole story</span></h3>
+                        <p class="u-fs-clr-2"><span data-i18n="v-what-else-3-text">People can enjoy a song while still judging it as less authentic or less emotionally human.</span></p>
                     </div>
-                    <p style="font-size: 0.8rem; font-style: italic; color: #666;" data-i18n="v-what-else-disclaimer">
+                    <p class="u-fs-fs-clr" data-i18n="v-what-else-disclaimer">
                         These are behavioral patterns from the study sample. They do not mean every listener reacts the same way.
                     </p>
                 </div>
@@ -401,12 +401,12 @@
                 <!-- VISITOR B4: How We Did It -->
                 <div class="card visitor-only last-card-visitor">
                     <h2 data-i18n='v-b4-title'>How We Did It</h2>
-                    <div class="timeline" style="margin-top: 1rem;">
-                        <div class="tl-item"><span class="tl-time" style="width: 30px; text-align: center;">🎧</span><span class="tl-desc"><span data-i18n='v-b4-1'>We invited 30 university students to wear a special headband</span></span></div>
-                        <div class="tl-item"><span class="tl-time" style="width: 30px; text-align: center;">🎵</span><span class="tl-desc"><span data-i18n='v-b4-2'>They listened to 12 short songs (Arabesque, Blues, Electronic)</span></span></div>
-                        <div class="tl-item"><span class="tl-time" style="width: 30px; text-align: center;">🏷️</span><span class="tl-desc"><span data-i18n='v-b4-3'>Each song got labeled "AI-Made" or "Human-Made" — sometimes truthfully, sometimes lying!</span></span></div>
-                        <div class="tl-item"><span class="tl-time" style="width: 30px; text-align: center;">⭐</span><span class="tl-desc"><span data-i18n='v-b4-4'>They rated each song on feelings: how authentic, trustworthy, and good</span></span></div>
-                        <div class="tl-item"><span class="tl-time" style="width: 30px; text-align: center;">🧠</span><span class="tl-desc"><span data-i18n='v-b4-5'>The headband used safe light beams to watch their brains while they decided</span></span></div>
+                    <div class="timeline u-mt-1">
+                        <div class="tl-item"><span class="tl-time u-w-ta-1">🎧</span><span class="tl-desc"><span data-i18n='v-b4-1'>We invited 30 university students to wear a special headband</span></span></div>
+                        <div class="tl-item"><span class="tl-time u-w-ta-1">🎵</span><span class="tl-desc"><span data-i18n='v-b4-2'>They listened to 12 short songs (Arabesque, Blues, Electronic)</span></span></div>
+                        <div class="tl-item"><span class="tl-time u-w-ta-1">🏷️</span><span class="tl-desc"><span data-i18n='v-b4-3'>Each song got labeled "AI-Made" or "Human-Made" — sometimes truthfully, sometimes lying!</span></span></div>
+                        <div class="tl-item"><span class="tl-time u-w-ta-1">⭐</span><span class="tl-desc"><span data-i18n='v-b4-4'>They rated each song on feelings: how authentic, trustworthy, and good</span></span></div>
+                        <div class="tl-item"><span class="tl-time u-w-ta-1">🧠</span><span class="tl-desc"><span data-i18n='v-b4-5'>The headband used safe light beams to watch their brains while they decided</span></span></div>
                     </div>
                 </div>
             </section>
@@ -416,16 +416,16 @@
                 <!-- ACADEMIC: Discussion & <span data-i18n='a-limits-title'>Limitations</span> -->
                 <div class="card academic-only">
                     <h2 data-i18n='a-discussion-title'>Discussion</h2>
-                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; color: var(--text-muted);" data-i18n="a-discussion-text">
+                    <p class="u-fs-lh-mb-clr" data-i18n="a-discussion-text">
                         Our data suggests that human perception of art is heavily mediated by mental models held about the creator. The AI label acts as a 'distrust cue', increasing evaluative effort in the right prefrontal cortex. The Trust reversal in Electronic music specifically highlights that algorithmic aversion is not uniform, but heavily dependent on genre-AI fit expectations.
                     </p>
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"><span data-i18n='a-limits-title'>Limitations</span></h3>
-                    <ol style="font-size: 0.85rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-muted);">
-                        <li style="margin-bottom: 0.5rem;" data-i18n="a-limit-1">This study was NOT pre-registered.</li>
-                        <li style="margin-bottom: 0.5rem;" data-i18n="a-limit-2">fNIRS sample size (n=13) limits statistical power. Neural findings are exploratory.</li>
-                        <li style="margin-bottom: 0.5rem;" data-i18n="a-limit-3">One-tailed tests used for directional neural hypotheses.</li>
-                        <li style="margin-bottom: 0.5rem;" data-i18n="a-limit-4">Belief in stated source was inferred rather than assessed per trial.</li>
-                        <li style="margin-bottom: 0.5rem;" data-i18n="a-limit-5">Sample restricted to Turkish university students.</li>
+                    <h3 class="u-fs-bb-pb-mb"><span data-i18n='a-limits-title'>Limitations</span></h3>
+                    <ol class="u-fs-lh-pl-clr">
+                        <li class="u-mb-0-5" data-i18n="a-limit-1">This study was NOT pre-registered.</li>
+                        <li class="u-mb-0-5" data-i18n="a-limit-2">fNIRS sample size (n=13) limits statistical power. Neural findings are exploratory.</li>
+                        <li class="u-mb-0-5" data-i18n="a-limit-3">One-tailed tests used for directional neural hypotheses.</li>
+                        <li class="u-mb-0-5" data-i18n="a-limit-4">Belief in stated source was inferred rather than assessed per trial.</li>
+                        <li class="u-mb-0-5" data-i18n="a-limit-5">Sample restricted to Turkish university students.</li>
                         <li data-i18n="a-limit-6">2 Hz fNIRS sampling constrained cardiac-band SCI computation.</li>
                     </ol>
                 </div>
@@ -433,37 +433,37 @@
                 <!-- ACADEMIC: fNIRS Analysis Logic & Literature Basis -->
                 <div class="card academic-only">
                     <h2 data-i18n="a-materials-title">fNIRS Analysis Logic & Literature Basis</h2>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin-bottom: 1rem;">
+                    <p class="u-fs-lh-clr-mb">
                         <span data-i18n="a-materials-intro">This section explains the logic behind the fNIRS preprocessing and analysis choices. It is included for transparency and methodological clarity; no analysis scripts are provided on this website. The fNIRS results remain exploratory.</span>
                     </p>
 
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa1-t">A. What was analyzed?</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                    <h3 class="u-fs-bb-pb-mb-1" data-i18n="a-materials-qa1-t">A. What was analyzed?</h3>
+                    <p class="u-fs-lh-clr-1">
                         <span data-i18n="a-materials-qa1-a">Raw fNIRS exports were inspected for oxygenated and deoxygenated hemoglobin signals (HbO/HbO2 and HbR/Deoxy). The primary neural summary focused on HbO2 Peak in Right and Left PFC ROIs because HbO is commonly used in task-based fNIRS and often shows stronger task-related response amplitude.</span>
                     </p>
 
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa2-t">B. How was the signal cleaned?</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                    <h3 class="u-fs-bb-pb-mb-1" data-i18n="a-materials-qa2-t">B. How was the signal cleaned?</h3>
+                    <p class="u-fs-lh-clr-1">
                         <span data-i18n="a-materials-qa2-a">Signals were filtered using a 4th-order zero-phase Butterworth band-pass filter from 0.01 to 0.2 Hz to reduce slow drift and higher-frequency physiological/instrumental noise while preserving task-related hemodynamic fluctuations.</span>
                     </p>
 
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa3-t">C. How was baseline handled?</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                    <h3 class="u-fs-bb-pb-mb-1" data-i18n="a-materials-qa3-t">C. How was baseline handled?</h3>
+                    <p class="u-fs-lh-clr-1">
                         <span data-i18n="a-materials-qa3-a">A local trial-level baseline was defined as the −10 to 0 s interval before label reveal. This local pre-label baseline captures the participant’s hemodynamic state immediately before the source attribution appears and helps control trial-to-trial drift.</span>
                     </p>
 
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa4-t">D. How was the response quantified?</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                    <h3 class="u-fs-bb-pb-mb-1" data-i18n="a-materials-qa4-t">D. How was the response quantified?</h3>
+                    <p class="u-fs-lh-clr-1">
                         <span data-i18n="a-materials-qa4-a">After label reveal, HbO2 Peak was extracted from a literature-informed post-label HRF response window for each trial and ROI. The analysis focused on Right PFC and Left PFC to test whether the AI-label pattern was right-lateralized.</span>
                     </p>
 
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa5-t">E. How were conditions compared?</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                    <h3 class="u-fs-bb-pb-mb-1" data-i18n="a-materials-qa5-t">E. How were conditions compared?</h3>
+                    <p class="u-fs-lh-clr-1">
                         <span data-i18n="a-materials-qa5-a">For each participant, AI-labeled and Human-labeled trials were averaged separately. AI − Human difference scores were tested at the participant level. The printed poster additionally reports a secondary trial-level LME sensitivity model with participant as a random intercept.</span>
                     </p>
 
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa6-t">F. Why is this exploratory?</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                    <h3 class="u-fs-bb-pb-mb-1" data-i18n="a-materials-qa6-t">F. Why is this exploratory?</h3>
+                    <p class="u-fs-lh-clr-1">
                         <span data-i18n="a-materials-qa6-a">The retained fNIRS sample was small (n = 13) and participant/channel exclusion was substantial. Therefore, fNIRS findings are interpreted as preliminary neural evidence and require replication. Behavioral findings from the full N = 30 sample are the stronger evidence in this thesis.</span>
                     </p>
                 </div>
@@ -472,17 +472,17 @@
                 <!-- VISITOR B6: Why This Matters -->
                 <div class="card visitor-only last-card-visitor">
                     <h2 data-i18n='v-b6-title'>Why This Matters</h2>
-                    <div style="margin-bottom: 1.5rem;">
-                        <strong style="color: var(--accent); display: block; margin-bottom: 0.3rem;"><span data-i18n='v-b6-1'>🎶 Music platforms have a problem:</span></strong>
-                        <span style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; display: block;"><span data-i18n='v-b6-1d'>Spotify, Apple Music, and others are filling up with AI-made music. When they start telling you (because of new laws), your favorite songs might suddenly feel different — even though they sound the same.</span></span>
+                    <div class="u-mb-1">
+                        <strong class="u-clr-d-mb"><span data-i18n='v-b6-1'>🎶 Music platforms have a problem:</span></strong>
+                        <span class="u-clr-fs-lh-d"><span data-i18n='v-b6-1d'>Spotify, Apple Music, and others are filling up with AI-made music. When they start telling you (because of new laws), your favorite songs might suddenly feel different — even though they sound the same.</span></span>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <strong style="color: var(--accent); display: block; margin-bottom: 0.3rem;"><span data-i18n='v-b6-2'>🌍 Your culture shapes what you trust:</span></strong>
-                        <span style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; display: block;"><span data-i18n='v-b6-2d'>The 'AI' label hurts more when it touches music tied to who you are. This isn't just about music — it's about anything cultural: art, writing, food, traditions.</span></span>
+                    <div class="u-mb-1">
+                        <strong class="u-clr-d-mb"><span data-i18n='v-b6-2'>🌍 Your culture shapes what you trust:</span></strong>
+                        <span class="u-clr-fs-lh-d"><span data-i18n='v-b6-2d'>The 'AI' label hurts more when it touches music tied to who you are. This isn't just about music — it's about anything cultural: art, writing, food, traditions.</span></span>
                     </div>
                     <div>
-                        <strong style="color: var(--accent); display: block; margin-bottom: 0.3rem;"><span data-i18n='v-b6-3'>🧬 Your brain has a built-in AI filter:</span></strong>
-                        <span style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; display: block;"><span data-i18n='v-b6-3d'>Without you knowing it, your brain reacts to the word 'AI' before you've even finished forming an opinion. This 'top-down' filtering shapes what you experience.</span></span>
+                        <strong class="u-clr-d-mb"><span data-i18n='v-b6-3'>🧬 Your brain has a built-in AI filter:</span></strong>
+                        <span class="u-clr-fs-lh-d"><span data-i18n='v-b6-3d'>Without you knowing it, your brain reacts to the word 'AI' before you've even finished forming an opinion. This 'top-down' filtering shapes what you experience.</span></span>
                     </div>
                 </div>
             </section>
@@ -493,59 +493,59 @@
             <h2 data-i18n="a-hyp-title">Hypotheses & Results</h2>
             <div class="hypotheses-grid">
                 <div class="hyp-item">
-                    <strong style="color: var(--accent);" data-i18n="a-h1-label">H1 — Neural Source Expectancy [PARTIAL]</strong><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h1-pred">Prediction: AI-labeled music will evoke greater HbO activation in prefrontal cortex than Human-labeled music.</em><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h1-res">Result: Right PFC Peak HbO2: AI = 0.247 µM, Human = 0.193 µM, Δ = +0.055 µM. Paired t(12) = 1.60, p₁ = .068 (one-tailed). LME: β = 0.058, SE = 0.027, p₁ = .047.</em>
+                    <strong class="u-clr-1" data-i18n="a-h1-label">H1 — Neural Source Expectancy [PARTIAL]</strong><br>
+                    <em class="u-clr-2" data-i18n="a-h1-pred">Prediction: AI-labeled music will evoke greater HbO activation in prefrontal cortex than Human-labeled music.</em><br>
+                    <em class="u-clr-2" data-i18n="a-h1-res">Result: Right PFC Peak HbO2: AI = 0.247 µM, Human = 0.193 µM, Δ = +0.055 µM. Paired t(12) = 1.60, p₁ = .068 (one-tailed). LME: β = 0.058, SE = 0.027, p₁ = .047.</em>
                 </div>
                 <div class="hyp-item">
-                    <strong style="color: var(--accent);" data-i18n="a-h2-label">H2 — Behavioral Labeling Effect [CONFIRMED]</strong><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h2-pred">Prediction: Human-labeled music will receive higher Authenticity, Quality, and Emotional Investment ratings.</em><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h2-res">Results: EI: F(1,29) = 11.07, p = .002, η²p = .276. Auth: F(1,29) = 11.55, p = .002, η²p = .285. Quality: F(1,29) = 8.49, p = .007, η²p = .227.</em>
+                    <strong class="u-clr-1" data-i18n="a-h2-label">H2 — Behavioral Labeling Effect [CONFIRMED]</strong><br>
+                    <em class="u-clr-2" data-i18n="a-h2-pred">Prediction: Human-labeled music will receive higher Authenticity, Quality, and Emotional Investment ratings.</em><br>
+                    <em class="u-clr-2" data-i18n="a-h2-res">Results: EI: F(1,29) = 11.07, p = .002, η²p = .276. Auth: F(1,29) = 11.55, p = .002, η²p = .285. Quality: F(1,29) = 8.49, p = .007, η²p = .227.</em>
                 </div>
                 <div class="hyp-item">
-                    <strong style="color: var(--accent);" data-i18n="a-h3-label">H3 — Placebo Mask [PARTIAL]</strong><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h3-pred">Prediction: AI-generated music presented under Human label will receive higher ratings.</em><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h3-res">Results: Emotional Investment: F(1,29) = 4.23, p = .049, η²p = .127.</em>
+                    <strong class="u-clr-1" data-i18n="a-h3-label">H3 — Placebo Mask [PARTIAL]</strong><br>
+                    <em class="u-clr-2" data-i18n="a-h3-pred">Prediction: AI-generated music presented under Human label will receive higher ratings.</em><br>
+                    <em class="u-clr-2" data-i18n="a-h3-res">Results: Emotional Investment: F(1,29) = 4.23, p = .049, η²p = .127.</em>
                 </div>
                 <div class="hyp-item">
-                    <strong style="color: var(--accent);" data-i18n="a-h5-label">H5 — Genre Baseline [CONFIRMED]</strong><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h5-pred">Prediction: Electronic music will receive lower Auth and EI ratings than Arabesque or Blues.</em><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h5-res">Results: Auth F(2,58) = 11.81, p < .001. EI F(2,58) = 41.18, p < .001 (Largest single effect).</em>
+                    <strong class="u-clr-1" data-i18n="a-h5-label">H5 — Genre Baseline [CONFIRMED]</strong><br>
+                    <em class="u-clr-2" data-i18n="a-h5-pred">Prediction: Electronic music will receive lower Auth and EI ratings than Arabesque or Blues.</em><br>
+                    <em class="u-clr-2" data-i18n="a-h5-res">Results: Auth F(2,58) = 11.81, p < .001. EI F(2,58) = 41.18, p < .001 (Largest single effect).</em>
                 </div>
                 <div class="hyp-item">
-                    <strong style="color: var(--accent);" data-i18n="a-h6-label">H6 — Cultural Essentialism in Arabesque [CONFIRMED]</strong><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h6-pred">Prediction: Arabesque will score highest under Human label but show largest AI penalty.</em><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h6-res">Results: Label × Genre on EI: F(2,58) = 3.42, p = .039. AI penalty: ΔEI = −0.88.</em>
+                    <strong class="u-clr-1" data-i18n="a-h6-label">H6 — Cultural Essentialism in Arabesque [CONFIRMED]</strong><br>
+                    <em class="u-clr-2" data-i18n="a-h6-pred">Prediction: Arabesque will score highest under Human label but show largest AI penalty.</em><br>
+                    <em class="u-clr-2" data-i18n="a-h6-res">Results: Label × Genre on EI: F(2,58) = 3.42, p = .039. AI penalty: ΔEI = −0.88.</em>
                 </div>
                 <div class="hyp-item">
-                    <strong style="color: var(--accent);" data-i18n="a-h7-label">H7 — Acoustic Trust Gap [CONFIRMED with Reversal]</strong><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h7-pred">Prediction: Trust gap (Human − AI) will be larger in acoustic genres than Electronic.</em><br>
-                    <em style="color: var(--text-muted);" data-i18n="a-h7-res">Results: Label × Genre on Trust: F(2,58) = 14.86, p < .001. Arabesque +1.14. Electronic −1.32 (REVERSAL: AI label increased trust).</em>
+                    <strong class="u-clr-1" data-i18n="a-h7-label">H7 — Acoustic Trust Gap [CONFIRMED with Reversal]</strong><br>
+                    <em class="u-clr-2" data-i18n="a-h7-pred">Prediction: Trust gap (Human − AI) will be larger in acoustic genres than Electronic.</em><br>
+                    <em class="u-clr-2" data-i18n="a-h7-res">Results: Label × Genre on Trust: F(2,58) = 14.86, p < .001. Arabesque +1.14. Electronic −1.32 (REVERSAL: AI label increased trust).</em>
                 </div>
             </div>
         </div>
 
-        <footer class="poster-footer" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem;">
+        <footer class="poster-footer u-d-fd-ai-jc">
             <!-- ACADEMIC FOOTER -->
-            <div class="footer-col interactive-zone academic-only" style="width: 100%; text-align: center;">
-                <div class="dashboard-preview" style="display: inline-block; text-align: center;">
-                    <h4 data-i18n="explore-data" style="margin-bottom: 0.5rem; color: var(--accent);">EXPLORE LIVE DATA</h4>
-                    <p data-i18n="click-dashboard" style="color: var(--text-muted); margin-bottom: 1rem;">Click to view full interactive results dashboard</p>
-                    <button class="dash-btn" onclick="toggleInteractiveDashboard()" data-i18n-title="btn-view-title" data-i18n="btn-view" style="padding: 10px 20px; background: rgba(29, 185, 84, 0.2); border: 1px solid var(--accent); color: #fff; border-radius: 8px; cursor: pointer; opacity: 1;">View Results Dashboard &rarr;</button>
+            <div class="footer-col interactive-zone academic-only u-w-ta">
+                <div class="dashboard-preview u-d-ta">
+                    <h4 data-i18n="explore-data" class="u-mb-clr">EXPLORE LIVE DATA</h4>
+                    <p data-i18n="click-dashboard" class="u-clr-mb">Click to view full interactive results dashboard</p>
+                    <button data-action="toggleInteractiveDashboard" data-i18n-title="btn-view-title" data-i18n="btn-view" class="dash-btn u-p-b-b-clr">View Results Dashboard &rarr;</button>
                 </div>
             </div>
 
             <!-- VISITOR FOOTER -->
-            <div class="footer-col visitor-only" style="width: 100%; text-align: center;">
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.8rem;"><span data-i18n='v-footer-switch'>Want the full nerd version?</span> <a href="#" onclick="togglePath()" style="color: var(--accent); text-decoration: none;"><span data-i18n='v-footer-btn'>&rarr; Switch to Academic View</span></a></p>
-                <p style="color: var(--text-muted); font-size: 0.95rem;"><span data-i18n='v-footer-feedback'>Have feedback or questions? &rarr;</span> <a href="mailto:berketabak@gmail.com" style="color: var(--accent); text-decoration: none;"><span data-i18n='v-footer-email'>Email BERKE</span></a></p>
+            <div class="footer-col visitor-only u-w-ta">
+                <p class="u-clr-fs-mb-3"><span data-i18n='v-footer-switch'>Want the full nerd version?</span> <a href="#" data-action="togglePath" class="u-clr-td"><span data-i18n='v-footer-btn'>&rarr; Switch to Academic View</span></a></p>
+                <p class="u-clr-fs"><span data-i18n='v-footer-feedback'>Have feedback or questions? &rarr;</span> <a href="mailto:berketabak@gmail.com" class="u-clr-td"><span data-i18n='v-footer-email'>Email BERKE</span></a></p>
             </div>
         </footer>
     </div>
 
     <!-- EXPERIMENT OVERLAY -->
     <div class="exp-overlay" id="expOverlay">
-        <button class="exp-close" onclick="closeExperience()" data-i18n="btn-kapat">CLOSE</button>
+        <button class="exp-close" data-action="closeExperience" data-i18n="btn-kapat">CLOSE</button>
         
         <div class="exp-content">
             <!-- STAGE 1: Intro -->
@@ -556,17 +556,17 @@
                     <p class="exp-desc" data-i18n="exp-desc-start">Listen to 4 tracks. We will tell you if they are AI or Human. Rate them, and we will reveal the TRUTH at the end.</p>
                     
                     <div class="exp-genre-grid">
-                        <button class="genre-btn" onclick="setGenre('ara')">
+                        <button class="genre-btn" data-action="setGenre" data-arg="ara">
                             <span class="genre-icon">🎻</span>
                             <h3 class="genre-name" data-i18n="genre-ara-name">Arabesque</h3>
                             <p class="genre-sub" data-i18n="genre-ara-desc">Emotional Intensity</p>
                         </button>
-                        <button class="genre-btn" onclick="setGenre('blues')">
+                        <button class="genre-btn" data-action="setGenre" data-arg="blues">
                             <span class="genre-icon">🎸</span>
                             <h3 class="genre-name" data-i18n="genre-blues-name">Blues</h3>
                             <p class="genre-sub" data-i18n="genre-blues-desc">Melodic Aesthetics</p>
                         </button>
-                        <button class="genre-btn" onclick="setGenre('elec')">
+                        <button class="genre-btn" data-action="setGenre" data-arg="elec">
                             <span class="genre-icon">🎧</span>
                             <h3 class="genre-name" data-i18n="genre-elec-name">Electronic</h3>
                             <p class="genre-sub" data-i18n="genre-elec-desc">Technological Structure</p>
@@ -576,7 +576,7 @@
             </div>
 
             <!-- STAGE 2: Listening -->
-            <div class="exp-stage" id="stage2" style="display:none;">
+            <div id="stage2" class="exp-stage u-d">
                 <div class="exp-stage-inner">
                     <p class="exp-eyebrow" id="quiz-progress" data-i18n="exp-parca">TRACK 1 / 4</p>
                     <h2 class="exp-title" id="quiz-label-title">Loading...</h2>
@@ -587,84 +587,84 @@
                         <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
                     </div>
 
-                    <div class="audio-control-panel" style="margin: 1.5rem 0 2rem 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                        <button class="quiz-play-btn" id="quizPlayBtn" onclick="toggleQuizAudio()" style="background: var(--accent); color: #000; border: none; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; box-shadow: 0 0 15px var(--accent-glow);">
+                    <div class="audio-control-panel u-m-d-fd-ai">
+                        <button id="quizPlayBtn" data-action="toggleQuizAudio" class="quiz-play-btn u-b-clr-b-w">
                             <!-- Pause SVG by default -->
                             <svg id="playBtnIcon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                             </svg>
                         </button>
-                        <span id="quizAudioStatus" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;" data-i18n="audio-playing">Playing...</span>
+                        <span id="quizAudioStatus" class="u-fs-clr-fw" data-i18n="audio-playing">Playing...</span>
                     </div>
 
                     <div class="survey-form" id="surveyForm">
                         <div class="survey-q">
                             <label data-i18n="exp-originality">1. How original did this track feel?</label>
                             <div class="likert-scale" id="q1">
-                                <span onclick="selectLikert('q1', 1)">1</span><span onclick="selectLikert('q1', 2)">2</span><span onclick="selectLikert('q1', 3)">3</span><span onclick="selectLikert('q1', 4)">4</span><span onclick="selectLikert('q1', 5)">5</span><span onclick="selectLikert('q1', 6)">6</span><span onclick="selectLikert('q1', 7)">7</span>
+                                <span data-action="selectLikert" data-arg="q1,1">1</span><span data-action="selectLikert" data-arg="q1,2">2</span><span data-action="selectLikert" data-arg="q1,3">3</span><span data-action="selectLikert" data-arg="q1,4">4</span><span data-action="selectLikert" data-arg="q1,5">5</span><span data-action="selectLikert" data-arg="q1,6">6</span><span data-action="selectLikert" data-arg="q1,7">7</span>
                             </div>
                         </div>
                         <div class="survey-q">
                             <label data-i18n="exp-trust">2. How much do you trust this producer label?</label>
                             <div class="likert-scale" id="q2">
-                                <span onclick="selectLikert('q2', 1)">1</span><span onclick="selectLikert('q2', 2)">2</span><span onclick="selectLikert('q2', 3)">3</span><span onclick="selectLikert('q2', 4)">4</span><span onclick="selectLikert('q2', 5)">5</span><span onclick="selectLikert('q2', 6)">6</span><span onclick="selectLikert('q2', 7)">7</span>
+                                <span data-action="selectLikert" data-arg="q2,1">1</span><span data-action="selectLikert" data-arg="q2,2">2</span><span data-action="selectLikert" data-arg="q2,3">3</span><span data-action="selectLikert" data-arg="q2,4">4</span><span data-action="selectLikert" data-arg="q2,5">5</span><span data-action="selectLikert" data-arg="q2,6">6</span><span data-action="selectLikert" data-arg="q2,7">7</span>
                             </div>
                         </div>
                         <div class="survey-q">
                             <label data-i18n="exp-quality">3. How would you rate the technical quality?</label>
                             <div class="likert-scale" id="q3">
-                                <span onclick="selectLikert('q3', 1)">1</span><span onclick="selectLikert('q3', 2)">2</span><span onclick="selectLikert('q3', 3)">3</span><span onclick="selectLikert('q3', 4)">4</span><span onclick="selectLikert('q3', 5)">5</span><span onclick="selectLikert('q3', 6)">6</span><span onclick="selectLikert('q3', 7)">7</span>
+                                <span data-action="selectLikert" data-arg="q3,1">1</span><span data-action="selectLikert" data-arg="q3,2">2</span><span data-action="selectLikert" data-arg="q3,3">3</span><span data-action="selectLikert" data-arg="q3,4">4</span><span data-action="selectLikert" data-arg="q3,5">5</span><span data-action="selectLikert" data-arg="q3,6">6</span><span data-action="selectLikert" data-arg="q3,7">7</span>
                             </div>
                         </div>
-                        <button class="exp-next-btn" id="nextSongBtn" onclick="nextQuizSong()" data-i18n="exp-next-song">Next Track &rarr;</button>
+                        <button class="exp-next-btn" id="nextSongBtn" data-action="nextQuizSong" data-i18n="exp-next-song">Next Track &rarr;</button>
                     </div>
                 </div>
             </div>
 
             <!-- STAGE 3: Reveal -->
-            <div class="exp-stage" id="stage3" style="display:none;">
+            <div id="stage3" class="exp-stage u-d">
                 <div class="exp-stage-inner">
                     <p class="exp-eyebrow" data-i18n="exp-reveal-eyebrow">THE TRUTH REVEALED</p>
                     <h2 class="exp-title" id="revealTitle" data-i18n="exp-reveal-title">🎉 Surprise!</h2>
                     <div class="exp-reveal-box" id="expRevealBox">
                         <p class="exp-reveal-text" id="expRevealText" data-i18n="exp-reveal-lead">Loading...</p>
                     </div>
-                                        <div class="reveal-dashboard academic-only" style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-                        <div class="reveal-col" style="flex: 1; min-width: 300px;">
-                            <h3 class="breakdown-title" style="color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;"><span data-i18n='a-panel-1'>Panel 1: Data vs Sample</span></h3>
-                            <div class="card" style="margin-top: 1rem; padding: 1.5rem;">
-                                <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-muted);"><span data-i18n='a-panel-1-desc'>Your <span data-i18n='a-tbl-auth'>Auth</span>enticity AI Penalty (Human - AI):</span></p>
-                                <h4 id="acad-penalty-score" style="font-size: 2rem; color: #fff; margin-bottom: 0.5rem;">...</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted);"><span data-i18n='a-panel-1-mean'>Study Sample Mean:</span> <span style="color: var(--accent);">+0.85</span> (SD = 1.12)</p>
+                                        <div class="reveal-dashboard academic-only u-d-g-mt-fw">
+                        <div class="reveal-col u-f-mw">
+                            <h3 class="breakdown-title u-clr-bb-pb"><span data-i18n='a-panel-1'>Panel 1: Data vs Sample</span></h3>
+                            <div class="card u-mt-p">
+                                <p class="u-fs-mb-clr"><span data-i18n='a-panel-1-desc'>Your <span data-i18n='a-tbl-auth'>Auth</span>enticity AI Penalty (Human - AI):</span></p>
+                                <h4 id="acad-penalty-score" class="u-fs-clr-mb">...</h4>
+                                <p class="u-fs-clr-3"><span data-i18n='a-panel-1-mean'>Study Sample Mean:</span> <span class="u-clr-1">+0.85</span> (SD = 1.12)</p>
                             </div>
 
-                            <h3 class="breakdown-title" style="margin-top: 2rem; color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;"><span data-i18n='a-panel-2'>Panel 2: Hypothesis Check</span></h3>
-                            <div class="card" style="margin-top: 1rem; padding: 1.5rem; font-size: 0.9rem;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem;">
-                                    <span style="color: #a0a5b0;"><span data-i18n='a-h2'>H2: <span data-i18n='a-tbl-auth'>Auth</span> (Human > AI)</span></span>
+                            <h3 class="breakdown-title u-mt-clr-bb-pb"><span data-i18n='a-panel-2'>Panel 2: Hypothesis Check</span></h3>
+                            <div class="card u-mt-p-fs">
+                                <div class="u-d-jc-mb-bb">
+                                    <span class="u-clr"><span data-i18n='a-h2'>H2: <span data-i18n='a-tbl-auth'>Auth</span> (Human > AI)</span></span>
                                     <strong id="repl-h2">...</strong>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem;">
-                                    <span style="color: #a0a5b0;"><span data-i18n='a-h6'>H6: Arabesque Penalty Max</span></span>
+                                <div class="u-d-jc-mb-bb">
+                                    <span class="u-clr"><span data-i18n='a-h6'>H6: Arabesque Penalty Max</span></span>
                                     <strong id="repl-h6">...</strong>
                                 </div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #a0a5b0;"><span data-i18n='a-h7'>H7: Elec <span data-i18n='a-tbl-trust'>Trust</span> Reversal</span></span>
+                                <div class="u-d-jc">
+                                    <span class="u-clr"><span data-i18n='a-h7'>H7: Elec <span data-i18n='a-tbl-trust'>Trust</span> Reversal</span></span>
                                     <strong id="repl-h7">...</strong>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="reveal-col" style="flex: 1; min-width: 300px;">
-                            <h3 class="breakdown-title" style="color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;"><span data-i18n='a-panel-3'>Panel 3: Session Means</span></h3>
-                            <div class="card" style="margin-top: 1rem; padding: 1.5rem; overflow-x: auto;">
-                                <table style="width: 100%; text-align: left; font-size: 0.9rem; border-collapse: collapse;">
+                        <div class="reveal-col u-f-mw">
+                            <h3 class="breakdown-title u-clr-bb-pb"><span data-i18n='a-panel-3'>Panel 3: Session Means</span></h3>
+                            <div class="card u-mt-p-ox">
+                                <table class="u-w-ta-fs-bc">
                                     <thead>
-                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
-                                            <th style="padding: 0.5rem 0; color: var(--text-muted);"><span data-i18n='a-tbl-label'>Label</span></th>
-                                            <th style="padding: 0.5rem 0; color: var(--text-muted);"><span data-i18n='a-tbl-auth'>Auth</span></th>
-                                            <th style="padding: 0.5rem 0; color: var(--text-muted);"><span data-i18n='a-tbl-trust'>Trust</span></th>
-                                            <th style="padding: 0.5rem 0; color: var(--text-muted);"><span data-i18n='a-tbl-qual'>Qual</span></th>
+                                        <tr class="u-bb">
+                                            <th class="u-p-clr-1"><span data-i18n='a-tbl-label'>Label</span></th>
+                                            <th class="u-p-clr-1"><span data-i18n='a-tbl-auth'>Auth</span></th>
+                                            <th class="u-p-clr-1"><span data-i18n='a-tbl-trust'>Trust</span></th>
+                                            <th class="u-p-clr-1"><span data-i18n='a-tbl-qual'>Qual</span></th>
                                         </tr>
                                     </thead>
                                     <tbody id="acad-stats-table">
@@ -673,61 +673,61 @@
                                 </table>
                             </div>
 
-                            <h3 class="breakdown-title" style="margin-top: 2rem; color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;" data-i18n="a-panel-4-title">Panel 4: Method Notes</h3>
-                            <div class="card" style="margin-top: 1rem; padding: 1.5rem; border-left: 4px solid #f39c12; background: rgba(243, 156, 18, 0.05);">
-                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0;" data-i18n="a-panel-4-warning">
+                            <h3 data-i18n="a-panel-4-title" class="breakdown-title u-mt-clr-bb-pb">Panel 4: Method Notes</h3>
+                            <div class="card u-mt-p-bl-b">
+                                <p class="u-fs-clr-lh-m" data-i18n="a-panel-4-warning">
                                     <strong>Caution:</strong> This dashboard represents N=1 data with one trial per condition. It lacks sufficient statistical power for inference and is provided for illustration of the N=30 pipeline only.
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="reveal-dashboard visitor-only" style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-                        <div class="reveal-col" style="flex: 1; min-width: 300px;">
-                            <div class="card" style="text-align: center; padding: 2.5rem 1.5rem;">
-                                <h3 style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem;"><span data-i18n='v-dash-1'>You showed an AI penalty of:</span></h3>
-                                <h2 id="vis-penalty-score" style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem; line-height: 1; font-weight: 900;">...</h2>
-                                <p style="font-size: 1rem; color: #a0a5b0; line-height: 1.5;"><span data-i18n='v-dash-1d'>You gave Human-labeled tracks an average of <span id="vis-penalty-num" style="color: #fff; font-weight: bold;">...</span> points higher than AI-labeled tracks — even though we lied to you about some of them.</span></p>
+                    <div class="reveal-dashboard visitor-only u-d-g-mt-fw">
+                        <div class="reveal-col u-f-mw">
+                            <div class="card u-ta-p">
+                                <h3 class="u-clr-fs-mb"><span data-i18n='v-dash-1'>You showed an AI penalty of:</span></h3>
+                                <h2 id="vis-penalty-score" class="u-fs-clr-mb-lh">...</h2>
+                                <p class="u-fs-clr-lh"><span data-i18n='v-dash-1d'>You gave Human-labeled tracks an average of <span id="vis-penalty-num" class="u-clr-fw">...</span> points higher than AI-labeled tracks — even though we lied to you about some of them.</span></p>
                             </div>
 
-                            <div class="card" style="margin-top: 1.5rem; text-align: center; border-color: var(--accent); background: linear-gradient(145deg, rgba(29,185,84,0.1), rgba(15,17,21,0.8)); padding: 2.5rem 1.5rem;">
-                                <h3 style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;"><span data-i18n='v-dash-2'>Which type are you?</span></h3>
-                                <div id="vis-type-icon" style="font-size: 5rem; margin-bottom: 1rem;">🎯</div>
-                                <h2 id="vis-type-title" style="color: #fff; margin-bottom: 0.5rem; font-size: 1.8rem;">Genre Neutral</h2>
-                                <p id="vis-type-desc" style="font-size: 1rem; color: #a0a5b0;"><span data-i18n='a-tbl-label'>Label</span> barely changes how you rate music.</p>
+                            <div class="card u-mt-ta-bc-b">
+                                <h3 class="u-clr-fs-mb-2"><span data-i18n='v-dash-2'>Which type are you?</span></h3>
+                                <div id="vis-type-icon" class="u-fs-mb">🎯</div>
+                                <h2 id="vis-type-title" class="u-clr-mb-fs">Genre Neutral</h2>
+                                <p id="vis-type-desc" class="u-fs-clr"><span data-i18n='a-tbl-label'>Label</span> barely changes how you rate music.</p>
                             </div>
                         </div>
 
-                        <div class="reveal-col" style="flex: 1; min-width: 300px;">
-                            <div class="card" style="text-align: center; padding: 2.5rem 1.5rem;">
-                                <h3 style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;"><span data-i18n='v-dash-3'>Your brain would have done this:</span></h3>
-                                <div class="brain-glow-wrapper playing-ai" style="margin: 0 auto 2rem auto; width: 120px; height: 120px;">
-                                    <img src="assets/brain_heatmap.png" alt="Brain" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                        <div class="reveal-col u-f-mw">
+                            <div class="card u-ta-p">
+                                <h3 class="u-clr-fs-mb-2"><span data-i18n='v-dash-3'>Your brain would have done this:</span></h3>
+                                <div class="brain-glow-wrapper playing-ai u-m-w-h">
+                                    <img src="assets/brain_heatmap.png" alt="Brain" class="u-w-h-br-of">
                                 </div>
-                                <p style="font-size: 1rem; color: #a0a5b0; line-height: 1.5;"><span data-i18n='v-dash-3d'>When you saw the 'AI' label, your right prefrontal cortex would have worked harder — in the average participant, by about <strong style="color: #fff;">54%</strong>. That's the brain saying "wait, let me think about this."</span></p>
+                                <p class="u-fs-clr-lh"><span data-i18n='v-dash-3d'>When you saw the 'AI' label, your right prefrontal cortex would have worked harder — in the average participant, by about <strong class="u-text-white">54%</strong>. That's the brain saying "wait, let me think about this."</span></p>
                             </div>
 
-                            <div class="card" style="margin-top: 1.5rem; text-align: center; padding: 2rem 1.5rem;">
-                                <p style="font-size: 1rem; color: #a0a5b0; margin-bottom: 1.5rem;"><span data-i18n='v-dash-4'>Share your result!</span></p>
-                                <button class="dene-btn" style="width: 100%; padding: 12px; font-size: 1rem; justify-content: center;" onclick="alert('Link copied to clipboard! (Simulated)')"><span data-i18n='v-dash-btn'>🔗 Copy Link to Share</span></button>
-                                 <p style="margin-top: 2rem; font-size: 0.95rem;"><span data-i18n='v-dash-5'>Curious for the details? <br></span><a href="#" onclick="togglePath()" style="color: var(--accent); text-decoration: none; display: inline-block; margin-top: 0.5rem; border-bottom: 1px solid var(--accent); padding-bottom: 2px;" data-i18n="v-dash-switch">Switch to Academic View &rarr;</a></p>
+                            <div class="card u-mt-ta-p">
+                                <p class="u-fs-clr-mb-1"><span data-i18n='v-dash-4'>Share your result!</span></p>
+                                <button data-action="alert" data-arg="Link copied to clipboard! (Simulated)" class="dene-btn u-w-p-fs-jc"><span data-i18n='v-dash-btn'>🔗 Copy Link to Share</span></button>
+                                 <p class="u-mt-fs"><span data-i18n='v-dash-5'>Curious for the details? <br></span><a href="#" data-action="togglePath" class="u-clr-td-d-mt" data-i18n="v-dash-switch">Switch to Academic View &rarr;</a></p>
                             </div>
                         </div>
                     </div>
 
                     <!-- SONG BREAKDOWN (SHARED) -->
-                    <h3 class="breakdown-title" style="margin-top: 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;"><span data-i18n='v-dash-song'>Song-by-Song Breakdown</span></h3>
-                    <div class="exp-song-breakdown" id="expSongBreakdown" style="margin-top: 1rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem;"></div>
-                    <button class="exp-next-btn" onclick="expStage(4)" data-i18n="exp-result-btn">SEE FINAL RESULT &rarr;</button>
+                    <h3 class="breakdown-title u-mt-ta-bt-pt"><span data-i18n='v-dash-song'>Song-by-Song Breakdown</span></h3>
+                    <div id="expSongBreakdown" class="exp-song-breakdown u-mt-mb-d-fd"></div>
+                    <button class="exp-next-btn" data-action="expStage" data-arg="4" data-i18n="exp-result-btn">SEE FINAL RESULT &rarr;</button>
                 </div>
             </div>
 
             <!-- STAGE 4: Big Result -->
-            <div class="exp-stage" id="stage4" style="display:none;">
+            <div id="stage4" class="exp-stage u-d">
                 <div class="exp-stage-inner">
                     <p class="exp-eyebrow" data-i18n="exp-final-eyebrow">THE BIG DISCOVERY</p>
                     <h2 class="exp-final-title" data-i18n="exp-final-title">LABELS SHAPE EVALUATION</h2>
-                    <p style="color: #ff9800; font-size: 0.85rem; font-style: italic; margin-bottom: 1rem;"><span data-i18n="exp-disclaimer">Your result is based only on your ratings in this demo. It does not measure your brain activity.</span></p>
+                    <p class="u-clr-fs-fs-mb"><span data-i18n="exp-disclaimer">Your result is based only on your ratings in this demo. It does not measure your brain activity.</span></p>
                     <p class="exp-final-sub" data-i18n="exp-final-sub">In the retained fNIRS sample, AI-labeled trials showed a higher Right PFC HbO2 peak than Human-labeled trials. This neural result is exploratory and should not be interpreted as a personal diagnostic prediction.</p>
                     <div class="exp-final-stats">
                         <div class="exp-stat-pill" data-i18n="exp-pill-1">🧠 Right PFC Activity Up</div>
@@ -736,8 +736,8 @@
                     </div>
                     <p class="exp-conclusion" data-i18n="exp-final-conclusion">Our brains don't just judge music; they judge the label.</p>
                     <div class="exp-final-btns">
-                        <button class="exp-next-btn" onclick="expStage(1)" data-i18n="exp-try-again">🔄 Try Again</button>
-                        <button class="exp-next-btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);" onclick="closeExperience()" data-i18n="exp-back-poster">Back to Poster</button>
+                        <button class="exp-next-btn" data-action="expStage" data-arg="1" data-i18n="exp-try-again">🔄 Try Again</button>
+                        <button data-action="closeExperience" data-i18n="exp-back-poster" class="exp-next-btn u-b-b-clr">Back to Poster</button>
                     </div>
                 </div>
             </div>
@@ -747,20 +747,20 @@
     <!-- INTERACTIVE DASHBOARD OVERLAY -->
     <div class="dashboard-overlay" id="dashboardOverlay">
         <div class="dashboard-content">
-            <button class="close-btn" onclick="toggleInteractiveDashboard()">&times;</button>
-            <h2 data-i18n="dash-title" style="color: var(--accent); font-family: var(--font-heading); margin-bottom: 1.5rem; font-size: 2rem;">Interactive Results Dashboard</h2>
+            <button class="close-btn" data-action="toggleInteractiveDashboard">&times;</button>
+            <h2 data-i18n="dash-title" class="u-clr-ff-mb-fs-1">Interactive Results Dashboard</h2>
             <div class="dashboard-grid">
                 <div class="dash-card">
-                    <h3 data-i18n="dash-card-1-title" style="color: #fff; font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.25rem;">Genre-Label Interaction</h3>
-                    <p data-i18n="dash-card-1-desc" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Emotional Investment / Trust rating by genre and attribution label.</p>
-                    <div class="chart-container" style="position: relative; height: 250px; width: 100%;">
+                    <h3 data-i18n="dash-card-1-title" class="u-clr-ff-mb-fs">Genre-Label Interaction</h3>
+                    <p data-i18n="dash-card-1-desc" class="u-clr-fs-mb-1">Emotional Investment / Trust rating by genre and attribution label.</p>
+                    <div class="chart-container u-p-h-w">
                            <canvas id="genreChart"></canvas>
                     </div>
                 </div>
                 <div class="dash-card">
-                    <h3 data-i18n="dash-card-2-title" style="color: #fff; font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.25rem;">Prefrontal Hemodynamic Dynamics</h3>
-                    <p data-i18n="dash-card-2-desc" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">HbO changes in Right PFC over the course of a 25-second trial.</p>
-                    <div class="chart-container" style="position: relative; height: 250px; width: 100%;">
+                    <h3 data-i18n="dash-card-2-title" class="u-clr-ff-mb-fs">Prefrontal Hemodynamic Dynamics</h3>
+                    <p data-i18n="dash-card-2-desc" class="u-clr-fs-mb-1">HbO changes in Right PFC over the course of a 25-second trial.</p>
+                    <div class="chart-container u-p-h-w">
                            <canvas id="hboChart"></canvas>
                     </div>
                 </div>

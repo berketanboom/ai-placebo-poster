@@ -44,7 +44,7 @@ const translations = {
     'dash-card-1-title': { en: 'Genre-Label Interaction', tr: 'Tür-Etiket Etkileşimi' },
     'dash-card-1-desc': { en: 'Emotional Investment / Trust rating by genre and attribution label.', tr: 'Müzik türü ve kaynak atıf etiketine göre Duygusal Yatırım / Güven değerlendirmesi.' },
     'dash-card-2-title': { en: 'Prefrontal Hemodynamic Dynamics', tr: 'Prefrontal Hemodinamik Dinamikler' },
-    'dash-card-2-desc': { en: 'Illustrative Right PFC HbO2 Response Pattern<br><span style="font-size:0.75rem;">Schematic visualization based on observed condition-level peak HbO2 differences.</span>', tr: 'Örnekleyici Sağ PFC HbO2 Yanıt Paterni<br><span style="font-size:0.75rem;">Gözlemlenen koşul bazlı zirve HbO2 farklılıklarına dayalı şematik görselleştirme.</span>' },
+    'dash-card-2-desc': { en: 'Illustrative Right PFC HbO2 Response Pattern<br><span class="u-fs-1">Schematic visualization based on observed condition-level peak HbO2 differences.</span>', tr: 'Örnekleyici Sağ PFC HbO2 Yanıt Paterni<br><span class="u-fs-1">Gözlemlenen koşul bazlı zirve HbO2 farklılıklarına dayalı şematik görselleştirme.</span>' },
 
     'a-method-title': { en: 'Method', tr: 'Metot' },
     'a-results-title': { en: 'Neural Results', tr: 'Sinirsel Sonuçlar' },
@@ -115,10 +115,10 @@ const translations = {
     'v-footer-email': { en: 'Email BERKE', tr: 'Berke\'ye E-posta Gönder' },
 
     'v-dash-1': { en: 'You showed an AI penalty of:', tr: 'Göstermiş olduğun YZ cezası:' },
-    'v-dash-1d': { en: 'You gave Human-labeled tracks an average of <span id="vis-penalty-num" style="color: #fff; font-weight: bold;">...</span> points higher than AI-labeled tracks — even though we lied to you about some of them.', tr: 'İnsan etiketli parçalara, YZ etiketli parçalardan ortalama <span id="vis-penalty-num" style="color: #fff; font-weight: bold;">...</span> puan daha yüksek verdin — bazılarında sana yalan söylemiş olsak bile.' },
+    'v-dash-1d': { en: 'You gave Human-labeled tracks an average of <span id="vis-penalty-num" class="u-clr-fw">...</span> points higher than AI-labeled tracks — even though we lied to you about some of them.', tr: 'İnsan etiketli parçalara, YZ etiketli parçalardan ortalama <span id="vis-penalty-num" class="u-clr-fw">...</span> puan daha yüksek verdin — bazılarında sana yalan söylemiş olsak bile.' },
     'v-dash-2': { en: 'Which type are you?', tr: 'Sen Hangi Tipsin?' },
     'v-dash-3': { en: 'Study sample fNIRS pattern:', tr: 'Çalışma örneklemi fNIRS örüntüsü:' },
-    'v-dash-3d': { en: 'When you saw the \'AI\' label, your right prefrontal cortex would have worked harder — in the average participant, by about <strong style="color: #fff;">54%</strong>. That\'s the brain saying "wait, let me think about this."', tr: '\'YZ\' etiketini gördüğünde, fNIRS analizi yapılan örneklemde, YZ etiketli denemeler İnsan etiketli denemelere göre daha yüksek Sağ PFC HbO2 zirvesi göstermiştir. Bu bulgu keşfedicidir ve sizin kendi beyin aktivitenizi tahmin etmez.' },
+    'v-dash-3d': { en: 'When you saw the \'AI\' label, your right prefrontal cortex would have worked harder — in the average participant, by about <strong class="u-text-white">54%</strong>. That\'s the brain saying "wait, let me think about this."', tr: '\'YZ\' etiketini gördüğünde, fNIRS analizi yapılan örneklemde, YZ etiketli denemeler İnsan etiketli denemelere göre daha yüksek Sağ PFC HbO2 zirvesi göstermiştir. Bu bulgu keşfedicidir ve sizin kendi beyin aktivitenizi tahmin etmez.' },
     'v-dash-4': { en: 'Share your result!', tr: 'Sonucunu Paylaş!' },
     'v-dash-btn': { en: '🔗 Copy Link to Share', tr: '🔗 Paylaşmak İçin Kopyala' },
     'v-dash-song': { en: 'Song-by-Song Breakdown', tr: 'Şarkı Şarkı Analiz' },
@@ -180,16 +180,16 @@ const translations = {
     'a-results-insight-label': { en: '"AI" LABEL', tr: '"YZ" ETİKETİ' },
     'a-results-insight-value': { en: 'Right PFC Peak HbO', tr: 'Sağ PFC Zirve HbO' },
     'a-results-insight-desc': {
-        en: 'Linear Mixed-Effects (LME): <em>β<sub>1</sub></em> = 0.058, SE = 0.027, <em>p</em> = .047<br><span style="font-size: 0.8rem; font-family: monospace;">Right PFC Peak HbO (µM): AI [0.247], Human [0.193]</span>',
-        tr: 'Doğrusal Karma Etkiler (LME): <em>β<sub>1</sub></em> = 0.058, SE = 0.027, <em>p</em> = .047<br><span style="font-size: 0.8rem; font-family: monospace;">Sağ PFC Zirve HbO (µM): YZ [0.247], İnsan [0.193]</span>'
+        en: 'Linear Mixed-Effects (LME): <em>β<sub>1</sub></em> = 0.058, SE = 0.027, <em>p</em> = .047<br><span class="u-fs-ff">Right PFC Peak HbO (µM): AI [0.247], Human [0.193]</span>',
+        tr: 'Doğrusal Karma Etkiler (LME): <em>β<sub>1</sub></em> = 0.058, SE = 0.027, <em>p</em> = .047<br><span class="u-fs-ff">Sağ PFC Zirve HbO (µM): YZ [0.247], İnsan [0.193]</span>'
     },
     'a-explore-e1': {
-        en: '<strong style="color: #fff;">E1 - The Authenticity Hierarchy:</strong> Human-produced music consistently rated higher in authenticity across all conditions (F(1,29)=7.8, p=.009, η²p=.212).',
-        tr: '<strong style="color: #fff;">E1 - Otantiklik Hiyerarşisi:</strong> İnsan yapımı müzik, tüm koşullarda tutarlı olarak daha yüksek otantiklik puanı almıştır (F(1,29)=7.8, p=.009, η²p=.212).'
+        en: '<strong class="u-text-white">E1 - The Authenticity Hierarchy:</strong> Human-produced music consistently rated higher in authenticity across all conditions (F(1,29)=7.8, p=.009, η²p=.212).',
+        tr: '<strong class="u-text-white">E1 - Otantiklik Hiyerarşisi:</strong> İnsan yapımı müzik, tüm koşullarda tutarlı olarak daha yüksek otantiklik puanı almıştır (F(1,29)=7.8, p=.009, η²p=.212).'
     },
     'a-explore-e2': {
-        en: '<strong style="color: #fff;">E2 - Right-Lateralized Label Effect:</strong> Label effect isolated to Right PFC (p=.047). Left PFC showed no significant variation based on label (p=.68).',
-        tr: '<strong style="color: #fff;">E2 - Sağ-Lateralize Etiket Etkisi:</strong> Etiket etkisi Sağ PFC ile sınırlıdır (p=.047). Sol PFC etiket durumuna göre anlamlı bir değişim göstermemiştir (p=.68).'
+        en: '<strong class="u-text-white">E2 - Right-Lateralized Label Effect:</strong> Label effect isolated to Right PFC (p=.047). Left PFC showed no significant variation based on label (p=.68).',
+        tr: '<strong class="u-text-white">E2 - Sağ-Lateralize Etiket Etkisi:</strong> Etiket etkisi Sağ PFC ile sınırlıdır (p=.047). Sol PFC etiket durumuna göre anlamlı bir değişim göstermemiştir (p=.68).'
     },
     'a-discussion-text': {
         en: "Our data suggests that human perception of art is heavily mediated by mental models held about the creator. The AI label acts as a 'distrust cue', increasing evaluative effort in the right prefrontal cortex. The Trust reversal in Electronic music specifically highlights that algorithmic aversion is not uniform, but heavily dependent on genre-AI fit expectations.",
@@ -877,7 +877,7 @@ function showReveal() {
             card.innerHTML = `
                 <div class="song-card-header">
                     <span class="song-num">TRACK ${idx + 1}</span>
-                    <button class="listen-btn" onclick="playIndividualSong('${a.path}', this)">
+                    <button class="listen-btn" data-action="playIndividualSong" data-arg="${a.path},this">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                         ${listenText}
                     </button>
@@ -927,16 +927,16 @@ function showReveal() {
     if (tbody) {
         tbody.innerHTML = `
             <tr>
-                <td style="padding: 0.5rem 0; color: #fff;">${currentLang === 'tr' ? 'İnsan Etiketli' : 'Human-Labeled'}</td>
-                <td style="padding: 0.5rem 0; color: #fff;">${hAuth.toFixed(2)}</td>
-                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('Human', 'q2').toFixed(2)}</td>
-                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('Human', 'q3').toFixed(2)}</td>
+                <td class="u-p-clr">${currentLang === 'tr' ? 'İnsan Etiketli' : 'Human-Labeled'}</td>
+                <td class="u-p-clr">${hAuth.toFixed(2)}</td>
+                <td class="u-p-clr">${calculateAvg('Human', 'q2').toFixed(2)}</td>
+                <td class="u-p-clr">${calculateAvg('Human', 'q3').toFixed(2)}</td>
             </tr>
             <tr>
-                <td style="padding: 0.5rem 0; color: #fff;">${currentLang === 'tr' ? 'YZ Etiketli' : 'AI-Labeled'}</td>
-                <td style="padding: 0.5rem 0; color: #fff;">${aAuth.toFixed(2)}</td>
-                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('AI', 'q2').toFixed(2)}</td>
-                <td style="padding: 0.5rem 0; color: #fff;">${calculateAvg('AI', 'q3').toFixed(2)}</td>
+                <td class="u-p-clr">${currentLang === 'tr' ? 'YZ Etiketli' : 'AI-Labeled'}</td>
+                <td class="u-p-clr">${aAuth.toFixed(2)}</td>
+                <td class="u-p-clr">${calculateAvg('AI', 'q2').toFixed(2)}</td>
+                <td class="u-p-clr">${calculateAvg('AI', 'q3').toFixed(2)}</td>
             </tr>
         `;
     }
@@ -1051,5 +1051,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 pathToggle.click();
             }
         });
+    }
+});
+
+
+// === WO2: Event delegation (CSP-safe) ===
+const actionMap = {
+    setLanguage: typeof setLanguage !== 'undefined' ? setLanguage : null,
+    selectRole: typeof selectRole !== 'undefined' ? selectRole : null,
+    backToLanding: typeof backToLanding !== 'undefined' ? backToLanding : null,
+    togglePath: typeof togglePath !== 'undefined' ? togglePath : null,
+    openExperienceModal: typeof openExperienceModal !== 'undefined' ? openExperienceModal : null,
+    closeExperience: typeof closeExperience !== 'undefined' ? closeExperience : null,
+    expStage: typeof expStage !== 'undefined' ? expStage : null,
+    nextQuizSong: typeof nextQuizSong !== 'undefined' ? nextQuizSong : null,
+    setGenre: typeof setGenre !== 'undefined' ? setGenre : null,
+    toggleQuizAudio: typeof toggleQuizAudio !== 'undefined' ? toggleQuizAudio : null,
+    selectLikert: typeof selectLikert !== 'undefined' ? selectLikert : null,
+    toggleInteractiveDashboard: typeof toggleInteractiveDashboard !== 'undefined' ? toggleInteractiveDashboard : null,
+    playIndividualSong: typeof playIndividualSong !== 'undefined' ? playIndividualSong : null,
+    alert: (msg) => alert(msg)
+};
+
+document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-action]');
+    if (!el) return;
+    const action = el.dataset.action;
+    const fn = actionMap[action];
+    if (typeof fn === 'function') {
+        let args = [];
+        if (el.dataset.arg) {
+            args = el.dataset.arg.split(',').map(a => {
+                const trimmed = a.trim();
+                if (trimmed !== '' && !isNaN(trimmed)) return Number(trimmed);
+                return trimmed;
+            });
+        }
+        
+        if (action === 'playIndividualSong') {
+            fn(args[0], el);
+        } else {
+            fn(...args);
+        }
     }
 });
