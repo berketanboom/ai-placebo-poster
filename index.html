@@ -17,16 +17,15 @@
 <body>
     <!-- ROLE SELECTION OVERLAY -->
     <div class="role-overlay active" id="roleOverlay">
-        <div class="lang-switcher" id="langSwitcher">
-            <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">ENG</button>
-            <button class="lang-btn" id="lang-tr" onclick="setLanguage('tr')">TR</button>
-        </div>
-        <div class="role-container">
-            <div class="portal-badge">
-                <span class="dot"></span> <span data-i18n="portal-badge">RESEARCH PORTAL &bull; IUE PSYCHOLOGY 2026</span>
+        <header class="landing-header">
+            <div class="landing-header-center" data-i18n="portal-badge">RESEARCH PORTAL &bull; IUE PSYCHOLOGY 2026</div>
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">ENG</button>
+                <button class="lang-btn" id="lang-tr" onclick="setLanguage('tr')">TR</button>
             </div>
-            
-            <h1 class="landing-title" data-i18n="landing-title">The <span class="accent">"AI-Placebo"</span><br>Effect in Music</h1>
+        </header>
+        <div class="role-container">
+            <h1 class="landing-title" data-i18n="landing-title">The <span class="accent">"AI-Placebo"</span> Effect in Music</h1>
             
             <p class="landing-sub" data-i18n="landing-sub">Does knowing a song is AI-generated change how you feel about it?<br>
             Explore the neuroscience behind music perception and label bias.</p>
@@ -35,12 +34,29 @@
 
             <div class="role-cards">
                 <div class="role-card" onclick="selectRole('academic')">
-                    <div class="role-icon">🔬</div>
+                    <div class="role-icon">
+                        <svg class="role-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 18h8" />
+                            <path d="M3 22h18" />
+                            <path d="M14 22a7 7 0 1 0-14 0" />
+                            <circle cx="14" cy="16" r="1" />
+                            <path d="M14 14h2" />
+                            <path d="M14 12V4a2 2 0 1 0-4 0v8" />
+                            <path d="M12 2h2" />
+                        </svg>
+                    </div>
                     <h2 data-i18n="role-academic-title">Academic / Jury</h2>
                     <p data-i18n="role-academic-desc">fNIRS preprocessing, LME modeling, Right PFC dynamics, and statistical evidence.</p>
                 </div>
                 <div class="role-card" onclick="selectRole('visitor')">
-                    <div class="role-icon">🎵</div>
+                    <div class="role-icon">
+                        <svg class="role-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13" />
+                            <circle cx="6" cy="18" r="3" />
+                            <circle cx="18" cy="16" r="3" />
+                            <path d="M9 10l12-2" />
+                        </svg>
+                    </div>
                     <h2 data-i18n="role-visitor-title">Curious Visitor</h2>
                     <p data-i18n="role-visitor-desc">How AI labels change your brain's cognitive load and why we are naturally skeptical.</p>
                 </div>

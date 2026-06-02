@@ -183,7 +183,7 @@ const translations = {
 
     en: {
         "portal-badge": "RESEARCH PORTAL &bull; IUE PSYCHOLOGY 2026",
-        "landing-title": 'The <span class="accent">"AI-Placebo"</span><br>Effect in Music',
+        "landing-title": 'The <span class="accent">"AI-Placebo"</span> Effect in Music',
         "landing-sub": "Does knowing a song is AI-generated change how you feel about it?<br>Explore the neuroscience behind music perception and label bias.",
         "who-are-you": "WHO ARE YOU?",
         "role-academic-title": "Academic / Jury",
@@ -278,7 +278,7 @@ const translations = {
     },
     tr: {
         "portal-badge": "ARAŞTIRMA PORTALI &bull; İEU PSİKOLOJİ 2026",
-        "landing-title": 'Müzikte <span class="accent">"AI-Plasebo"</span><br>Etkisi',
+        "landing-title": 'Müzikte <span class="accent">"AI-Plasebo"</span> Etkisi',
         "landing-sub": "Bir şarkının yapay zeka tarafından yapıldığını bilmek ona olan hislerinizi değiştirir mi?<br>Müzik algısı ve etiket yanılığının arkasındaki sinirbilimi keşfedin.",
         "who-are-you": "KİMSİNİZ?",
         "role-academic-title": "Akademisyen / Jüri",
