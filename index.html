@@ -57,7 +57,7 @@
                         </svg>
                     </div>
                     <h2 data-i18n="role-visitor-title">Curious Visitor</h2>
-                    <p data-i18n="role-visitor-desc">How AI labels change your brain's cognitive load and why we are naturally skeptical.</p>
+                    <p data-i18n="role-visitor-desc">Plain-language explanation of how AI labels change music ratings. Not a diagnostic brain test.</p>
                 </div>
             </div>
             <div class="landing-footer">
@@ -112,21 +112,62 @@
                 <div class="card academic-only last-card-academic">
                     <h2 data-i18n="a-abstract-title">Abstract</h2>
                     <p style="font-size: 0.95rem; line-height: 1.6; text-align: justify; color: var(--text-muted);" data-i18n="a-abstract-text">
-                        Generative-AI music systems now match human composers on surface acoustic features, yet listeners systematically devalue music attributed to AI. The neural mechanisms of this attribution bias, and how they interact with culturally rooted musical genres, remain underspecified. The present study combines functional near-infrared spectroscopy (fNIRS) with subjective rating measures to isolate the contribution of source labeling from actual acoustic content. A within-subjects 2 × 2 × 3 factorial design (N = 30 behavioral, n = 13 fNIRS retained) crossed Label (AI/Human) × Producer (AI/Human) × Genre (Arabesque/Blues/Electronic). Participants rated 12 musical excerpts on Emotional Investment, Authenticity, Trust, Liking, and Quality (7-point Likert) while prefrontal cortex hemodynamics were recorded. Results revealed a selective AI-attribution penalty: Human-labeled music received higher Authenticity (η²p = .285), Emotional Investment (η²p = .276), and Quality (η²p = .227) ratings, while Liking remained unaffected (p = .270). The label-by-genre interaction was the largest effect for Trust (η²p = .339), with Arabesque showing the steepest AI penalty (Δ = −1.14) and Electronic exhibiting a reversal (Δ = +1.32; AI label increased trust). Right prefrontal cortex showed greater hemodynamic response to AI-labeled stimuli (LME β = 0.058, p₁ = .047), with no effect in left PFC. Findings reframe algorithmic aversion as a culturally moderated phenomenon with detectable neural signatures, supporting genre-AI fit expectation accounts.
+                        Generative-AI music systems now match human composers on surface acoustic features, yet listeners systematically devalue music attributed to AI. The neural mechanisms of this attribution bias, and how they interact with culturally rooted musical genres, remain underspecified. The present study combines functional near-infrared spectroscopy (fNIRS) with subjective rating measures to isolate the contribution of source labeling from actual acoustic content. A within-subjects 2 × 2 × 3 factorial design (N = 30 behavioral, n = 13 fNIRS retained) crossed Label (AI/Human) × Producer (AI/Human) × Genre (Arabesque/Blues/Electronic). Participants rated 12 musical excerpts on Emotional Investment, Authenticity, Trust, Liking, and Quality (7-point Likert) while prefrontal cortex hemodynamics were recorded. Results revealed a selective AI-attribution penalty: Human-labeled music received higher Authenticity (η²p = .285), Emotional Investment (η²p = .276), and Quality (η²p = .227) ratings, while Liking remained unaffected (p = .270). The label-by-genre interaction was the largest effect for Trust (η²p = .339), with Arabesque showing the steepest AI penalty (Δ = −1.14) and Electronic exhibiting a reversal (Δ = +1.32; AI label increased trust). fNIRS results showed a tentative right-lateralized pattern: AI-labeled trials produced a higher Right PFC HbO2 peak than Human-labeled trials at the participant level as a trend, with a secondary trial-level LME sensitivity model showing a similar direction. Because only 13 participants were retained after quality control, neural findings are interpreted as exploratory. Findings reframe algorithmic aversion as a culturally moderated phenomenon with detectable neural signatures, supporting genre-AI fit expectation accounts.
                     </p>
                     <p style="font-size: 0.85rem; color: #a0a5b0; margin-top: 1rem;" data-i18n="a-abstract-keywords">
                         <strong>Keywords:</strong> fNIRS, algorithmic aversion, source attribution, prefrontal cortex, cultural essentialism, music perception, placebo effect
                     </p>
                 </div>
 
+                <!-- ACADEMIC: Method -->
+                <div class="card academic-only last-card-academic">
+                    <h2 data-i18n='a-method-title'>Method</h2>
+                    <div style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted);">
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Participants were 30 Turkish university students aged 18–25 years (13 female, 17 male), recruited through convenience sampling. All reported normal hearing and no neurological diagnosis. Twenty-two participants completed fNIRS recording. After quality control, 13 participants were retained for exploratory fNIRS analyses.</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-s-label">Stimuli & Design:</strong> <span data-i18n="a-method-s-desc">12 excerpts (25s) across Arabesque, Blues, Electronic. 2 Human-composed, 2 AI-generated (Suno v5) per genre. Within-subjects 2×2×3 factorial (Label × Producer × Genre).</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">Each trial began with an unlabeled music excerpt. After 10 seconds, a source label appeared: AI-Generated or Human-Composed. The excerpt continued until 25 seconds. Participants then rated the excerpt on five 7-point Likert scales: Liking, Quality, Trust, Authenticity, and Emotional Investment. A 10-second fixation interval followed each trial.</span></p>
+                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">Behavioral DVs were Liking, Quality, Trust, Authenticity, and Emotional Investment. fNIRS HbO/HbR signals were inspected; inferential analyses focused on HbO2 Peak as the primary neural metric.</span></p>
+                        <p><strong style="color: #fff;" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">fNIRS preprocessing used raw .oxy HbO/HbR files, participant/file quality control, a 4th-order zero-phase Butterworth band-pass filter (0.01–0.2 Hz), local baseline correction using −10 to 0 s before label reveal, and a 4–15 s post-label HRF response window. ROI-level HbO2 peak values were extracted for Right and Left PFC.</span></p>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <p style="margin-bottom: 0.8rem;" data-i18n="a-method-fnirs-lit">
+                            fNIRS preprocessing followed a transparent, literature-informed workflow. Raw .oxy files were inspected for oxygenated and deoxygenated hemoglobin signals (HbO/HbO2 and HbR/Deoxy). Participant and file quality control was applied before inferential analysis. Retained signals were filtered with a 4th-order zero-phase Butterworth band-pass filter from 0.01 to 0.2 Hz to attenuate slow drift and high-frequency physiological/instrumental noise while preserving task-related hemodynamic fluctuations. A local trial-level baseline was computed from the −10 to 0 s interval before label reveal and subtracted from the post-label response. HbO2 Peak was then extracted from a 4–15 s post-label HRF response window for Right and Left PFC ROIs. This window was selected as a literature-informed sensitivity window to capture the delayed hemodynamic response after label onset. Because the retained fNIRS sample was small (n = 13), all neural analyses are reported as exploratory.
+                        </p>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q1">Why HbO2 as the primary metric?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a1">Both HbO/HbO2 and HbR/Deoxy were inspected. Inferential analyses focused on HbO2 Peak because HbO is commonly used in task-based fNIRS and typically shows stronger task-related response amplitude, while HbR was treated as a complementary signal.</p>
+                        </details>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q2">Why 0.01–0.2 Hz filtering?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a2">This band-pass range is commonly used to reduce very slow drift and higher-frequency physiological/instrumental noise while retaining task-related hemodynamic fluctuations.</p>
+                        </details>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q3">Why local baseline −10–0 s?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a3">A local pre-label baseline controls for trial-to-trial drift and captures the participant’s hemodynamic state immediately before the source label appears.</p>
+                        </details>
+                        
+                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
+                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q4">Why 4–15 s HRF window?</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a4">fNIRS hemodynamic responses are delayed relative to stimulus onset. The 4–15 s window was used as a literature-informed sensitivity window to capture the expected rise and peak response after label reveal. It should be reported as exploratory/sensitivity analysis, not as a universal standard.</p>
+                        </details>
+                    </div>
 
-
+                    <!-- <div class="download-badges academic-only" style="margin-top: 1rem;">
+                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/data.csv" target="_blank" rel="noopener" class="dl-badge" data-i18n="raw-data">📄 Raw Data (.csv)</a>
+                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/analysis.py" target="_blank" rel="noopener" class="dl-badge" data-i18n="python-script">🐍 Python Script</a>
+                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/spss_output.pdf" target="_blank" rel="noopener" class="dl-badge" data-i18n="spss-output">📊 SPSS Output</a>
+                    </div> -->
+                </div>
 
 
                 <!-- VISITOR B1: Landing -->
                 <div class="card visitor-only" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
                     <h2 class="hero-slogan" data-i18n="v-b1-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Can you trust your ears? 🎧</h2>
-                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and access the analysis materials.</p>
+                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and explore the analysis logic.</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 2rem;">
                         <span data-i18n='v-b1-desc'>Imagine someone plays you a beautiful song. They tell you it was written by AI. </span> 
                     </p>
@@ -201,7 +242,7 @@
                     <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-1-text">
                         Among the rating dimensions, Trust appeared especially sensitive to source labeling. AI labels reduced trust more strongly than basic liking, suggesting that AI attribution primarily affects perceived agency and reliability rather than simple enjoyment. Trust showed a strong label-related effect, η²p = .339, p < .001.
                     </p>
-
+ 
                     <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem;" data-i18n="a-explore-beh-2-title">2. The AI penalty was selective, not global</h3>
                     <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="a-explore-beh-2-text">
                         Participants did not simply dislike AI-labeled music across all dimensions. The AI label mainly affected higher-order judgments such as Trust, Authenticity, Quality, and Emotional Investment, while Liking was comparatively more preserved.
@@ -233,78 +274,31 @@
                     </p>
                 </div>
 
-                <!-- ACADEMIC: Method -->
-                <div class="card academic-only last-card-academic">
-                    <h2 data-i18n='a-method-title'>Method</h2>
-                    <div style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted);">
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-p-label">Participants:</strong> <span data-i18n="a-method-p-desc">Participants were 30 Turkish university students aged 18–25 years (13 female, 17 male), recruited through convenience sampling. All reported normal hearing and no neurological diagnosis. Twenty-two participants completed fNIRS recording. After quality control, 13 participants were retained for exploratory fNIRS analyses.</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-s-label">Stimuli & Design:</strong> <span data-i18n="a-method-s-desc">12 excerpts (25s) across Arabesque, Blues, Electronic. 2 Human-composed, 2 AI-generated (Suno v5) per genre. Within-subjects 2×2×3 factorial (Label × Producer × Genre).</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-pr-label">Procedure:</strong> <span data-i18n="a-method-pr-desc">Each trial began with an unlabeled music excerpt. After 10 seconds, a source label appeared: AI-Generated or Human-Composed. The excerpt continued until 25 seconds. Participants then rated the excerpt on five 7-point Likert scales: Liking, Quality, Trust, Authenticity, and Emotional Investment. A 10-second fixation interval followed each trial.</span></p>
-                        <p style="margin-bottom: 0.8rem;"><strong style="color: #fff;" data-i18n="a-method-m-label">Measures:</strong> <span data-i18n="a-method-m-desc">Behavioral DVs were Liking, Quality, Trust, Authenticity, and Emotional Investment. fNIRS HbO/HbR signals were inspected; inferential analyses focused on HbO2 Peak as the primary neural metric.</span></p>
-                        <p><strong style="color: #fff;" data-i18n="a-method-pl-label">Preprocessing Pipeline:</strong> <span data-i18n="a-method-pl-desc">fNIRS preprocessing used raw .oxy HbO/HbR files, participant/file quality control, a 4th-order zero-phase Butterworth band-pass filter (0.01–0.2 Hz), local baseline correction using −10 to 0 s before label reveal, and a 4–15 s post-label HRF response window. ROI-level HbO2 peak values were extracted for Right and Left PFC.</span></p>
-                    </div>
-                    
-                    <div style="margin-top: 1.5rem; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
-                        <p style="margin-bottom: 0.8rem;" data-i18n="a-method-fnirs-lit">
-                            fNIRS preprocessing followed a transparent, literature-informed workflow. Raw .oxy files were inspected for oxygenated and deoxygenated hemoglobin signals (HbO/HbO2 and HbR/Deoxy). Participant and file quality control was applied before inferential analysis. Retained signals were filtered with a 4th-order zero-phase Butterworth band-pass filter from 0.01 to 0.2 Hz to attenuate slow drift and high-frequency physiological/instrumental noise while preserving task-related hemodynamic fluctuations. A local trial-level baseline was computed from the −10 to 0 s interval before label reveal and subtracted from the post-label response. HbO2 Peak was then extracted from a 4–15 s post-label HRF response window for Right and Left PFC ROIs. This window was selected as a literature-informed sensitivity window to capture the delayed hemodynamic response after label onset. Because the retained fNIRS sample was small (n = 13), all neural analyses are reported as exploratory.
-                        </p>
-                        
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q1">Why HbO2 as the primary metric?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a1">Both HbO/HbO2 and HbR/Deoxy were inspected. Inferential analyses focused on HbO2 Peak because HbO is commonly used in task-based fNIRS and typically shows stronger task-related response amplitude, while HbR was treated as a complementary signal.</p>
-                        </details>
-                        
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q2">Why 0.01–0.2 Hz filtering?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a2">This band-pass range is commonly used to reduce very slow drift and higher-frequency physiological/instrumental noise while retaining task-related hemodynamic fluctuations.</p>
-                        </details>
-                        
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q3">Why local baseline −10–0 s?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a3">A local pre-label baseline controls for trial-to-trial drift and captures the participant’s hemodynamic state immediately before the source label appears.</p>
-                        </details>
-                        
-                        <details style="margin-bottom: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 4px;">
-                            <summary style="cursor: pointer; color: var(--accent); font-weight: 600;" data-i18n="a-method-q4">Why 4–15 s HRF window?</summary>
-                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);" data-i18n="a-method-a4">fNIRS hemodynamic responses are delayed relative to stimulus onset. The 4–15 s window was used as a literature-informed sensitivity window to capture the expected rise and peak response after label reveal. It should be reported as exploratory/sensitivity analysis, not as a universal standard.</p>
-                        </details>
-                    </div>
-
-                    <!-- <div class="download-badges academic-only" style="margin-top: 1rem;">
-                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/data.csv" target="_blank" rel="noopener" class="dl-badge" data-i18n="raw-data">📄 Raw Data (.csv)</a>
-                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/analysis.py" target="_blank" rel="noopener" class="dl-badge" data-i18n="python-script">🐍 Python Script</a>
-                        <a href="https://github.com/berketanboom/ai-placebo-poster/blob/main/spss_output.pdf" target="_blank" rel="noopener" class="dl-badge" data-i18n="spss-output">📊 SPSS Output</a>
-                    </div> -->
+                <!-- ACADEMIC: Try Experience (from visitor landing) -->
+                <div class="card academic-only last-card-academic" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
+                    <h2 class="hero-slogan" data-i18n="v-b1-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Can you trust your ears? 🎧</h2>
+                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and explore the analysis logic.</p>
+                    <button class="dene-btn" style="margin: 0 auto;" onclick="openExperienceModal()">
+                        <span class="dene-pulse"></span>
+                        <span data-i18n='v-b1-btn'>🎧 TRY THE STUDY YOURSELF</span>
+                    </button>
                 </div>
 
-                
-                <!-- ACADEMIC: Analysis Materials & Reproducibility -->
+                <!-- ACADEMIC: References -->
                 <div class="card academic-only">
-                    <h2 data-i18n="a-materials-title">Analysis Materials & Reproducibility</h2>
-                    
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-a-title">What the scripts include</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);" data-i18n="a-materials-a-text">
-                        The analysis scripts load raw .oxy and .mrk files, extract label events, preprocess HbO/HbR signals, apply participant/file quality control, perform local baseline correction, extract ROI-level HbO2 Peak metrics, and compute participant-level t-tests and trial-level LME models.
-                    </p>
-
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-b-title">What the scripts output</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);" data-i18n="a-materials-b-text">
-                        The scripts generate trial-level metrics, participant-level condition summaries, Right/Left PFC comparisons, and group-level statistical summaries. They are intended for reproducibility and transparency.
-                    </p>
-
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-c-title">Important transparency note</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);" data-i18n="a-materials-c-text">
-                        The fNIRS analyses are exploratory. The scripts reproduce the poster-consistent literature-informed sensitivity analysis. They should not be presented as preregistered confirmatory analyses.
-                    </p>
-
-                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem; margin-top: 1.5rem;" data-i18n="a-materials-d-title">Download area</h3>
-                    <div class="download-badges" style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="#" class="dl-badge" data-i18n="a-materials-dl-1">📄 Download fNIRS preprocessing script (TODO)</a>
-                        <a href="#" class="dl-badge" data-i18n="a-materials-dl-2">📄 Download fNIRS analysis script (TODO)</a>
-                        <a href="README_fNIRS_Analysis.md" target="_blank" class="dl-badge" data-i18n="a-materials-dl-3">📄 Download README / Methodological Notes</a>
-                        <a href="#" class="dl-badge" data-i18n="a-materials-dl-4">📊 Download output tables (TODO)</a>
-                    </div>
+                    <h2 data-i18n='a-references-title'>References</h2>
+                    <ul style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted); padding-left: 1.2rem; list-style-type: square; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Agbangla, N. F. et al. (2022). HRF window standards in fNIRS.</li>
+                        <li style="margin-bottom: 0.5rem;">Bhatt, M. et al. (2020). Scalp Coupling Index Methodology.</li>
+                        <li style="margin-bottom: 0.5rem;">Dietvorst, B. J. et al. (2015). Overcoming algorithmic aversion.</li>
+                        <li style="margin-bottom: 0.5rem;">Pollonini, L. et al. (2014). SCI evaluation in continuous-wave fNIRS.</li>
+                        <li>Shank, D. B. et al. (2023). Source attribution in AI art.</li>
+                    </ul>
+                    <a href="sources.html" style="display: inline-block; padding: 8px 16px; background: rgba(29, 185, 84, 0.1); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.3s;" data-i18n="full-bibliography">📚 Full Bibliography</a>
                 </div>
+
+
+
 
                 <!-- VISITOR B3: What We Found -->
                 <div class="card visitor-only">
@@ -322,7 +316,7 @@
                         <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-3d'>In Electronic music, the 'AI' label actually INCREASED trust. People expected AI to make electronic music, so it made sense.</span></p>
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-4'>🧠 Your brain knows</span></h3>
+                        <h3 style="font-size: 1.1rem;"><span data-i18n='v-b3-4'>🧠 Preliminary fNIRS pattern</span></h3>
                         <p style="font-size: 0.95rem; color: var(--text-muted);"><span data-i18n='v-b3-4d'>The moment you see the 'AI' word, the right side of your prefrontal cortex showed a higher HbO2 response pattern — like you're switching into critical-thinking mode.</span></p>
                     </div>
                     <div>
@@ -387,28 +381,44 @@
                     </ol>
                 </div>
 
-                <!-- ACADEMIC: References -->
+                <!-- ACADEMIC: fNIRS Analysis Logic & Literature Basis -->
                 <div class="card academic-only">
-                    <h2 data-i18n='a-references-title'>References</h2>
-                    <ul style="font-size: 0.8rem; line-height: 1.4; color: var(--text-muted); padding-left: 1.2rem; list-style-type: square; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">Agbangla, N. F. et al. (2022). HRF window standards in fNIRS.</li>
-                        <li style="margin-bottom: 0.5rem;">Bhatt, M. et al. (2020). Scalp Coupling Index Methodology.</li>
-                        <li style="margin-bottom: 0.5rem;">Dietvorst, B. J. et al. (2015). Overcoming algorithmic aversion.</li>
-                        <li style="margin-bottom: 0.5rem;">Pollonini, L. et al. (2014). SCI evaluation in continuous-wave fNIRS.</li>
-                        <li>Shank, D. B. et al. (2023). Source attribution in AI art.</li>
-                    </ul>
-                    <a href="sources.html" style="display: inline-block; padding: 8px 16px; background: rgba(29, 185, 84, 0.1); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.3s;" data-i18n="full-bibliography">📚 Full Bibliography</a>
+                    <h2 data-i18n="a-materials-title">fNIRS Analysis Logic & Literature Basis</h2>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin-bottom: 1rem;">
+                        <span data-i18n="a-materials-intro">This section explains the logic behind the fNIRS preprocessing and analysis choices. It is included for transparency and methodological clarity; no analysis scripts are provided on this website. The fNIRS results remain exploratory.</span>
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa1-t">A. What was analyzed?</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <span data-i18n="a-materials-qa1-a">Raw fNIRS exports were inspected for oxygenated and deoxygenated hemoglobin signals (HbO/HbO2 and HbR/Deoxy). The primary neural summary focused on HbO2 Peak in Right and Left PFC ROIs because HbO is commonly used in task-based fNIRS and often shows stronger task-related response amplitude.</span>
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa2-t">B. How was the signal cleaned?</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <span data-i18n="a-materials-qa2-a">Signals were filtered using a 4th-order zero-phase Butterworth band-pass filter from 0.01 to 0.2 Hz to reduce slow drift and higher-frequency physiological/instrumental noise while preserving task-related hemodynamic fluctuations.</span>
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa3-t">C. How was baseline handled?</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <span data-i18n="a-materials-qa3-a">A local trial-level baseline was defined as the −10 to 0 s interval before label reveal. This local pre-label baseline captures the participant’s hemodynamic state immediately before the source attribution appears and helps control trial-to-trial drift.</span>
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa4-t">D. How was the response quantified?</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <span data-i18n="a-materials-qa4-a">After label reveal, HbO2 Peak was extracted from a literature-informed post-label HRF response window for each trial and ROI. The analysis focused on Right PFC and Left PFC to test whether the AI-label pattern was right-lateralized.</span>
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa5-t">E. How were conditions compared?</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <span data-i18n="a-materials-qa5-a">For each participant, AI-labeled and Human-labeled trials were averaged separately. AI − Human difference scores were tested at the participant level. The printed poster additionally reports a secondary trial-level LME sensitivity model with participant as a random intercept.</span>
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem;" data-i18n="a-materials-qa6-t">F. Why is this exploratory?</h3>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
+                        <span data-i18n="a-materials-qa6-a">The retained fNIRS sample was small (n = 13) and participant/channel exclusion was substantial. Therefore, fNIRS findings are interpreted as preliminary neural evidence and require replication. Behavioral findings from the full N = 30 sample are the stronger evidence in this thesis.</span>
+                    </p>
                 </div>
 
-                <!-- ACADEMIC: Try Experience (from visitor landing) -->
-                <div class="card academic-only last-card-academic" style="text-align: center; background: linear-gradient(145deg, rgba(29,185,84,0.15), rgba(15,17,21,0.8)); border-color: var(--accent); padding: 2.5rem 1.5rem;">
-                    <h2 class="hero-slogan" data-i18n="v-b1-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Can you trust your ears? 🎧</h2>
-                    <p class="hero-sub" data-i18n="v-b1-sub" style="margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff;">Scan to experience the experiment, view full results, and access the analysis materials.</p>
-                    <button class="dene-btn" style="margin: 0 auto;" onclick="openExperienceModal()">
-                        <span class="dene-pulse"></span>
-                        <span data-i18n='v-b1-btn'>🎧 TRY THE STUDY YOURSELF</span>
-                    </button>
-                </div>
 
                 <!-- VISITOR B6: Why This Matters -->
                 <div class="card visitor-only last-card-visitor">
@@ -667,8 +677,8 @@
             <div class="exp-stage" id="stage4" style="display:none;">
                 <div class="exp-stage-inner">
                     <p class="exp-eyebrow" data-i18n="exp-final-eyebrow">THE BIG DISCOVERY</p>
-                    <h2 class="exp-final-title" data-i18n="exp-final-title">LABEL INCREASES COGNITIVE LOAD</h2>
-                    <p style="color: #ff9800; font-size: 0.85rem; font-style: italic; margin-bottom: 1rem;">Your result is based only on your ratings in this demo. It does not measure your brain activity.</p>
+                    <h2 class="exp-final-title" data-i18n="exp-final-title">LABELS SHAPE EVALUATION</h2>
+                    <p style="color: #ff9800; font-size: 0.85rem; font-style: italic; margin-bottom: 1rem;"><span data-i18n="exp-disclaimer">Your result is based only on your ratings in this demo. It does not measure your brain activity.</span></p>
                     <p class="exp-final-sub" data-i18n="exp-final-sub">In the retained fNIRS sample, AI-labeled trials showed a higher Right PFC HbO2 peak than Human-labeled trials. This neural result is exploratory and should not be interpreted as a personal diagnostic prediction.</p>
                     <div class="exp-final-stats">
                         <div class="exp-stat-pill" data-i18n="exp-pill-1">🧠 Right PFC Activity Up</div>
