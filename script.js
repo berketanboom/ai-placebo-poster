@@ -444,6 +444,10 @@ en: {
 let currentLang = 'en';
 
 function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
+    const activeBtn = document.getElementById('lang-' + lang);
+    if(activeBtn) activeBtn.setAttribute('aria-pressed', 'true');
     currentLang = lang;
     localStorage.setItem('lang', lang);
     
@@ -602,6 +606,13 @@ if (ctxHbo && typeof Chart !== 'undefined') {
 }
 
 function toggleInteractiveDashboard() {
+    const overlay = document.getElementById("dashboardOverlay");
+    if(overlay && !overlay.classList.contains("active")) {
+        window.lastFocusedElement = document.activeElement;
+        setTimeout(() => { const focusable = overlay.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\'-1\'])"); if(focusable) focusable.focus(); }, 100);
+    } else {
+        if(window.lastFocusedElement) { window.lastFocusedElement.focus(); window.lastFocusedElement = null; }
+    }
     const overlay = document.getElementById('dashboardOverlay');
     if(overlay) overlay.classList.toggle('active');
 }
@@ -655,11 +666,14 @@ let quizState = {
 };
 
 function openExperienceModal() {
+    window.lastFocusedElement = document.activeElement;
+    setTimeout(() => { const focusable = document.getElementById("expModal").querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\'-1\'])"); if(focusable) focusable.focus(); }, 100);
     document.getElementById('expOverlay').classList.add('active');
     expStage(1);
 }
 
 function closeExperience() {
+    if(window.lastFocusedElement) { window.lastFocusedElement.focus(); window.lastFocusedElement = null; }
     document.getElementById('expOverlay').classList.remove('active');
     if (expAudio) { expAudio.pause(); expAudio = null; }
     document.querySelectorAll('.listen-btn').forEach(btn => btn.classList.remove('playing'));
@@ -1093,5 +1107,56 @@ document.addEventListener('click', (e) => {
         } else {
             fn(...args);
         }
+    }
+});
+
+
+// === WO3: Keyboard accessibility ===
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+        const el = e.target.closest('[data-action]');
+        if (!el) return;
+        
+        // Don't prevent default on regular links or buttons inside forms if they shouldn't be overridden
+        if(e.target.tagName !== 'BUTTON' || el.dataset.action) {
+            e.preventDefault();
+            const action = el.dataset.action;
+            const fn = actionMap[action];
+            if (typeof fn === 'function') {
+                let args = [];
+                if (el.dataset.arg) {
+                    args = el.dataset.arg.split(',').map(a => {
+                        const trimmed = a.trim();
+                        if (trimmed !== '' && !isNaN(trimmed)) return Number(trimmed);
+                        return trimmed;
+                    });
+                }
+                if (action === 'playIndividualSong') {
+                    fn(args[0], el);
+                } else {
+                    fn(...args);
+                }
+            }
+        }
+    }
+});
+
+// === WO3: Focus Management & Esc Key ===
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const dash = document.getElementById('dashboardOverlay');
+        const exp = document.getElementById('expModal');
+        if (dash && dash.classList.contains('active')) {
+            toggleInteractiveDashboard();
+        } else if (exp && exp.classList.contains('active')) {
+            closeExperience();
+        }
+    }
+});
+
+// Also apply lang at startup
+document.addEventListener('DOMContentLoaded', () => {
+    if(typeof currentLang !== 'undefined') {
+        document.documentElement.lang = currentLang;
     }
 });

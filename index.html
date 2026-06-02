@@ -63,13 +63,14 @@
 </head>
 
 <body>
+    <a href="#main-poster" class="skip-link" data-i18n="skip-link">Skip to main content</a>
     <!-- ROLE SELECTION OVERLAY -->
-    <div class="role-overlay active" id="roleOverlay">
+    <div class="role-overlay active" id="roleOverlay" role="dialog" aria-modal="true" aria-labelledby="role-title">
         <header class="landing-header">
-            <div class="landing-header-center" data-i18n="portal-badge">RESEARCH PORTAL &bull; IUE PSYCHOLOGY 2026</div>
-            <div class="lang-switcher" id="langSwitcher">
-                <button class="lang-btn active" id="lang-en" data-action="setLanguage" data-arg="en">ENG</button>
-                <button class="lang-btn" id="lang-tr" data-action="setLanguage" data-arg="tr">TR</button>
+            <div class="landing-header-center" id="role-title" data-i18n="portal-badge">RESEARCH PORTAL &bull; IUE PSYCHOLOGY 2026</div>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language">
+                <button class="lang-btn active" id="lang-en" data-action="setLanguage" data-arg="en" aria-pressed="true">ENG</button>
+                <button class="lang-btn" id="lang-tr" data-action="setLanguage" data-arg="tr" aria-pressed="false">TR</button>
             </div>
         </header>
         <div class="role-container">
@@ -81,7 +82,7 @@
             <div class="who-are-you" data-i18n="who-are-you">WHO ARE YOU?</div>
 
             <div class="role-cards">
-                <div class="role-card" data-action="selectRole" data-arg="academic">
+                <div class="role-card" role="button" tabindex="0" data-action="selectRole" data-arg="academic">
                     <div class="role-icon">
                         <svg class="role-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 18h8" />
@@ -96,7 +97,7 @@
                     <h2 data-i18n="role-academic-title">Academic / Jury</h2>
                     <p data-i18n="role-academic-desc">fNIRS preprocessing, LME modeling, Right PFC dynamics, and statistical evidence.</p>
                 </div>
-                <div class="role-card" data-action="selectRole" data-arg="visitor">
+                <div class="role-card" role="button" tabindex="0" data-action="selectRole" data-arg="visitor">
                     <div class="role-icon">
                         <svg class="role-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 18V5l12-2v13" />
@@ -118,7 +119,7 @@
 
 
 
-    <div class="poster-container">
+    <div class="poster-container" id="main-poster">
         <button class="exit-poster-btn" data-action="backToLanding" data-i18n-title="btn-close-title" title="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -138,7 +139,7 @@
                         <button class="lang-btn active" data-action="setLanguage" data-arg="en">ENG</button>
                         <button class="lang-btn" data-action="setLanguage" data-arg="tr">TR</button>
                     </div>
-                    <div data-action="togglePath" class="path-toggle u-b-br-p-d">
+                    <div data-action="togglePath" class="path-toggle u-b-br-p-d" role="button" tabindex="0">
                         <span data-i18n="toggle-academic" class="toggle-option academic-option u-p-br-fs-fw">Academic</span>
                         <span data-i18n="toggle-visitor" class="toggle-option visitor-option u-p-br-fs-fw">Visitor</span>
                     </div>
@@ -262,7 +263,8 @@
                         </div>
                     </div>
                     <div class="chart-container main-chart u-mt-1">
-                        <canvas id="heroChart"></canvas>
+                        <canvas id="heroChart" role="img" aria-label="Right PFC Peak HbO comparison"></canvas>
+<div class="visually-hidden">Right PFC HbO peak: AI Label 0.247 µM, Human Label 0.193 µM.</div>
                     </div>
                     
                     <h3 class="u-mt-fs-bb-pb"><span data-i18n='a-explore-title'>Exploratory Findings</span></h3>
@@ -537,7 +539,7 @@
 
             <!-- VISITOR FOOTER -->
             <div class="footer-col visitor-only u-w-ta">
-                <p class="u-clr-fs-mb-3"><span data-i18n='v-footer-switch'>Want the full nerd version?</span> <a href="#" data-action="togglePath" class="u-clr-td"><span data-i18n='v-footer-btn'>&rarr; Switch to Academic View</span></a></p>
+                <p class="u-clr-fs-mb-3"><span data-i18n='v-footer-switch'>Want the full nerd version?</span> <a href="#" data-action="togglePath" class="u-clr-td" role="button" tabindex="0"><span data-i18n='v-footer-btn'>&rarr; Switch to Academic View</span></a></p>
                 <p class="u-clr-fs"><span data-i18n='v-footer-feedback'>Have feedback or questions? &rarr;</span> <a href="mailto:berketabak@gmail.com" class="u-clr-td"><span data-i18n='v-footer-email'>Email BERKE</span></a></p>
             </div>
         </footer>
@@ -579,7 +581,7 @@
             <div id="stage2" class="exp-stage u-d">
                 <div class="exp-stage-inner">
                     <p class="exp-eyebrow" id="quiz-progress" data-i18n="exp-parca">TRACK 1 / 4</p>
-                    <h2 class="exp-title" id="quiz-label-title">Loading...</h2>
+                    <h2 class="exp-title" id="quiz-label-title" aria-live="polite">Loading...</h2>
                     
                     <div class="exp-eq">
                         <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
@@ -601,19 +603,19 @@
                         <div class="survey-q">
                             <label data-i18n="exp-originality">1. How original did this track feel?</label>
                             <div class="likert-scale" id="q1">
-                                <span data-action="selectLikert" data-arg="q1,1">1</span><span data-action="selectLikert" data-arg="q1,2">2</span><span data-action="selectLikert" data-arg="q1,3">3</span><span data-action="selectLikert" data-arg="q1,4">4</span><span data-action="selectLikert" data-arg="q1,5">5</span><span data-action="selectLikert" data-arg="q1,6">6</span><span data-action="selectLikert" data-arg="q1,7">7</span>
+                                <span data-action="selectLikert" data-arg="q1,1" role="radio" aria-checked="false" tabindex="0">1</span><span data-action="selectLikert" data-arg="q1,2" role="radio" aria-checked="false" tabindex="0">2</span><span data-action="selectLikert" data-arg="q1,3" role="radio" aria-checked="false" tabindex="0">3</span><span data-action="selectLikert" data-arg="q1,4" role="radio" aria-checked="false" tabindex="0">4</span><span data-action="selectLikert" data-arg="q1,5" role="radio" aria-checked="false" tabindex="0">5</span><span data-action="selectLikert" data-arg="q1,6" role="radio" aria-checked="false" tabindex="0">6</span><span data-action="selectLikert" data-arg="q1,7" role="radio" aria-checked="false" tabindex="0">7</span>
                             </div>
                         </div>
                         <div class="survey-q">
                             <label data-i18n="exp-trust">2. How much do you trust this producer label?</label>
                             <div class="likert-scale" id="q2">
-                                <span data-action="selectLikert" data-arg="q2,1">1</span><span data-action="selectLikert" data-arg="q2,2">2</span><span data-action="selectLikert" data-arg="q2,3">3</span><span data-action="selectLikert" data-arg="q2,4">4</span><span data-action="selectLikert" data-arg="q2,5">5</span><span data-action="selectLikert" data-arg="q2,6">6</span><span data-action="selectLikert" data-arg="q2,7">7</span>
+                                <span data-action="selectLikert" data-arg="q2,1" role="radio" aria-checked="false" tabindex="0">1</span><span data-action="selectLikert" data-arg="q2,2" role="radio" aria-checked="false" tabindex="0">2</span><span data-action="selectLikert" data-arg="q2,3" role="radio" aria-checked="false" tabindex="0">3</span><span data-action="selectLikert" data-arg="q2,4" role="radio" aria-checked="false" tabindex="0">4</span><span data-action="selectLikert" data-arg="q2,5" role="radio" aria-checked="false" tabindex="0">5</span><span data-action="selectLikert" data-arg="q2,6" role="radio" aria-checked="false" tabindex="0">6</span><span data-action="selectLikert" data-arg="q2,7" role="radio" aria-checked="false" tabindex="0">7</span>
                             </div>
                         </div>
                         <div class="survey-q">
                             <label data-i18n="exp-quality">3. How would you rate the technical quality?</label>
                             <div class="likert-scale" id="q3">
-                                <span data-action="selectLikert" data-arg="q3,1">1</span><span data-action="selectLikert" data-arg="q3,2">2</span><span data-action="selectLikert" data-arg="q3,3">3</span><span data-action="selectLikert" data-arg="q3,4">4</span><span data-action="selectLikert" data-arg="q3,5">5</span><span data-action="selectLikert" data-arg="q3,6">6</span><span data-action="selectLikert" data-arg="q3,7">7</span>
+                                <span data-action="selectLikert" data-arg="q3,1" role="radio" aria-checked="false" tabindex="0">1</span><span data-action="selectLikert" data-arg="q3,2" role="radio" aria-checked="false" tabindex="0">2</span><span data-action="selectLikert" data-arg="q3,3" role="radio" aria-checked="false" tabindex="0">3</span><span data-action="selectLikert" data-arg="q3,4" role="radio" aria-checked="false" tabindex="0">4</span><span data-action="selectLikert" data-arg="q3,5" role="radio" aria-checked="false" tabindex="0">5</span><span data-action="selectLikert" data-arg="q3,6" role="radio" aria-checked="false" tabindex="0">6</span><span data-action="selectLikert" data-arg="q3,7" role="radio" aria-checked="false" tabindex="0">7</span>
                             </div>
                         </div>
                         <button class="exp-next-btn" id="nextSongBtn" data-action="nextQuizSong" data-i18n="exp-next-song">Next Track &rarr;</button>
@@ -625,7 +627,7 @@
             <div id="stage3" class="exp-stage u-d">
                 <div class="exp-stage-inner">
                     <p class="exp-eyebrow" data-i18n="exp-reveal-eyebrow">THE TRUTH REVEALED</p>
-                    <h2 class="exp-title" id="revealTitle" data-i18n="exp-reveal-title">🎉 Surprise!</h2>
+                    <h2 class="exp-title" id="revealTitle" aria-live="polite" data-i18n="exp-reveal-title">🎉 Surprise!</h2>
                     <div class="exp-reveal-box" id="expRevealBox">
                         <p class="exp-reveal-text" id="expRevealText" data-i18n="exp-reveal-lead">Loading...</p>
                     </div>
@@ -702,7 +704,7 @@
                             <div class="card u-ta-p">
                                 <h3 class="u-clr-fs-mb-2"><span data-i18n='v-dash-3'>Your brain would have done this:</span></h3>
                                 <div class="brain-glow-wrapper playing-ai u-m-w-h">
-                                    <img src="assets/brain_heatmap.png" alt="Brain" class="u-w-h-br-of">
+                                    <img src="assets/brain_heatmap.png" alt="Right prefrontal cortex activation heatmap — higher HbO2 response under the AI label." class="u-w-h-br-of">
                                 </div>
                                 <p class="u-fs-clr-lh"><span data-i18n='v-dash-3d'>When you saw the 'AI' label, your right prefrontal cortex would have worked harder — in the average participant, by about <strong class="u-text-white">54%</strong>. That's the brain saying "wait, let me think about this."</span></p>
                             </div>
@@ -710,7 +712,7 @@
                             <div class="card u-mt-ta-p">
                                 <p class="u-fs-clr-mb-1"><span data-i18n='v-dash-4'>Share your result!</span></p>
                                 <button data-action="alert" data-arg="Link copied to clipboard! (Simulated)" class="dene-btn u-w-p-fs-jc"><span data-i18n='v-dash-btn'>🔗 Copy Link to Share</span></button>
-                                 <p class="u-mt-fs"><span data-i18n='v-dash-5'>Curious for the details? <br></span><a href="#" data-action="togglePath" class="u-clr-td-d-mt" data-i18n="v-dash-switch">Switch to Academic View &rarr;</a></p>
+                                 <p class="u-mt-fs"><span data-i18n='v-dash-5'>Curious for the details? <br></span><a href="#" data-action="togglePath" class="u-clr-td-d-mt" data-i18n="v-dash-switch" role="button" tabindex="0">Switch to Academic View &rarr;</a></p>
                             </div>
                         </div>
                     </div>
@@ -745,23 +747,25 @@
     </div>
 
     <!-- INTERACTIVE DASHBOARD OVERLAY -->
-    <div class="dashboard-overlay" id="dashboardOverlay">
+    <div class="dashboard-overlay" id="dashboardOverlay" role="dialog" aria-modal="true" aria-labelledby="dash-title">
         <div class="dashboard-content">
             <button class="close-btn" data-action="toggleInteractiveDashboard">&times;</button>
-            <h2 data-i18n="dash-title" class="u-clr-ff-mb-fs-1">Interactive Results Dashboard</h2>
+            <h2 id="dash-title" data-i18n="dash-title" class="u-clr-ff-mb-fs-1">Interactive Results Dashboard</h2>
             <div class="dashboard-grid">
                 <div class="dash-card">
                     <h3 data-i18n="dash-card-1-title" class="u-clr-ff-mb-fs">Genre-Label Interaction</h3>
                     <p data-i18n="dash-card-1-desc" class="u-clr-fs-mb-1">Emotional Investment / Trust rating by genre and attribution label.</p>
                     <div class="chart-container u-p-h-w">
-                           <canvas id="genreChart"></canvas>
+                           <canvas id="genreChart" role="img" aria-label="Genre by Label Interaction"></canvas>
+<div class="visually-hidden">Genre-label interaction: AI label rated much lower in Arabesque, but higher in Electronic.</div>
                     </div>
                 </div>
                 <div class="dash-card">
                     <h3 data-i18n="dash-card-2-title" class="u-clr-ff-mb-fs">Prefrontal Hemodynamic Dynamics</h3>
                     <p data-i18n="dash-card-2-desc" class="u-clr-fs-mb-1">HbO changes in Right PFC over the course of a 25-second trial.</p>
                     <div class="chart-container u-p-h-w">
-                           <canvas id="hboChart"></canvas>
+                           <canvas id="hboChart" role="img" aria-label="HbO Timecourse"></canvas>
+<div class="visually-hidden">HbO timecourse showing divergent hemodynamic response 10-25s post-label.</div>
                     </div>
                 </div>
             </div>
