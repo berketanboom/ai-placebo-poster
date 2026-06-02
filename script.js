@@ -615,7 +615,11 @@ function toggleInteractiveDashboard() {
     } else {
         if(window.lastFocusedElement) { window.lastFocusedElement.focus(); window.lastFocusedElement = null; }
     }
-    if(overlay) overlay.classList.toggle('active');
+    if(overlay) {
+        overlay.classList.toggle('active');
+        if(overlay.classList.contains('active')) document.body.classList.add('no-scroll');
+        else document.body.classList.remove('no-scroll');
+    }
 }
 
 function selectRole(role) {
@@ -670,12 +674,14 @@ function openExperienceModal() {
     window.lastFocusedElement = document.activeElement;
     setTimeout(() => { const focusable = document.getElementById("expModal").querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex=\'-1\'])"); if(focusable) focusable.focus(); }, 100);
     document.getElementById('expOverlay').classList.add('active');
+    document.body.classList.add('no-scroll');
     expStage(1);
 }
 
 function closeExperience() {
     if(window.lastFocusedElement) { window.lastFocusedElement.focus(); window.lastFocusedElement = null; }
     document.getElementById('expOverlay').classList.remove('active');
+    document.body.classList.remove('no-scroll');
     if (expAudio) { expAudio.pause(); expAudio = null; }
     document.querySelectorAll('.listen-btn').forEach(btn => btn.classList.remove('playing'));
 }
